@@ -8,8 +8,14 @@
   background-color: pink;
 
   &__container {
-    min-width: 400px;
-    min-height: 400px;
+    // @media (min-width: 768px) {
+    //   .grid {
+    //     width: 100%;
+    //     flex-direction: column;
+    //   }
+    // }
+    // min-width: 400px;
+    // min-height: 400px;
   }
 
   &__search {
