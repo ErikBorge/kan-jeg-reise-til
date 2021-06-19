@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import Select, { components } from "react-select";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 //Components
 import Control from "../public/components/control/control";
@@ -14,6 +15,7 @@ import {
   customSelectStyles,
   makeCategories,
   makeCountryList,
+  makeCountryListTest,
 } from "../public/util/util";
 
 export default function Home({ data }) {
@@ -22,18 +24,21 @@ export default function Home({ data }) {
     data.config.colorAxis.dataClasses &&
       makeCategories(data.config.colorAxis.dataClasses)
   );
-  const [countries] = useState(data.data[0].data && data.data[0].data);
-  const [selectCountries] = useState(
+  const [countries] = useState(
     data.data[0] && makeCountryList(data.data[0].data)
   );
   const [canTravel, setCanTravel] = useState(false);
+  const router = useRouter();
+  const { pid } = router.query;
+  console.log("pid", pid);
 
   const changeCountry = (country) => {
-    setChosenCountry(country.value);
+    setChosenCountry(country);
   };
   // console.log("categories", categories);
   // console.log("selectCountries", selectCountries);
-  // console.log("chosenCountry", chosenCountry);
+  console.log("chosenCountry", chosenCountry);
+  console.log("countries", countries);
   return (
     <div className={styles.page}>
       <Head>
@@ -61,9 +66,9 @@ export default function Home({ data }) {
           {!chosenCountry ? (
             <Select
               components={{ Control }}
-              options={selectCountries}
+              options={countries}
               styles={customSelectStyles}
-              value={chosenCountry}
+              value={chosenCountry.value}
               onChange={changeCountry}
               placeholder={"Velg et land..."}
               instanceId={"search"}

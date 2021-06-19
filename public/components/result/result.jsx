@@ -13,19 +13,38 @@ const Result = ({
   canTravel,
   setCanTravel,
 }) => {
-  const [resultString, setResultString] = useState("");
+  const [resultString, setResultString] = useState(
+    "Nei, du kan ikke reise til"
+  );
+  const [multipleRegions, setMultipleRegions] = useState(false);
   useEffect(() => {
-    countries.forEach((country, key) => {
-      if (country.name === chosenCountry) {
-        setResultString(categories[country.value].name.split(":", 2)[1]);
-        if (country.value !== "2") {
-          setCanTravel(true);
+    if (chosenCountry.data.length > 1) {
+      setMultipleRegions(true);
+      let someButNotAll = false;
+      let all = true;
+      chosenCountry.data.map((region) => {
+        if (region.value !== "2") {
+          someButNotAll = true;
         } else {
-          setCanTravel(false);
+          all = false;
         }
+      });
+      if (all) {
+        setResultString("Ja, du kan reise til");
+        setCanTravel(true);
+      } else if (someButNotAll) {
+        setResultString("Ja, du kan reise til noen steder i");
+        setCanTravel(true);
       }
-    });
-  }, [chosenCountry, countries, categories]);
+    } else {
+      chosenCountry.data.map((region) => {
+        if (region.value !== "2") {
+          setCanTravel(true);
+          setResultString("Ja, du kan reise til");
+        }
+      });
+    }
+  }, [chosenCountry, setCanTravel]);
 
   console.log("resultString", resultString);
   console.log("chosenCountry", chosenCountry);
@@ -34,18 +53,19 @@ const Result = ({
 
   return (
     <div className={styles.result}>
-      <h1>
-        {canTravel ? "Ja, du kan reise til" : "Nei, du kan ikke reise til"}
-      </h1>
+      <h1>{resultString}</h1>
       <button
-        onClick={() => setChosenCountry(false)}
+        onClick={() => {
+          setChosenCountry(false);
+          setCanTravel(false);
+        }}
         className={styles["result__chosenCountry"]}
       >
         <p>
-          {countryCodes[chosenCountry] &&
-            emojiFlags.countryCode(countryCodes[chosenCountry]).emoji}
+          {countryCodes[chosenCountry.value] &&
+            emojiFlags.countryCode(countryCodes[chosenCountry.value]).emoji}
         </p>
-        <p>{chosenCountry}</p>
+        <p>{chosenCountry.value}</p>
         <div style={{ height: "10px" }}>
           <Image
             src={"/assets/icon-cross.svg"}
@@ -59,16 +79,32 @@ const Result = ({
         className={styles["result__header"]}
         style={{ backgroundColor: canTravel ? "darkseagreen" : "indianred" }}
       >
-        {resultString}
+        {multipleRegions ? (
+          <>
+            <h4>{chosenCountry.value} har flere regioner</h4>
+            {chosenCountry.data.map((region, key) => {
+              return (
+                <div key={key}>
+                  <p>
+                    <b>{region.region}</b>
+                  </p>
+                  <p>{region.description}</p>
+                </div>
+              );
+            })}
+          </>
+        ) : (
+          <h4>{resultString}</h4>
+        )}
       </div>
       {canTravel && (
         <a
           className={styles["result__travel-button"]}
-          href={`https://www.google.com/search?q=fly+til+${chosenCountry}`}
+          href={`https://www.google.com/search?q=fly+til+${chosenCountry.value}`}
           rel="noreferrer"
           target="_blank"
         >
-          Reis til {chosenCountry}
+          Reis til {chosenCountry.value}
         </a>
       )}
     </div>

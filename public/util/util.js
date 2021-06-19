@@ -50,17 +50,26 @@ export const customSelectStyles = {
 };
 
 export const makeCountryList = (data) => {
-  console.log(data);
   let tmpArr = [];
   data.map((country) => {
     tmpArr.push({ value: country.name, label: country.name });
   });
-  let newTmpArr = [];
-  newTmpArr = tmpArr.filter(
+
+  tmpArr = tmpArr.filter(
     (country, index, self) =>
       index === self.findIndex((t) => t.value === country.value)
   );
-  return newTmpArr;
+  tmpArr.forEach((newCountry) => {
+    data.forEach((dataCountry) => {
+      if (dataCountry.name === newCountry.value) {
+        if (!newCountry.data) {
+          newCountry.data = [];
+        }
+        newCountry.data.push(dataCountry);
+      }
+    });
+  });
+  return tmpArr;
 };
 
 export const makeCategories = (dataClasses) => {
