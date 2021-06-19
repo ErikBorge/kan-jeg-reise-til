@@ -3,12 +3,46 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 
   &__header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     // font-size: 100px;
+    min-height: 100px;
+    padding: 20px 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+  }
+  &__chosenCountry {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: pink;
+    transition: background-color 0.3s ease;
+    p {
+      margin: unset;
+    }
+    p:first-of-type {
+      font-size: 20px;
+      margin-left: 10px;
+    }
+    p {
+      margin-right: 10px;
+    }
+    div {
+      margin-right: 7px;
+      transform: translateY(-1px);
+    }
+  }
+  &__chosenCountry:hover {
+    background-color: beige;
   }
   &__reset-button {
     cursor: pointer;

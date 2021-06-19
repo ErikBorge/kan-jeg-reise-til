@@ -26,6 +26,7 @@ export default function Home({ data }) {
   const [selectCountries] = useState(
     data.data[0] && makeCountryList(data.data[0].data)
   );
+  const [canTravel, setCanTravel] = useState(false);
 
   const changeCountry = (country) => {
     setChosenCountry(country.value);
@@ -42,9 +43,20 @@ export default function Home({ data }) {
       </Head>
 
       <div className={styles["page__container"]}>
-        <h1>{`Kan jeg reise til ${
-          !chosenCountry ? "..." : chosenCountry + "?"
-        }`}</h1>
+        <div className={styles["page__emoji-container"]}>
+          {!chosenCountry ? (
+            <div style={{ position: "absolute", right: "0" }}>🌞</div>
+          ) : (
+            <div className={styles["page__emojis"]}>
+              {canTravel
+                ? "🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞🌞"
+                : "😑😑😑😑😑😑😑😑😑😑😑😑😑"}
+            </div>
+          )}
+        </div>
+        <h1 style={{ display: !chosenCountry ? "block" : "none" }}>
+          Kan jeg reise til...?
+        </h1>
         <div className={styles["page__search"]}>
           {!chosenCountry ? (
             <Select
@@ -62,6 +74,8 @@ export default function Home({ data }) {
               setChosenCountry={setChosenCountry}
               countries={countries}
               categories={categories}
+              canTravel={canTravel}
+              setCanTravel={setCanTravel}
             />
           )}
         </div>

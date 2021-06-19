@@ -1,8 +1,18 @@
 import { useState, useEffect } from "react";
 import styles from "./result.module.scss";
+import emojiFlags from "emoji-flags";
+import Image from "next/image";
 
-const Result = ({ chosenCountry, countries, setChosenCountry, categories }) => {
-  const [canTravel, setCanTravel] = useState(false);
+import { countryCodes } from "../../util/countryCodes";
+
+const Result = ({
+  chosenCountry,
+  countries,
+  setChosenCountry,
+  categories,
+  canTravel,
+  setCanTravel,
+}) => {
   const [resultString, setResultString] = useState("");
   useEffect(() => {
     countries.forEach((country, key) => {
@@ -24,15 +34,32 @@ const Result = ({ chosenCountry, countries, setChosenCountry, categories }) => {
 
   return (
     <div className={styles.result}>
-      <h1>{canTravel ? "JA" : "JA, men..."}</h1>
-      <div className={styles["result__header"]}>
-        {resultString}
-        <div
-          className={styles["result__reset-button"]}
-          onClick={() => setChosenCountry(false)}
-        >
-          x
+      <h1>
+        {canTravel ? "Ja, du kan reise til" : "Nei, du kan ikke reise til"}
+      </h1>
+      <button
+        onClick={() => setChosenCountry(false)}
+        className={styles["result__chosenCountry"]}
+      >
+        <p>
+          {countryCodes[chosenCountry] &&
+            emojiFlags.countryCode(countryCodes[chosenCountry]).emoji}
+        </p>
+        <p>{chosenCountry}</p>
+        <div style={{ height: "10px" }}>
+          <Image
+            src={"/assets/icon-cross.svg"}
+            alt="x"
+            height={12}
+            width={12}
+          />
         </div>
+      </button>
+      <div
+        className={styles["result__header"]}
+        style={{ backgroundColor: canTravel ? "darkseagreen" : "indianred" }}
+      >
+        {resultString}
       </div>
       {canTravel && (
         <a

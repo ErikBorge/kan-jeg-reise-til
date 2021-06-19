@@ -18,3 +18,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+button {
+  border: unset;
+  background-color: unset;
+  cursor: pointer;
+  padding: unset;
+  margin: unset;
+}
