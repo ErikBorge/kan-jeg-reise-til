@@ -1,0 +1,56 @@
+.kanjegreisetil {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: pink;
+}
+.kanjegreisetil__container {
+  min-width: 400px;
+  min-height: 400px;
+}
+
+.kanjegreisetil__search {
+  display: block;
+  align-items: baseline;
+  justify-content: baseline;
+}
+
+.kanjegreisetil__result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.kanjegreisetil__result-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 100px;
+}
+
+.kanjegreisetil__reset-button {
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.kanjegreisetil__travel-button {
+  margin-top: 40px;
+  width: 170px;
+  height: 40px;
+  border-radius: 20px;
+  border: 2px solid black;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  background-color: hotpink;
+  transition: background-color 0.3s ease;
+}
+.kanjegreisetil__travel-button:hover {
+  background-color: chartreuse;
+}
