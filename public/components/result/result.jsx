@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import styles from "./result.module.scss";
 import emojiFlags from "emoji-flags";
@@ -12,11 +13,14 @@ const Result = ({
   categories,
   canTravel,
   setCanTravel,
+  slug,
 }) => {
   const [resultString, setResultString] = useState(
     "Nei, du kan ikke reise til"
   );
   const [multipleRegions, setMultipleRegions] = useState(false);
+  const router = useRouter();
+
   useEffect(() => {
     if (chosenCountry.data.length > 1) {
       setMultipleRegions(true);
@@ -46,19 +50,24 @@ const Result = ({
     }
   }, [chosenCountry, setCanTravel]);
 
-  console.log("resultString", resultString);
-  console.log("chosenCountry", chosenCountry);
-  console.log("countries", countries);
-  console.log("categories", categories);
+  const reset = () => {
+    if (slug) {
+      router.push("/");
+    } else {
+      setChosenCountry(false);
+      setCanTravel(false);
+    }
+  };
+  //   console.log("resultString", resultString);
+  //   console.log("chosenCountry", chosenCountry);
+  //   console.log("countries", countries);
+  //   console.log("categories", categories);
 
   return (
     <div className={styles.result}>
       <h1>{resultString}</h1>
       <button
-        onClick={() => {
-          setChosenCountry(false);
-          setCanTravel(false);
-        }}
+        onClick={() => reset()}
         className={styles["result__chosenCountry"]}
       >
         <p>

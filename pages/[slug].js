@@ -1,19 +1,29 @@
-import { useRouter } from "next/router";
+import Head from "next/head";
+import { NextSeo } from "next-seo";
 
-const Slug = ({ url }) => {
-  //   const router = useRouter();
-  //   const { pid } = router.query;
-  //   console.log("pid", pid);
-  //   console.log("query", query);
-  console.log("url", url);
+//Components
+import Main from "../public/components/main/main";
+
+const Page = ({ slug, data }) => {
   return (
-    <div>
-      <div>this is {url && url}</div>
-    </div>
+    <>
+      <NextSeo
+        title={`Kan jeg reise til ${slug}?`}
+        description={`Finn ut om du kan reise til ${slug} uten å havne i karantene når du kommer hjem.`}
+        additionalLinkTags={[
+          {
+            rel: "icon",
+            href: "/favicon.ico",
+          },
+        ]}
+      />
+
+      {data && <Main slug={slug} data={data} />}
+    </>
   );
 };
 
-export default Slug;
+export default Page;
 
 // Slug.getInitialProps = (context) => {
 //   const query = context.query;
@@ -21,16 +31,22 @@ export default Slug;
 //   return { query }; // you can now access this as this.props.query in your page
 // };
 
-export async function getStaticProps(context) {
-  //   const res = await fetch(
-  //     "https://www.fhi.no/api/chartdata/excel/series/96079"
-  //   );
-  //   const data = await res.json();
-  console.log(context);
+// export async function getServerSideProps(context) {
+//   return {
+//     props: { url: context.params.slug }, // will be passed to the page component as props
+//   };
+// }
+
+export async function getStaticProps({ params, res }) {
+  const result = await fetch(
+    "https://www.fhi.no/api/chartdata/excel/series/96079"
+  );
+  const data = await result.json();
 
   return {
     props: {
-      url: context.params.slug,
+      slug: params.slug,
+      data,
     },
   };
 }
@@ -39,10 +55,48 @@ export async function getStaticPaths() {
   return {
     paths: [
       // String variant:
-      "/sverige",
-      "/finland",
-      // Object variant:
-      //   { params: { slug: "sverige" } },
+      "/Andorra",
+      "/Azorene",
+      "/Belgia",
+      "/Bulgaria",
+      "/Danmark",
+      "/Estland",
+      "/Færøyene",
+      "/Finland",
+      "/Frankrike",
+      "/Grønland",
+      "/Hellas",
+      "/Irland",
+      "/Island",
+      "/Italia",
+      "/Kanariøyene",
+      "/Kroatia",
+      "/Kypros",
+      "/Latvia",
+      "/Liechstenstein",
+      "/Litauen",
+      "/Luxembourg",
+      "/Madeira",
+      "/Malta",
+      "/Monaco",
+      "/Nederland",
+      "/Norge",
+      "/Polen",
+      "/Portugal",
+      "/Romania",
+      "/San%20Marino",
+      "/Slovakia",
+      "/Slovenia",
+      "/Spania",
+      "/Storbritannia",
+      "/Sveits",
+      "/Sverige",
+      "/Tsjekkia",
+      "/Tyskland",
+      "/Ungarn",
+      "/Vatikanstaten",
+      "/Østerrike",
+      "/Åland",
     ],
     fallback: true,
   };

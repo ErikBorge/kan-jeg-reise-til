@@ -1,3 +1,12 @@
+// export async function getData() {
+//   const res = await fetch(
+//     "https://www.fhi.no/api/chartdata/excel/series/96079"
+//   );
+
+//   const data = await res.json();
+//   return data;
+// }
+
 export const countries = [
   { value: "Sverige", label: "Sverige", result: "jaokda" },
   { value: "Danmark", label: "Danmark", result: "kanskje? hadde vært fett" },
@@ -69,6 +78,10 @@ export const makeCountryList = (data) => {
       }
     });
   });
+  //just to copy the list from console to getStaticPaths
+  //   tmpArr.forEach((country) => {
+  //     console.log(`"/${country.value}"`);
+  //   });
   return tmpArr;
 };
 
