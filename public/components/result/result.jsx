@@ -27,7 +27,7 @@ const Result = ({
       let someButNotAll = false;
       let all = true;
       chosenCountry.data.map((region) => {
-        if (region.value !== "2") {
+        if (region.value !== "2" && region.value !== "3") {
           someButNotAll = true;
         } else {
           all = false;
@@ -42,7 +42,12 @@ const Result = ({
       }
     } else {
       chosenCountry.data.map((region) => {
-        if (region.value !== "2") {
+        // 1: "Gul: kategorien er for tiden ikke i bruk"
+        // 2: "Rød: du må i karantene ved innreise til Norge"
+        // 3: "Mørk rød og rød skravert: du må i karantene og på karantenehotell ved innreise til Norge"
+        // 4: "Grå: Norge blir ikke vurdert når det gjelder råd for internasjonale reiser"
+        // 5: "Grønn: du må ikke i karantene ved innreise til Norge"
+        if (region.value !== "2" && region.value !== "3") {
           setCanTravel(true);
           setResultString("Ja, du kan reise til");
         }
