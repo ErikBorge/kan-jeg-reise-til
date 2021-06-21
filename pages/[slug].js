@@ -16,7 +16,22 @@ const Page = ({ slug, data }) => {
   //   }, [slug]);
   return (
     <>
-      <NextSeo
+      <Head>
+        <title>{`Kan jeg reise til ${slug}?`}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content={`Finn ut om du kan reise til ${slug} uten å havne i karantene når du kommer hjem.`}
+        />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          sizes="16x16"
+          href="/favicon.ico"
+        />
+      </Head>
+      {/* <NextSeo
         title={`Kan jeg reise til ${slug}?`}
         description={`Finn ut om du kan reise til ${slug} uten å havne i karantene når du kommer hjem.`}
         canonical={`https://www.kanjegreisetil.no/${slug}`}
@@ -33,7 +48,7 @@ const Page = ({ slug, data }) => {
           description: `Finn ut om du kan reise til ${slug} uten å havne i karantene når du kommer hjem.`,
           images: [{ url: "https://kan-jeg-reise-til.vercel.app/sun.png" }],
         }}
-      />
+      /> */}
 
       {data && <Main slug={slug} data={data} />}
     </>
@@ -59,7 +74,6 @@ export async function getStaticProps(context) {
     "https://www.fhi.no/api/chartdata/excel/series/96079"
   );
   const data = await result.json();
-
   return {
     props: {
       slug: context.params.slug,
