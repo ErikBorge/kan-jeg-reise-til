@@ -54,7 +54,7 @@ export default Page;
 //   };
 // }
 
-export async function getStaticProps({ params, res }) {
+export async function getStaticProps(context) {
   const result = await fetch(
     "https://www.fhi.no/api/chartdata/excel/series/96079"
   );
@@ -62,7 +62,7 @@ export async function getStaticProps({ params, res }) {
 
   return {
     props: {
-      slug: params.slug,
+      slug: context.params.slug,
       data,
     },
   };
