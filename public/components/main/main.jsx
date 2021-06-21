@@ -58,9 +58,9 @@ const Main = ({ slug, data }) => {
   return (
     <div className={styles.page}>
       <div className={styles["page__container"]}>
-        <Link href="/" as={`${slug}-home`}>
+        {/* <Link href="/" as={`${slug}-home`}>
           <a>Go home test</a>
-        </Link>
+        </Link> */}
         <div className={styles["page__emoji-container"]}>
           {!chosenCountry ? (
             <div style={{ position: "absolute", right: "0" }}>🌞</div>

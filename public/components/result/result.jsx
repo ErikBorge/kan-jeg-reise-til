@@ -103,7 +103,7 @@ const Result = ({
             })}
           </>
         ) : (
-          <h4>{resultString}</h4>
+          <h4>{resultString + ` ${chosenCountry.value}`}</h4>
         )}
       </div>
       {canTravel && (

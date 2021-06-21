@@ -17,10 +17,13 @@ export default function Home({ data }) {
           },
         ]}
         openGraph={{
+          type: "website",
+          site_name: "Kan jeg reise til...?",
           url: "https://www.kanjegreisetil.no",
           title: "Kan jeg reise til...?",
           description:
             "Finn ut hvor du kan reise uten å havne i karantene når du kommer hjem.",
+          images: [{ url: "https://kan-jeg-reise-til.vercel.app/sun.png" }],
         }}
       />
       {data && <Main slug={false} data={data} />}

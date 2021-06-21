@@ -28,9 +28,12 @@ const Page = ({ slug, data }) => {
           },
         ]}
         openGraph={{
+          type: "website",
+          site_name: `Kan jeg reise til ${slug}?`,
           url: `https://www.kanjegreisetil.no/${slug}`,
           title: `Kan jeg reise til ${slug}?`,
           description: `Finn ut om du kan reise til ${slug} uten å havne i karantene når du kommer hjem.`,
+          images: [{ url: "https://kan-jeg-reise-til.vercel.app/sun.png" }],
         }}
       />
 
