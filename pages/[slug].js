@@ -1,21 +1,37 @@
 import Head from "next/head";
 import { NextSeo } from "next-seo";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 //Components
 import Main from "../public/components/main/main";
 
 const Page = ({ slug, data }) => {
+  //   const router = useRouter();
+  //   const homeString = `${slug}-home`;
+  //   useEffect(() => {
+  //     if (slug) {
+  //       router.push("/", homeString);
+  //     }
+  //   }, [slug]);
+
   return (
     <>
       <NextSeo
         title={`Kan jeg reise til ${slug}?`}
         description={`Finn ut om du kan reise til ${slug} uten å havne i karantene når du kommer hjem.`}
+        canonical={`https://www.kanjegreisetil.no/${slug}`}
         additionalLinkTags={[
           {
             rel: "icon",
             href: "/favicon.ico",
           },
         ]}
+        openGraph={{
+          url: `https://www.kanjegreisetil.no/${slug}`,
+          title: `Kan jeg reise til ${slug}?`,
+          description: `Finn ut om du kan reise til ${slug} uten å havne i karantene når du kommer hjem.`,
+        }}
       />
 
       {data && <Main slug={slug} data={data} />}

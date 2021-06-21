@@ -9,12 +9,19 @@ export default function Home({ data }) {
       <NextSeo
         title={`Kan jeg reise til...?`}
         description="Finn ut hvor du kan reise uten å havne i karantene når du kommer hjem."
+        canonical={`https://www.kanjegreisetil.no/${slug}`}
         additionalLinkTags={[
           {
             rel: "icon",
             href: "/favicon.ico",
           },
         ]}
+        openGraph={{
+          url: "https://www.kanjegreisetil.no",
+          title: "Kan jeg reise til...?",
+          description:
+            "Finn ut hvor du kan reise uten å havne i karantene når du kommer hjem.",
+        }}
       />
       {data && <Main slug={false} data={data} />}
     </>
