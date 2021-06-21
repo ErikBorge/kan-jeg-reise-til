@@ -9,7 +9,7 @@ export default function Home({ data }) {
       <NextSeo
         title={`Kan jeg reise til...?`}
         description="Finn ut hvor du kan reise uten å havne i karantene når du kommer hjem."
-        canonical={`https://www.kanjegreisetil.no/${slug}`}
+        canonical="https://www.kanjegreisetil.no/"
         additionalLinkTags={[
           {
             rel: "icon",
