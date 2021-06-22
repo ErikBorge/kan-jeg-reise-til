@@ -16,7 +16,7 @@ const Page = ({ slug, data }) => {
   //   }, [slug]);
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{`Kan jeg reise til ${slug}?`}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta charSet="utf-8" />
@@ -30,8 +30,8 @@ const Page = ({ slug, data }) => {
           sizes="16x16"
           href="/favicon.ico"
         />
-      </Head>
-      {/* <NextSeo
+      </Head> */}
+      <NextSeo
         title={`Kan jeg reise til ${slug}?`}
         description={`Finn ut om du kan reise til ${slug} uten å havne i karantene når du kommer hjem.`}
         canonical={`https://www.kanjegreisetil.no/${slug}`}
@@ -48,7 +48,7 @@ const Page = ({ slug, data }) => {
           description: `Finn ut om du kan reise til ${slug} uten å havne i karantene når du kommer hjem.`,
           images: [{ url: "https://kan-jeg-reise-til.vercel.app/sun.png" }],
         }}
-      /> */}
+      />
 
       {data && <Main slug={slug} data={data} />}
     </>
@@ -87,47 +87,89 @@ export async function getStaticPaths() {
     paths: [
       // String variant:
       "/Andorra",
+      "/andorra",
       "/Azorene",
+      "/azorene",
       "/Belgia",
+      "/belgia",
       "/Bulgaria",
+      "/bulgaria",
       "/Danmark",
+      "/danmark",
       "/Estland",
+      "/estland",
       "/Færøyene",
+      "/færøyene",
       "/Finland",
+      "/finland",
       "/Frankrike",
+      "/frankrike",
       "/Grønland",
+      "/grønland",
       "/Hellas",
+      "/hellas",
       "/Irland",
+      "/irland",
       "/Island",
+      "/island",
       "/Italia",
+      "/italia",
       "/Kanariøyene",
+      "/kanariøyene",
       "/Kroatia",
+      "/kroatia",
       "/Kypros",
+      "/kypros",
       "/Latvia",
+      "/latvia",
       "/Liechstenstein",
+      "/liechstenstein",
       "/Litauen",
+      "/litauen",
       "/Luxembourg",
+      "/luxembourg",
       "/Madeira",
+      "/madeira",
       "/Malta",
+      "/malta",
       "/Monaco",
+      "/monaco",
       "/Nederland",
+      "/nederland",
       "/Norge",
+      "/norge",
       "/Polen",
+      "/polen",
       "/Portugal",
+      "/portugal",
       "/Romania",
-      "/San%20Marino",
+      "/romania",
+      "/San Marino",
+      "/san marino",
       "/Slovakia",
+      "/slovakia",
       "/Slovenia",
+      "/slovenia",
       "/Spania",
+      "/spania",
       "/Storbritannia",
+      "/storbritannia",
       "/Sveits",
+      "/sveits",
       "/Sverige",
+      "/sverige",
       "/Tsjekkia",
+      "/tsjekkia",
       "/Tyskland",
+      "/tyskland",
       "/Ungarn",
+      "/ungarn",
       "/Vatikanstaten",
+      "/vatikanstaten",
       "/Østerrike",
+      "/østerrike",
       "/Åland",
+      "/åland",
     ],
     fallback: true,
   };

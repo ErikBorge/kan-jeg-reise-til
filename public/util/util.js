@@ -78,9 +78,10 @@ export const makeCountryList = (data) => {
       }
     });
   });
-  //just to copy the list from console to getStaticPaths
+  //   just to copy the list from console to getStaticPaths
   //   tmpArr.forEach((country) => {
   //     console.log(`"/${country.value}"`);
+  //     console.log(`"/${country.value.toLowerCase()}"`);
   //   });
   return tmpArr;
 };
