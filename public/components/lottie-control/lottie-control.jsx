@@ -111,7 +111,7 @@ const LottieControl = ({
     }
     // setPause(!pause);
   }, [chosenCountry]);
-  // console.log("redraw");
+  console.log("redraw");
 
   const lottieRef = useRef(null);
   // console.log(lottieRef);
@@ -128,7 +128,7 @@ const LottieControl = ({
         {
           eventName: "complete",
           callback: () => {
-            // console.log("********** animation completed **********");
+            console.log("********** animation completed **********");
             setPause(true);
             setHasRunOnce(true);
             // setReverse(!reverse);
