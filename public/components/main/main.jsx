@@ -1,21 +1,20 @@
+import Head from "next/head";
 import styles from "../../../styles/Home.module.scss";
 import Select, { components } from "react-select";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 //Components
 import Control from "../control/control";
-import Option from "../option/option";
-import MenuList from "../menu-list/menu-list";
 import Result from "../result/result";
 import LottieControl from "../lottie-control/lottie-control";
 import * as gtag from "../../../lib/gtag";
-import Menu from "../menu/menu";
 
 //util
 import {
+  customSelectStyles,
   makeCategories,
   makeCountryList,
   getRandomCountrySuggestion,
@@ -33,16 +32,14 @@ const Main = ({ slug, data }) => {
     data && data.data && data.data[0] && makeCountryList(data.data[0].data)
   );
   const [chosenCountry, setChosenCountry] = useState(false);
-  const [openMenu, setOpenMenu] = useState(false);
 
   const [canTravel, setCanTravel] = useState(false);
   const [canTravelToSomeButNotAll, setCanTravelToSomeButNotAll] =
     useState(false);
+  const [multipleRegions, setMultipleRegions] = useState(false);
 
   const router = useRouter();
   const selectRef = useRef(null);
-  const [currentSuggestion, setCurrentSuggestion] = useState(false);
-  console.log(data);
 
   useEffect(() => {
     if (slug && countries) {
@@ -61,17 +58,14 @@ const Main = ({ slug, data }) => {
 
   const changeCountry = (country) => {
     // changeAnimation();
-    if (country) {
-      setChosenCountry(country);
-      // setPlay(true);
-      // setPause(false);
-
-      gtag.event({
-        action: "search",
-        category: "Countries",
-        label: country.value,
-      });
-    }
+    setChosenCountry(country);
+    // setPlay(true);
+    // setPause(false);
+    gtag.event({
+      action: "search",
+      category: "Countries",
+      label: country.value,
+    });
   };
 
   const reset = () => {
@@ -89,6 +83,7 @@ const Main = ({ slug, data }) => {
   useEffect(() => {
     if (chosenCountry) {
       if (chosenCountry.data.length > 1) {
+        setMultipleRegions(true);
         let someButNotAll = false;
         let all = true;
         chosenCountry.data.map((region) => {
@@ -100,7 +95,6 @@ const Main = ({ slug, data }) => {
         });
         if (all) {
           setCanTravel(true);
-          setCanTravelToSomeButNotAll(false);
         } else if (someButNotAll) {
           setCanTravel(true);
           setCanTravelToSomeButNotAll(true);
@@ -114,7 +108,6 @@ const Main = ({ slug, data }) => {
           // 5: "Grønn: du må ikke i karantene ved innreise til Norge"
           if (region.value !== "2" && region.value !== "3") {
             setCanTravel(true);
-            setCanTravelToSomeButNotAll(false);
             // setResultString("Ja, du kan reise til");
           } else {
             setCanTravel(false);
@@ -122,14 +115,10 @@ const Main = ({ slug, data }) => {
           }
         });
       }
-    } else {
-      setCanTravel(false);
-      setCanTravelToSomeButNotAll(false);
     }
   }, [chosenCountry]);
   //   console.log("pause", pause);
-  //   console.log("canTravel", canTravel);
-  //   console.log("currentSuggestion", currentSuggestion);
+  console.log("canTravel", canTravel);
   //   console.log("canTravelToSomeButNotAll", canTravelToSomeButNotAll);
   //   console.log("reverse", reverse);
 
@@ -139,26 +128,8 @@ const Main = ({ slug, data }) => {
   //   console.log("chosenCountry", chosenCountry);
   //   console.log("countries", countries);
   //   console.log("data", data);
-  const variants = {
-    open: { left: "0" },
-    closed: { left: "100%" },
-  };
   return (
     <div className={styles.page}>
-      <motion.nav
-        initial={{ left: "100%" }}
-        animate={openMenu ? "open" : "closed"}
-        variants={variants}
-        className={styles["page__menu"]}
-      >
-        <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
-      </motion.nav>
-      <button
-        className={styles["page__menu-button"]}
-        onClick={() => setOpenMenu(!openMenu)}
-      >
-        <Image src={"/assets/e-and-e.svg"} alt="E&E" height={20} width={35} />
-      </button>
       <div className={styles["page__panam"]}>
         <Image src={"/assets/panam-logo.svg"} alt="x" height={90} width={90} />
       </div>
@@ -175,7 +146,7 @@ const Main = ({ slug, data }) => {
       >
         <div
           className={styles["page__main"]}
-          style={{ height: chosenCountry ? "320px" : "400px" }}
+          style={{ height: chosenCountry ? "320px" : "450px" }}
         >
           <div className={styles["page__title"]}>
             <h1>
@@ -194,7 +165,7 @@ const Main = ({ slug, data }) => {
             style={{ opacity: chosenCountry ? "0" : "1" }}
           >
             <video autoPlay muted loop="1">
-              <source src="./assets/miami360-short.mp4" />
+              <source src="./assets/miami360.mp4" />
               <p>Your browser does not support HTML5 video.</p>
             </video>
           </div>
@@ -207,25 +178,15 @@ const Main = ({ slug, data }) => {
             )}
             <Select
               ref={selectRef}
-              components={{
-                Control: Control,
-                Option: Option,
-                MenuList: MenuList,
-              }}
-              maxOptions={1}
-              selectProps={{
-                chosenCountry,
-                currentSuggestion,
-                setCurrentSuggestion,
-              }}
-              openMenuOnClick={false}
+              components={{ Control }}
+              selectProps={{ chosenCountry }}
               options={countries}
               styles={getCustomSelectStyles(
                 canTravel,
                 chosenCountry,
                 canTravelToSomeButNotAll
               )}
-              value={chosenCountry.label}
+              //   value={chosenCountry.label}
               onChange={changeCountry}
               placeholder={countries && getRandomCountrySuggestion(countries)}
               instanceId={"search"}

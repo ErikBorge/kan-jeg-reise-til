@@ -82,41 +82,6 @@ export const getCustomSelectStyles = (
     menu: (provided) => ({
       ...provided,
       fontWeight: "200",
-      backgroundColor: "none",
-      border: "unset",
-      marginTop: "0",
-      marginBottom: "0",
-      // display: "none",
-      boxShadow: "none",
-      top: "0",
-    }),
-    menuList: (provided) => ({
-      ...provided,
-      padding: "0",
-    }),
-    option: (provided) => ({
-      ...provided,
-      height: "60px",
-      border: "2px solid black",
-      fontSize: "40px",
-      backgroundColor: "none",
-      color: "#958888",
-      paddingBottom: "10px",
-      paddingTop: "6px",
-    }),
-    input: (provided) => ({
-      ...provided,
-      zIndex: "100000",
-      "& input": {
-        fontFamily: "Argent CF italic !important",
-        fontStyle: "italic",
-        fontSize: "40px !important",
-        color: "black !important",
-        backgroundColor: "white !important",
-      },
-      "& div div": {
-        fontFamily: "Agent CF italic",
-      },
     }),
     valueContainer: (provided) => ({
       ...provided,
@@ -130,12 +95,7 @@ export const getCustomSelectStyles = (
 };
 
 export const getRandomCountrySuggestion = (countries) => {
-  return (
-    countries &&
-    countries.length > 1 &&
-    countries[0].value &&
-    countries[Math.round(Math.random() * countries.length - 1)].value
-  );
+  return countries[Math.round(Math.random() * countries.length)].value;
 };
 export const makeCountryList = (data) => {
   let tmpArr = [];
