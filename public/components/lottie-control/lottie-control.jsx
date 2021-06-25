@@ -14,6 +14,7 @@ const LottieControl = ({
   canTravelToSomeButNotAll,
 }) => {
   const [isMounted, setIsMounted] = useState(false);
+  const [hasRunOnce, setHasRunOnce] = useState(false);
   const [play, setPlay] = useState(true);
   const [pause, setPause] = useState(true);
   const [reverse, setReverse] = useState(false);
@@ -101,10 +102,12 @@ const LottieControl = ({
     if (isMounted) {
       setPause(!pause);
     }
-    if (chosenCountry) {
+    if (chosenCountry && hasRunOnce) {
       setReverse(false);
     } else {
-      setReverse(true);
+      if (hasRunOnce) {
+        setReverse(true);
+      }
     }
     // setPause(!pause);
   }, [chosenCountry]);
@@ -127,6 +130,7 @@ const LottieControl = ({
           callback: () => {
             console.log("********** animation completed **********");
             setPause(true);
+            setHasRunOnce(true);
             // setReverse(!reverse);
           },
         },

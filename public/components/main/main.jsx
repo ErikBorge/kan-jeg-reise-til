@@ -42,7 +42,6 @@ const Main = ({ slug, data }) => {
   const router = useRouter();
   const selectRef = useRef(null);
   const [currentSuggestion, setCurrentSuggestion] = useState(false);
-  console.log(data);
 
   useEffect(() => {
     if (slug && countries) {
@@ -225,7 +224,7 @@ const Main = ({ slug, data }) => {
                 chosenCountry,
                 canTravelToSomeButNotAll
               )}
-              value={chosenCountry.label}
+              //   value={chosenCountry.label}
               onChange={changeCountry}
               placeholder={countries && getRandomCountrySuggestion(countries)}
               instanceId={"search"}

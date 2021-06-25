@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { components } from "react-select";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Control = ({ children, ...props }) => {
   // console.log(props);
@@ -32,28 +33,28 @@ const Control = ({ children, ...props }) => {
     <components.Control {...props}>
       {children}
       {/* {restOfSuggestion && restOfSuggestion} */}
-      <div
-        style={{
-          marginRight: "10px",
-          fontSize: "40px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        {props.selectProps.selectProps.chosenCountry ? (
-          <div style={{ marginBottom: "10px" }}>
-            <Image
-              src={"/assets/cross-pixel.svg"}
-              alt="x"
-              height={18}
-              width={18}
-            />
-          </div>
-        ) : (
-          "?"
-        )}
-      </div>
+      {props.selectProps.selectProps.chosenCountry && (
+        <div
+          style={{
+            fontSize: "40px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "absolute",
+            right: 0,
+            top: 0,
+            height: "100%",
+            width: "60px",
+          }}
+        >
+          <Image
+            src={"/assets/cross-pixel.svg"}
+            alt="x"
+            height={18}
+            width={18}
+          />
+        </div>
+      )}
       {/* <components.Option {...props}>{children}</components.Option> */}
     </components.Control>
   );

@@ -113,6 +113,7 @@ export const getCustomSelectStyles = (
         fontSize: "40px !important",
         color: "black !important",
         backgroundColor: "white !important",
+        textTransform: "capitalize",
       },
       "& div div": {
         fontFamily: "Agent CF italic",
