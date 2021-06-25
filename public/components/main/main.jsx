@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../../../styles/Home.module.scss";
 import Select, { components } from "react-select";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,11 +17,10 @@ import {
   customSelectStyles,
   makeCategories,
   makeCountryList,
-  getRandomCountrySuggestion,
-  getCustomSelectStyles,
 } from "../../util/util";
 
 const Main = ({ slug, data }) => {
+  const [chosenCountry, setChosenCountry] = useState(false);
   const [categories, setCategories] = useState(
     data &&
       data.config &&
@@ -183,31 +182,25 @@ const Main = ({ slug, data }) => {
               components={{ Control }}
               selectProps={{ chosenCountry }}
               options={countries}
-              styles={getCustomSelectStyles(
-                canTravel,
-                chosenCountry,
-                canTravelToSomeButNotAll
-              )}
-              //   value={chosenCountry.label}
+              styles={customSelectStyles}
+              value={chosenCountry.value}
               onChange={changeCountry}
-              placeholder={countries && getRandomCountrySuggestion(countries)}
+              placeholder={"Velg et land..."}
               instanceId={"search"}
             />
+            {chosenCountry && (
+              <Result
+                chosenCountry={chosenCountry}
+                setChosenCountry={setChosenCountry}
+                countries={countries}
+                categories={categories}
+                canTravel={canTravel}
+                setCanTravel={setCanTravel}
+                slug={slug}
+              />
+            )}
           </div>
         </div>
-        {chosenCountry && (
-          <Result
-            chosenCountry={chosenCountry}
-            setChosenCountry={setChosenCountry}
-            countries={countries}
-            categories={categories}
-            canTravel={canTravel}
-            setCanTravel={setCanTravel}
-            slug={slug}
-            canTravelToSomeButNotAll={canTravelToSomeButNotAll}
-            setCanTravelToSomeButNotAll={setCanTravelToSomeButNotAll}
-          />
-        )}
       </div>
     </div>
   );

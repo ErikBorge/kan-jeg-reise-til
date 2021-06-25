@@ -10,91 +10,66 @@
   margin-top: 40px;
   z-index: 2;
 
-  &__shadow {
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    position: absolute;
-    bottom: -15px;
-    right: -15px;
-    z-index: -1;
-  }
-
-  &__container {
-    width: 100%;
-    max-width: 400px;
-    // margin: 0 20px;
-    border: 2px solid black;
-    padding: 15px;
-  }
-  &__fuckyouerlend {
-    width: 21px;
-    height: 21px;
-    transform: scaleX(0.7) rotate(45deg);
-    border-left: 2px solid black;
-    border-top: 2px solid black;
-    background-color: white;
-    position: absolute;
-    top: -10px;
-  }
-  &__postcard {
-    display: flex;
-    justify-content: space-between;
-  }
-  &__postcard-left {
-  }
-  &__postcard-panam {
-    transform: rotate(-20deg) translateY(-10px);
-  }
-  &__postcard-date {
-    font-size: 14px;
-    transform: translateY(-10px);
-    color: rgba(149, 136, 136, 1);
-  }
-  &__postcard-right {
-  }
-
   &__header {
     width: 100%;
-    padding: 10px 0;
-    font-family: "Argent CF";
-    font-size: 20px;
+    // display: flex;
+    // justify-content: space-between;
+    // font-size: 100px;
+    min-height: 100px;
+    padding: 20px 10px;
+    margin-top: 20px;
+    border-radius: 8px;
   }
-  &__link {
-    text-align: center;
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    font-family: "Argent Pixel CF";
-  }
-  &__regions-container {
-    background-color: white;
-    width: 100%;
-    padding: 5px 0;
-    text-align: center;
-    font-family: "Argent CF";
-    font-size: 20px;
-    border: 2px solid black;
-    border-top: 0;
-    z-index: 2;
-    overflow: hidden;
-  }
-  &__regions-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 10px;
-    border-bottom: 2px solid black;
-  }
-  &__expand-arrow {
-    margin-left: 10px;
-  }
-  &__regions {
-    text-align: left;
-  }
-  &__region {
-    margin: 5px 20px;
+  &__chosenCountry {
+    height: 40px;
     display: flex;
     justify-content: space-between;
+    padding: 0 10px;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: pink;
+    transition: background-color 0.3s ease;
+    p {
+      margin: unset;
+    }
+    p:first-of-type {
+      font-size: 20px;
+      margin-left: 10px;
+    }
+    p {
+      margin-right: 10px;
+    }
+    div {
+      margin-right: 7px;
+      transform: translateY(-1px);
+    }
+  }
+  &__chosenCountry:hover {
+    background-color: beige;
+  }
+  &__reset-button {
+    cursor: pointer;
+    margin-left: 30px;
+  }
+  &__travel-button {
+    margin-top: 40px;
+    // width: 170px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    background-color: hotpink;
+    transition: background-color 0.3s ease;
+  }
+
+  &__travel-button:hover {
+    background-color: chartreuse;
   }
 }

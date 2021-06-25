@@ -1,16 +1,9 @@
 import Head from "next/head";
 import { NextSeo } from "next-seo";
-import { useState } from "react";
+
 import Main from "../public/components/main/main";
-import { getData } from "../public/util/util";
-import useSWR from "swr";
 
-export default function Home({}) {
-  const { data, error } = useSWR(
-    "https://www.fhi.no/api/chartdata/excel/series/96079",
-    (query) => fetch(query).then((res) => res.json())
-  );
-
+export default function Home({ data }) {
   return (
     <>
       <NextSeo
@@ -39,12 +32,14 @@ export default function Home({}) {
 }
 
 export async function getStaticProps() {
-  // const res = await fetch(
-  //   "https://www.fhi.no/api/chartdata/excel/series/96079"
-  // );
-  // const data = await res.json();
+  const res = await fetch(
+    "https://www.fhi.no/api/chartdata/excel/series/96079"
+  );
+  const data = await res.json();
 
   return {
-    props: {},
+    props: {
+      data,
+    },
   };
 }

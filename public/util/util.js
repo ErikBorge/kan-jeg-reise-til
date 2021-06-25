@@ -1,14 +1,11 @@
-import { findLastIndex } from "lodash";
+// export async function getData() {
+//   const res = await fetch(
+//     "https://www.fhi.no/api/chartdata/excel/series/96079"
+//   );
 
-export async function getData() {
-  const res = await fetch(
-    "https://www.fhi.no/api/chartdata/excel/series/96079"
-  );
-  //   .then((res) => (data = res));
-  // console.log("data", data);
-  const data = await res.json();
-  return data;
-}
+//   const data = await res.json();
+//   return data;
+// }
 
 export const countries = [
   { value: "Sverige", label: "Sverige", result: "jaokda" },
@@ -117,10 +114,9 @@ export const makeCountryList = (data) => {
       }
     });
   });
-  //   just to copy the list from console to getStaticPaths
+  //just to copy the list from console to getStaticPaths
   //   tmpArr.forEach((country) => {
   //     console.log(`"/${country.value}"`);
-  //     console.log(`"/${country.value.toLowerCase()}"`);
   //   });
   return tmpArr;
 };
