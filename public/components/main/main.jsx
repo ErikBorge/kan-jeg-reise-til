@@ -61,11 +61,13 @@ const Main = ({ slug, data }) => {
     setChosenCountry(country);
     // setPlay(true);
     // setPause(false);
-    gtag.event({
-      action: "search",
-      category: "Countries",
-      label: country.value,
-    });
+    if (country) {
+      gtag.event({
+        action: "search",
+        category: "Countries",
+        label: country.value,
+      });
+    }
   };
 
   const reset = () => {
