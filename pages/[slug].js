@@ -8,7 +8,7 @@ import useSWR from "swr";
 import Main from "../public/components/main/main";
 import { getData } from "../public/util/util";
 
-const Page = ({ slug, data }) => {
+const Page = ({ slug }) => {
   const { data, error } = useSWR(
     "https://www.fhi.no/api/chartdata/excel/series/96079",
     (query) => fetch(query).then((res) => res.json())
