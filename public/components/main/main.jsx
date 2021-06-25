@@ -131,7 +131,7 @@ const Main = ({ slug, data }) => {
   //   console.log("currentSuggestion", currentSuggestion);
   //   console.log("canTravelToSomeButNotAll", canTravelToSomeButNotAll);
   //   console.log("reverse", reverse);
-
+  console.log("hello");
   //   console.log("slug", slug);
   // console.log("categories", categories);
   // console.log("selectCountries", selectCountries);
