@@ -11,9 +11,6 @@ export default function Home({}) {
     (query) => fetch(query).then((res) => res.json())
   );
 
-  if (error) {
-    return "something went wrong";
-  }
   return (
     <>
       <NextSeo
