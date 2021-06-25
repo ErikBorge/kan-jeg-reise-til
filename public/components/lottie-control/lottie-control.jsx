@@ -41,8 +41,15 @@ const LottieControl = ({
       loop: false,
       autoplay: false,
       animationData: animation,
+      speed: 4,
       rendererSettings: {
         preserveAspectRatio: "xMidYMid slice",
+        filterSize: {
+          width: "300px",
+          height: "500px",
+          x: "-50%",
+          y: "-100%",
+        },
       },
     };
   };
@@ -78,27 +85,33 @@ const LottieControl = ({
     setIsMounted(true);
   }, []);
 
-  useEffect(() => {
-    console.log(
-      "chosenCountry",
-      chosenCountry,
-      "canTravel",
-      canTravel,
-      "pause",
-      pause,
-      "reverse",
-      reverse
-    );
-  });
+  // useEffect(() => {
+  //   console.log(
+  //     "chosenCountry",
+  //     chosenCountry,
+  //     "canTravel",
+  //     canTravel,
+  //     "pause",
+  //     pause,
+  //     "reverse",
+  //     reverse
+  //   );
+  // });
   useEffect(() => {
     if (isMounted) {
       setPause(!pause);
     }
+    if (chosenCountry) {
+      setReverse(false);
+    } else {
+      setReverse(true);
+    }
     // setPause(!pause);
   }, [chosenCountry]);
+  console.log("redraw");
 
   const lottieRef = useRef(null);
-  console.log(lottieRef);
+  // console.log(lottieRef);
   return (
     <Lottie
       ref={lottieRef}
@@ -114,7 +127,7 @@ const LottieControl = ({
           callback: () => {
             console.log("********** animation completed **********");
             setPause(true);
-            setReverse(!reverse);
+            // setReverse(!reverse);
           },
         },
         // {

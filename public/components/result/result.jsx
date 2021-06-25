@@ -50,7 +50,17 @@ const Result = ({
     if (chosenCountry && chosenCountry.data.length > 1) {
       setNumberOfRegions(chosenCountry.data.length);
     }
-  }, chosenCountry);
+  }, [chosenCountry]);
+  //   useEffect(() => {
+  //     console.log(
+  //       "chosenCountry",
+  //       chosenCountry && chosenCountry.value,
+  //       "canTravel",
+  //       canTravel,
+  //       "canTravelToSomeButNotAll",
+  //       canTravelToSomeButNotAll
+  //     );
+  //   });
 
   return (
     <div className={styles.result}>
