@@ -1,42 +1,9 @@
-@font-face {
-  font-family: "Argent CF italic";
-  src: url("/fonts/ArgentCF-LightItalic.eot"),
-    url("/fonts/ArgentCF-LightItalic.eot?#iefix") format("embedded-opentype"),
-    url("/fonts/ArgentCF-LightItalic.woff2") format("woff2"),
-    url("/fonts/ArgentCF-LightItalic.woff") format("woff"),
-    url("/fonts/ArgentCF-LightItalic.ttf") format("truetype");
-  font-weight: 200;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Argent CF";
-  src: url("/fonts/ArgentCF-Regular.eot"),
-    url("/fonts/ArgentCF-Regular.eot?#iefix") format("embedded-opentype"),
-    url("/fonts/ArgentCF-Regular.woff2") format("woff2"),
-    url("/fonts/ArgentCF-Regular.woff") format("woff"),
-    url("/fonts/ArgentCF-Regular.ttf") format("truetype");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Argent Pixel CF";
-  src: url("/fonts/ArgentPixelCF-Regular.eot"),
-    url("/fonts/ArgentPixelCF-Regular.eot?#iefix") format("embedded-opentype"),
-    url("/fonts/ArgentPixelCF-Regular.woff2") format("woff2"),
-    url("/fonts/ArgentPixelCF-Regular.woff") format("woff"),
-    url("/fonts/ArgentPixelCF-Regular.otf") format("opentype");
-  font-weight: 400;
-}
-
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Argent CF italic", serif;
-  font-weight: 200;
-  // font-style: italic;
-  // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-  //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 p {
@@ -45,18 +12,11 @@ p {
 
 a {
   color: inherit;
-  text-decoration: underline;
-  color: rgba(77, 69, 69, 1);
+  text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
-}
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 200;
 }
 
 button {

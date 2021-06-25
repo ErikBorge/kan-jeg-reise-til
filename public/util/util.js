@@ -1,14 +1,11 @@
-import { findLastIndex } from "lodash";
+// export async function getData() {
+//   const res = await fetch(
+//     "https://www.fhi.no/api/chartdata/excel/series/96079"
+//   );
 
-export async function getData() {
-  const res = await fetch(
-    "https://www.fhi.no/api/chartdata/excel/series/96079"
-  );
-  //   .then((res) => (data = res));
-  // console.log("data", data);
-  const data = await res.json();
-  return data;
-}
+//   const data = await res.json();
+//   return data;
+// }
 
 export const countries = [
   { value: "Sverige", label: "Sverige", result: "jaokda" },
@@ -34,69 +31,33 @@ export const travelCodes = {
   },
 };
 
-export const getCustomSelectStyles = (
-  canTravel,
-  chosenCountry,
-  canTravelToSomeButNotAll
-) => {
-  let inputColor = "white";
-  if (!chosenCountry) {
-    inputColor = "white";
-  } else if (chosenCountry && canTravelToSomeButNotAll) {
-    inputColor = "rgb(223, 206, 144)";
-  } else if (chosenCountry && !canTravelToSomeButNotAll && canTravel) {
-    inputColor = "rgb(206, 227, 208)";
-  } else {
-    inputColor = "rgb(223, 144, 144)";
-  }
-  return {
-    control: (provided) => ({
-      ...provided,
-      borderColor: "#000",
-      borderRadius: "0",
-      borderWidth: "2px",
-      height: "60px",
-      fontSize: "40px",
-      backgroundColor: inputColor,
-
-      "&:hover": {
-        borderColor: "#000",
-      },
-    }),
-    dropdownIndicator: (provided) => ({
-      ...provided,
-      // color: "#000",
-      // "&:hover": {
-      //   color: "#000",
-      // },
-      display: "none",
-    }),
-    indicatorSeparator: (provided) => ({
-      ...provided,
-      display: "none",
-    }),
-    placeholder: (provided) => ({
-      ...provided,
-      fontWeight: "200",
-    }),
-    menu: (provided) => ({
-      ...provided,
-      fontWeight: "200",
-    }),
-    valueContainer: (provided) => ({
-      ...provided,
-      // width: "100%",
-      // position: "absolute",
-      // left: chosenCountry ? "50%" : "0",
-      // transform: chosenCountry ? "translateX(-50%)" : "0",
-      // transition: "left 0.3s ease-in-out, translateX 0.3s ease-in-out",
-    }),
-  };
+export const customSelectStyles = {
+  control: (provided) => ({
+    ...provided,
+    borderColor: "#000",
+    borderRadius: "5px",
+    "&:hover": {
+      borderColor: "hsl(0, 0%, 50%)",
+    },
+  }),
+  dropdownIndicator: (provided) => ({
+    ...provided,
+    color: "#000",
+  }),
+  indicatorSeparator: (provided) => ({
+    ...provided,
+    display: "none",
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    fontWeight: "200",
+  }),
+  menu: (provided) => ({
+    ...provided,
+    fontWeight: "200",
+  }),
 };
 
-export const getRandomCountrySuggestion = (countries) => {
-  return countries[Math.round(Math.random() * countries.length)].value;
-};
 export const makeCountryList = (data) => {
   let tmpArr = [];
   data.map((country) => {

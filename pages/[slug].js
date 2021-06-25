@@ -2,17 +2,18 @@ import Head from "next/head";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import useSWR from "swr";
 
 //Components
 import Main from "../public/components/main/main";
-import { getData } from "../public/util/util";
 
 const Page = ({ slug, data }) => {
-  const { data, error } = useSWR(
-    "https://www.fhi.no/api/chartdata/excel/series/96079",
-    (query) => fetch(query).then((res) => res.json())
-  );
+  //   const router = useRouter();
+  //   const homeString = `${slug}-home`;
+  //   useEffect(() => {
+  //     if (slug) {
+  //       router.push("/", homeString);
+  //     }
+  //   }, [slug]);
   return (
     <>
       <Head>
@@ -69,13 +70,14 @@ export default Page;
 // }
 
 export async function getStaticProps(context) {
-  //   const result = await fetch(
-  //     "https://www.fhi.no/api/chartdata/excel/series/96079"
-  //   );
-  //   const data = await result.json();
+  const result = await fetch(
+    "https://www.fhi.no/api/chartdata/excel/series/96079"
+  );
+  const data = await result.json();
   return {
     props: {
       slug: context.params.slug,
+      data,
     },
   };
 }
