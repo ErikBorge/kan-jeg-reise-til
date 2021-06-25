@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import styles from "./result.module.scss";
-import emojiFlags from "emoji-flags";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import { countryCodes } from "../../util/countryCodes";
 
@@ -13,87 +13,160 @@ const Result = ({
   categories,
   canTravel,
   setCanTravel,
+  canTravelToSomeButNotAll,
+  setCanTravelToSomeButNotAll,
   slug,
 }) => {
   const [resultString, setResultString] = useState(
     "Nei, du kan ikke reise til"
   );
-  const [multipleRegions, setMultipleRegions] = useState(false);
+  const [expandRegions, setExpandRegions] = useState(false);
+  const [numberOfRegions, setNumberOfRegions] = useState(0);
+
   const router = useRouter();
 
-  useEffect(() => {
-    if (chosenCountry.data.length > 1) {
-      setMultipleRegions(true);
-      let someButNotAll = false;
-      let all = true;
-      chosenCountry.data.map((region) => {
-        if (region.value !== "2" && region.value !== "3") {
-          someButNotAll = true;
-        } else {
-          all = false;
-        }
-      });
-      if (all) {
-        setResultString("Ja, du kan reise til");
-        setCanTravel(true);
-      } else if (someButNotAll) {
-        setResultString("Ja, du kan reise til noen steder i");
-        setCanTravel(true);
-      }
-    } else {
-      chosenCountry.data.map((region) => {
-        // 1: "Gul: kategorien er for tiden ikke i bruk"
-        // 2: "Rød: du må i karantene ved innreise til Norge"
-        // 3: "Mørk rød og rød skravert: du må i karantene og på karantenehotell ved innreise til Norge"
-        // 4: "Grå: Norge blir ikke vurdert når det gjelder råd for internasjonale reiser"
-        // 5: "Grønn: du må ikke i karantene ved innreise til Norge"
-        if (region.value !== "2" && region.value !== "3") {
-          setCanTravel(true);
-          setResultString("Ja, du kan reise til");
-        }
-      });
-    }
-  }, [chosenCountry, setCanTravel]);
-
-  const reset = () => {
-    if (slug) {
-      router.push("/");
-    } else {
-      setChosenCountry(false);
-      setCanTravel(false);
-    }
-  };
+  //   const reset = () => {
+  //     if (slug) {
+  //       router.push("/");
+  //     } else {
+  //       setChosenCountry(false);
+  //       setCanTravel(false);
+  //     }
+  //   };
   //   console.log("resultString", resultString);
   //   console.log("chosenCountry", chosenCountry);
   //   console.log("countries", countries);
   //   console.log("categories", categories);
+  const variants = {
+    open: { height: `${60 * numberOfRegions}px`, staggerChildren: 0.5 },
+    closed: { height: "40px" },
+  };
+
+  const arrowVariants = {
+    up: { rotate: 0, translateY: "5px" },
+    down: { rotate: 180, translateY: "-5px" },
+  };
+  useEffect(() => {
+    if (chosenCountry && chosenCountry.data.length > 1) {
+      setNumberOfRegions(chosenCountry.data.length);
+    }
+  }, chosenCountry);
 
   return (
     <div className={styles.result}>
-      <h1>{resultString}</h1>
-      <button
-        onClick={() => reset()}
-        className={styles["result__chosenCountry"]}
-      >
-        <p>
-          {countryCodes[chosenCountry.value] &&
-            emojiFlags.countryCode(countryCodes[chosenCountry.value]).emoji}
-        </p>
-        <p>{chosenCountry.value}</p>
-        <div style={{ height: "10px" }}>
-          <Image
-            src={"/assets/icon-cross.svg"}
-            alt="x"
-            height={12}
-            width={12}
-          />
-        </div>
-      </button>
+      <div className={styles["result__shadow"]} />
+
       <div
-        className={styles["result__header"]}
-        style={{ backgroundColor: canTravel ? "darkseagreen" : "indianred" }}
+        className={styles["result__fuckyouerlend"]}
+        style={{
+          backgroundColor: canTravelToSomeButNotAll
+            ? "rgb(223, 206, 144)"
+            : canTravel
+            ? "white"
+            : "rgb(223, 144, 144)",
+        }}
+      />
+      <div
+        className={styles["result__container"]}
+        style={{
+          backgroundColor: canTravelToSomeButNotAll
+            ? "rgb(223, 206, 144)"
+            : canTravel
+            ? "white"
+            : "rgb(223, 144, 144)",
+        }}
       >
-        {multipleRegions ? (
+        {canTravel && !canTravelToSomeButNotAll && (
+          <div className={styles["result__postcard"]}>
+            <div className={styles["result__postcard-left"]}>
+              <div className={styles["result__postcard-panam"]}>
+                <Image
+                  src={"/assets/panam-logo.svg"}
+                  alt="x"
+                  height={30}
+                  width={30}
+                />
+              </div>
+              <div className={styles["result__postcard-date"]}>
+                {new Date().toLocaleDateString("no-NO", {
+                  year: "numeric",
+                  month: "numeric",
+                  day: "numeric",
+                })}
+              </div>
+            </div>
+            <div className={styles["result__postcard-right"]}>
+              <Image src={"/assets/stamp.png"} alt="x" height={40} width={60} />
+            </div>
+          </div>
+        )}
+        <div className={styles["result__header"]}>
+          {canTravelToSomeButNotAll
+            ? `Noen regioner i ${chosenCountry.value} krever karantene når du kommer hjem.`
+            : canTravel
+            ? `Du slipper karantene når du kommer fra ${chosenCountry.value}.`
+            : `Du må i karantene om du kommer reisende fra ${chosenCountry.value}.`}
+        </div>
+        <div className={styles["result__link"]}>
+          <a
+            href="https://www.fhi.no/nettpub/coronavirus/fakta/reiserad-knyttet-til-nytt-koronavirus-coronavirus/?term=&h=1#innreisekarantene-ved-ankomst-til-norge"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Les mer på FHIs nettsider
+          </a>
+          <div style={{ marginLeft: "10px", transform: "translateY(2px)" }}>
+            <Image
+              src={"/assets/arrow-pixel.svg"}
+              alt="x"
+              height={13}
+              width={13}
+            />
+          </div>
+        </div>
+      </div>
+      {numberOfRegions ? (
+        <motion.div
+          initial={{ height: "100%" }}
+          animate={expandRegions ? "open" : "closed"}
+          variants={variants}
+          className={styles["result__regions-container"]}
+          onClick={() => setExpandRegions(!expandRegions)}
+        >
+          <div className={styles["result__regions-header"]}>
+            {numberOfRegions} regioner
+            <motion.div
+              initial={{ height: "100%" }}
+              animate={expandRegions ? "up" : "down"}
+              variants={arrowVariants}
+              className={styles["result__expand-arrow"]}
+            >
+              <Image src={"/assets/arrow.svg"} alt=">" height={20} width={20} />
+            </motion.div>
+          </div>
+          <div className={styles["result__regions"]}>
+            {expandRegions &&
+              chosenCountry &&
+              chosenCountry.data.length > 1 &&
+              chosenCountry.data.map((region, key) => {
+                return (
+                  <div key={key} className={styles["result__region"]}>
+                    <div>{region.region}</div>
+                    <div>{region.description.split(".", 1)[0]}</div>
+                  </div>
+                );
+              })}
+          </div>
+        </motion.div>
+      ) : null}
+    </div>
+  );
+};
+
+export default Result;
+
+{
+  /* {multipleRegions ? (
           <>
             <h4>{chosenCountry.value} har flere regioner</h4>
             {chosenCountry.data.map((region, key) => {
@@ -108,10 +181,10 @@ const Result = ({
             })}
           </>
         ) : (
-          <h4>{resultString + ` ${chosenCountry.value}`}</h4>
-        )}
-      </div>
-      {canTravel && (
+        )} */
+}
+{
+  /* {canTravel && chosenCountry && (
         <a
           className={styles["result__travel-button"]}
           href={`https://www.google.com/search?q=fly+til+${chosenCountry.value}`}
@@ -120,9 +193,5 @@ const Result = ({
         >
           Reis til {chosenCountry.value}
         </a>
-      )}
-    </div>
-  );
-};
-
-export default Result;
+      )} */
+}

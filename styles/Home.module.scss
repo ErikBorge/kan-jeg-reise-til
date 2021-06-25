@@ -5,10 +5,23 @@
   flex-direction: column;
   // justify-content: center;
   align-items: center;
-  background-color: pink;
+  background-color: $color-pink;
+
+  &__panam {
+    position: absolute;
+    @media (max-width: 768px) {
+      top: -25px;
+      left: -5px;
+    }
+    transform: rotate(-20deg);
+  }
 
   &__container {
-    // @media (min-width: 768px) {
+    @media (max-width: 768px) {
+      width: 100%;
+      // min-height: 100vh;
+      margin-top: 100px;
+    }
     //   .grid {
     //     width: 100%;
     //     flex-direction: column;
@@ -19,12 +32,88 @@
     @media (min-width: 768px) {
       padding-top: 200px;
     }
+    transition: margin-top 0.5s ease-in-out;
+    // position: relative;
+  }
+  &__main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+    @media (max-width: 768px) {
+      height: 450px;
+      // min-height: 100vh;
+      // margin-top: 30px;
+    }
+    transition: height 0.3s ease-in-out;
   }
 
+  &__title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    h1 {
+      margin: 0;
+    }
+  }
+
+  &__animation {
+    @media (max-width: 768px) {
+      padding: 0 20px;
+      width: 100%;
+      height: 300px;
+      z-index: 10;
+      position: absolute;
+      top: 80px;
+      // transform: translateY(-50px);
+    }
+  }
+  &__video {
+    // padding: 0 40px;
+    border: 3px solid black;
+    @media (max-width: 768px) {
+      // position: absolute;
+      // width: min(90%, 300px);
+      // top: 230px;
+      // left: 50%;
+      margin: 0 5%;
+      z-index: 0;
+      margin-top: 120px;
+      // transform: translateX(-50%);
+    }
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    video {
+      width: 100%;
+      height: auto;
+    }
+  }
   &__search {
     display: block;
     align-items: baseline;
     justify-content: baseline;
+    z-index: 10;
+    @media (max-width: 768px) {
+      position: absolute;
+      // top: 440px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      // margin: 0 auto;
+    }
+  }
+
+  &__search-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    z-index: 10000;
   }
   &__emoji-container {
     position: relative;
