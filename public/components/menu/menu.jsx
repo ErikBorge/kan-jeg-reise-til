@@ -28,41 +28,53 @@ const Menu = ({ openMenu, setOpenMenu }) => {
       </div>
       <div className={styles["menu__person"]}>
         <div className={styles["menu__person-category"]}>Kode</div>
-        <div className={styles["menu__person-name"]}>
-          Erik Borge
-          <div
-            style={{
-              marginLeft: "10px",
-              transform: "rotate(180deg) translateY(-2px)",
-            }}
-          >
-            <Image
-              src={"/assets/arrow-pixel-pink.svg"}
-              alt="x"
-              height={22}
-              width={22}
-            />
+        <a
+          href="https://www.linkedin.com/in/erik-borge-3b348959/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <div className={styles["menu__person-name"]}>
+            Erik Borge
+            <div
+              style={{
+                marginLeft: "10px",
+                transform: "rotate(180deg) translateY(-2px)",
+              }}
+            >
+              <Image
+                src={"/assets/arrow-pixel-pink.svg"}
+                alt="x"
+                height={22}
+                width={22}
+              />
+            </div>
           </div>
-        </div>
+        </a>
       </div>
       <div className={styles["menu__person"]}>
         <div className={styles["menu__person-category"]}>Design</div>
-        <div className={styles["menu__person-name"]}>
-          Erlend Storaker
-          <div
-            style={{
-              marginLeft: "10px",
-              transform: "rotate(180deg) translateY(-2px)",
-            }}
-          >
-            <Image
-              src={"/assets/arrow-pixel-pink.svg"}
-              alt="x"
-              height={22}
-              width={22}
-            />
+        <a
+          href="https://www.linkedin.com/in/erlendstoraker/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <div className={styles["menu__person-name"]}>
+            Erlend Storaker
+            <div
+              style={{
+                marginLeft: "10px",
+                transform: "rotate(180deg) translateY(-2px)",
+              }}
+            >
+              <Image
+                src={"/assets/arrow-pixel-pink.svg"}
+                alt="x"
+                height={22}
+                width={22}
+              />
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );

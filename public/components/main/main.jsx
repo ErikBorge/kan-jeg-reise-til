@@ -198,7 +198,7 @@ const Main = ({ slug, data }) => {
             className={styles["page__video"]}
             style={{ opacity: chosenCountry ? "0" : "1" }}
           >
-            <video autoPlay mute="true" loop>
+            <video playsInline autoPlay muted loop>
               <source src="/assets/miami360-short.mp4" />
               <p>Your browser does not support HTML5 video.</p>
             </video>
