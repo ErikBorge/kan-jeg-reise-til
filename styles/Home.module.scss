@@ -93,6 +93,10 @@
       top: 80px;
       // transform: translateY(-50px);
     }
+    div,
+    svg {
+      overflow: visible !important;
+    }
   }
   &__video {
     // padding: 0 40px;
