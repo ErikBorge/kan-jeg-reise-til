@@ -109,7 +109,7 @@ export const getCustomSelectStyles = (
       zIndex: "100000",
       "& input": {
         fontFamily: "Argent CF italic !important",
-        fontStyle: "italic",
+        // fontStyle: "italic",
         fontSize: "40px !important",
         color: "black !important",
         backgroundColor: "white !important",

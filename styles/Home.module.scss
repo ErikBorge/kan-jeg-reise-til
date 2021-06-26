@@ -130,6 +130,9 @@
       transform: translateX(-50%);
       width: 80%;
       // margin: 0 auto;
+      input {
+        transform: translateY(-2px);
+      }
     }
   }
 
