@@ -64,6 +64,7 @@ const Main = ({ slug, data }) => {
       setChosenCountry(country);
       // setPlay(true);
       // setPause(false);
+      selectRef.current.select.blur();
 
       gtag.event({
         action: "search",
@@ -71,6 +72,11 @@ const Main = ({ slug, data }) => {
         label: country.value,
       });
     }
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   const reset = () => {
@@ -192,8 +198,8 @@ const Main = ({ slug, data }) => {
             className={styles["page__video"]}
             style={{ opacity: chosenCountry ? "0" : "1" }}
           >
-            <video autoPlay muted loop="1">
-              <source src="./assets/miami360-short.mp4" />
+            <video autoPlay mute="true" loop>
+              <source src="/assets/miami360-short.mp4" />
               <p>Your browser does not support HTML5 video.</p>
             </video>
           </div>

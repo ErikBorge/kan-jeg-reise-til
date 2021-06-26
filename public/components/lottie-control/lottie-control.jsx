@@ -42,14 +42,20 @@ const LottieControl = ({
       loop: false,
       autoplay: false,
       animationData: animation,
-      speed: 4,
       rendererSettings: {
         preserveAspectRatio: "xMidYMid slice",
+        //original filter sizes
+        // filterSize: {
+        //   width: "300px",
+        //   height: "500px",
+        //   x: "-50%",
+        //   y: "-100%",
+        // },
         filterSize: {
-          width: "300px",
-          height: "500px",
-          x: "-50%",
-          y: "-100%",
+          width: "600%",
+          height: "600%",
+          x: "-200%",
+          y: "-200%",
         },
       },
     };
