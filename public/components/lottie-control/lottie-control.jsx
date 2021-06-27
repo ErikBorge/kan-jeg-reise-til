@@ -5,8 +5,8 @@ import * as glad from "../../assets/glad.json";
 import * as glad_revers from "../../assets/glad-revers.json";
 import * as lei_seg from "../../assets/lei_seg.json";
 import * as lei_seg_revers from "../../assets/lei_seg-revers.json";
-import * as noytral from "../../assets/nøytral.json";
-import * as noytral_revers from "../../assets/nøytral-revers.json";
+import * as noytral from "../../assets/noytral.json";
+import * as noytral_revers from "../../assets/noytral-revers.json";
 
 const LottieControl = ({
   chosenCountry,

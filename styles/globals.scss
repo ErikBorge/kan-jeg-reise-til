@@ -10,11 +10,11 @@
 }
 @font-face {
   font-family: "Argent CF";
-  src: url("/fonts/ArgentCF-Regular.eot"),
-    url("/fonts/ArgentCF-Regular.eot?#iefix") format("embedded-opentype"),
-    url("/fonts/ArgentCF-Regular.woff2") format("woff2"),
-    url("/fonts/ArgentCF-Regular.woff") format("woff"),
-    url("/fonts/ArgentCF-Regular.ttf") format("truetype");
+  src: url("/fonts/ArgentCF-Light.eot"),
+    url("/fonts/ArgentCF-Light.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/ArgentCF-Light.woff2") format("woff2"),
+    url("/fonts/ArgentCF-Light.woff") format("woff"),
+    url("/fonts/ArgentCF-Light.ttf") format("truetype");
   font-weight: 400;
 }
 
@@ -34,6 +34,7 @@ body {
   margin: 0;
   font-family: "Argent CF italic", serif;
   font-weight: 200;
+  scroll-behavior: smooth;
   // font-style: italic;
   // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -65,4 +66,5 @@ button {
   cursor: pointer;
   padding: unset;
   margin: unset;
+  font-family: "Argent CF";
 }
