@@ -138,7 +138,7 @@ const Result = ({
           </div>
         </div>
       </div>
-      {numberOfRegions ? (
+      {numberOfRegions && canTravelToSomeButNotAll ? (
         <motion.div
           initial={{ height: "100%" }}
           animate={expandRegions ? "open" : "closed"}
