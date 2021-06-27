@@ -10,11 +10,11 @@
 }
 @font-face {
   font-family: "Argent CF";
-  src: url("/fonts/ArgentCF-Regular.eot"),
-    url("/fonts/ArgentCF-Regular.eot?#iefix") format("embedded-opentype"),
-    url("/fonts/ArgentCF-Regular.woff2") format("woff2"),
-    url("/fonts/ArgentCF-Regular.woff") format("woff"),
-    url("/fonts/ArgentCF-Regular.ttf") format("truetype");
+  src: url("/fonts/ArgentCF-Light.eot"),
+    url("/fonts/ArgentCF-Light.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/ArgentCF-Light.woff2") format("woff2"),
+    url("/fonts/ArgentCF-Light.woff") format("woff"),
+    url("/fonts/ArgentCF-Light.ttf") format("truetype");
   font-weight: 400;
 }
 
@@ -66,4 +66,5 @@ button {
   cursor: pointer;
   padding: unset;
   margin: unset;
+  font-family: "Argent CF";
 }

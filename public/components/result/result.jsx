@@ -38,13 +38,16 @@ const Result = ({
   //   console.log("countries", countries);
   //   console.log("categories", categories);
   const variants = {
-    open: { height: `${60 * numberOfRegions}px`, staggerChildren: 0.5 },
-    closed: { height: "40px" },
+    open: {
+      height: `${63 * numberOfRegions + 30 + 65}px`,
+      staggerChildren: 0.5,
+    },
+    closed: { height: "65px" },
   };
 
   const arrowVariants = {
-    up: { rotate: 0, translateY: "5px" },
-    down: { rotate: 180, translateY: "-5px" },
+    up: { rotate: 180, translateY: "-2px" },
+    down: { rotate: 0, translateY: "5px" },
   };
   useEffect(() => {
     if (chosenCountry && chosenCountry.data.length > 1) {
@@ -141,19 +144,26 @@ const Result = ({
           animate={expandRegions ? "open" : "closed"}
           variants={variants}
           className={styles["result__regions-container"]}
-          onClick={() => setExpandRegions(!expandRegions)}
         >
-          <div className={styles["result__regions-header"]}>
+          <button
+            className={styles["result__regions-header"]}
+            onClick={() => setExpandRegions(!expandRegions)}
+          >
             {numberOfRegions} regioner
             <motion.div
-              initial={{ height: "100%" }}
+              //   initial={{ height: "100%" }}
               animate={expandRegions ? "up" : "down"}
               variants={arrowVariants}
               className={styles["result__expand-arrow"]}
             >
-              <Image src={"/assets/arrow.svg"} alt=">" height={20} width={20} />
+              <Image
+                src={"/assets/expand-arrow-pixel.svg"}
+                alt=">"
+                height={18}
+                width={18}
+              />
             </motion.div>
-          </div>
+          </button>
           <div className={styles["result__regions"]}>
             {expandRegions &&
               chosenCountry &&
@@ -161,8 +171,10 @@ const Result = ({
               chosenCountry.data.map((region, key) => {
                 return (
                   <div key={key} className={styles["result__region"]}>
-                    <div>{region.region}</div>
-                    <div>{region.description.split(".", 1)[0]}</div>
+                    <div style={{ marginRight: "30px" }}>{region.region}</div>
+                    <div style={{ color: "rgb(149, 136, 136)" }}>
+                      {region.description.split(".", 1)[0]}
+                    </div>
                   </div>
                 );
               })}

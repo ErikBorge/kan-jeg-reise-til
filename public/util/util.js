@@ -78,6 +78,12 @@ export const getCustomSelectStyles = (
     placeholder: (provided) => ({
       ...provided,
       fontWeight: "200",
+      "@media (min-width: 769px)": {
+        transform: "translateY(-58%)",
+      },
+      "@media (max-width: 768px)": {
+        transform: "translateY(-64%)",
+      },
     }),
     menu: (provided) => ({
       ...provided,
@@ -97,23 +103,32 @@ export const getCustomSelectStyles = (
     option: (provided) => ({
       ...provided,
       height: "60px",
-      border: "2px solid black",
+      // border: "2px solid black",
       fontSize: "40px",
       backgroundColor: "none",
       color: "#958888",
-      paddingBottom: "10px",
-      paddingTop: "6px",
+      // paddingBottom: "10px",
+      // paddingTop: "6px",
+      // padding: '10px 12px',
+      // transform: "translate(0,-2px)",
     }),
     input: (provided) => ({
       ...provided,
       zIndex: "100000",
+      // height: "60px !important",
       "& input": {
         fontFamily: "Argent CF italic !important",
         // fontStyle: "italic",
         fontSize: "40px !important",
         color: "black !important",
-        backgroundColor: "white !important",
+        //backgroundColor: "white !important",
         textTransform: "capitalize",
+        // "@media (min-width: 769px)": {
+        //   transform: "translateY(-4px)",
+        // },
+        // "@media (max-width: 768px)": {
+        //   transform: "translateY(-6px)",
+        // },
       },
       "& div div": {
         fontFamily: "Agent CF italic",
@@ -127,6 +142,12 @@ export const getCustomSelectStyles = (
       // transform: chosenCountry ? "translateX(-50%)" : "0",
       // transition: "left 0.3s ease-in-out, translateX 0.3s ease-in-out",
     }),
+    // singleValue: (provided) => ({
+    //   ...provided,
+    //   left: !chosenCountry ? "8px" : "50%",
+    //   transform: "translate(-50%, -50%)",
+    //   transition: "left 0.4s ease-in-out",
+    // }),
   };
 };
 

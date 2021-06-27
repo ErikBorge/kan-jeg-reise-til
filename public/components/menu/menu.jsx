@@ -32,22 +32,21 @@ const Menu = ({ openMenu, setOpenMenu }) => {
           href="https://www.linkedin.com/in/erik-borge-3b348959/"
           target="_blank"
           rel="noreferrer noopener"
+          className={styles["menu__person-name"]}
         >
-          <div className={styles["menu__person-name"]}>
-            Erik Borge
-            <div
-              style={{
-                marginLeft: "10px",
-                transform: "rotate(180deg) translateY(-2px)",
-              }}
-            >
-              <Image
-                src={"/assets/arrow-pixel-pink.svg"}
-                alt="x"
-                height={22}
-                width={22}
-              />
-            </div>
+          Erik Borge
+          <div
+            style={{
+              marginLeft: "10px",
+              transform: "rotate(180deg) translateY(-2px)",
+            }}
+          >
+            <Image
+              src={"/assets/arrow-pixel-pink.svg"}
+              alt="x"
+              height={22}
+              width={22}
+            />
           </div>
         </a>
       </div>
@@ -57,22 +56,21 @@ const Menu = ({ openMenu, setOpenMenu }) => {
           href="https://www.linkedin.com/in/erlendstoraker/"
           target="_blank"
           rel="noreferrer noopener"
+          className={styles["menu__person-name"]}
         >
-          <div className={styles["menu__person-name"]}>
-            Erlend Storaker
-            <div
-              style={{
-                marginLeft: "10px",
-                transform: "rotate(180deg) translateY(-2px)",
-              }}
-            >
-              <Image
-                src={"/assets/arrow-pixel-pink.svg"}
-                alt="x"
-                height={22}
-                width={22}
-              />
-            </div>
+          Erlend Storaker
+          <div
+            style={{
+              marginLeft: "10px",
+              transform: "rotate(180deg) translateY(-2px)",
+            }}
+          >
+            <Image
+              src={"/assets/arrow-pixel-pink.svg"}
+              alt="x"
+              height={22}
+              width={22}
+            />
           </div>
         </a>
       </div>
