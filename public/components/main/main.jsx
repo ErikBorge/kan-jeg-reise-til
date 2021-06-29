@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import Control from "../control/control";
 import Option from "../option/option";
 import MenuList from "../menu-list/menu-list";
+import SingleValue from "../single-value/single-value";
 import Result from "../result/result";
 import LottieControl from "../lottie-control/lottie-control";
 import * as gtag from "../../../lib/gtag";
@@ -42,6 +43,16 @@ const Main = ({ slug, data }) => {
   const router = useRouter();
   const selectRef = useRef(null);
   const [currentSuggestion, setCurrentSuggestion] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [placeholder, setPlaceholder] = useState(
+    countries && getRandomCountrySuggestion(countries)
+  );
+  //   console.log(placeholder);
+  //   useEffect(() => {
+  //     setInterval(() => {
+  //       setPlaceholder(countries && getRandomCountrySuggestion(countries));
+  //     }, 2000);
+  //   }, []);
 
   useEffect(() => {
     if (slug && countries) {
@@ -65,6 +76,7 @@ const Main = ({ slug, data }) => {
       // setPlay(true);
       // setPause(false);
       selectRef.current.select.blur();
+      setIsFocused(false);
 
       gtag.event({
         action: "search",
@@ -137,7 +149,7 @@ const Main = ({ slug, data }) => {
   //   console.log("currentSuggestion", currentSuggestion);
   //   console.log("canTravelToSomeButNotAll", canTravelToSomeButNotAll);
   //   console.log("reverse", reverse);
-  console.log("hello");
+  //   console.log("hello");
   //   console.log("slug", slug);
   // console.log("categories", categories);
   // console.log("selectCountries", selectCountries);
@@ -148,7 +160,7 @@ const Main = ({ slug, data }) => {
     open: { left: "0" },
     closed: { left: "100%" },
   };
-  console.log(window.innerWidth);
+  //   console.log(window.innerWidth);
   return (
     <div className={styles.page}>
       <motion.nav
@@ -156,6 +168,7 @@ const Main = ({ slug, data }) => {
         animate={openMenu ? "open" : "closed"}
         variants={variants}
         className={styles["page__menu"]}
+        onClick={() => setOpenMenu(!openMenu)}
       >
         <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
       </motion.nav>
@@ -178,8 +191,8 @@ const Main = ({ slug, data }) => {
           <Image
             src={"/assets/panam-logo.svg"}
             alt="x"
-            height={90}
-            width={90}
+            height={60}
+            width={60}
           />
         </div>
         <div
@@ -259,6 +272,7 @@ const Main = ({ slug, data }) => {
                   Control: Control,
                   Option: Option,
                   MenuList: MenuList,
+                  SingleValue: SingleValue,
                 }}
                 maxOptions={1}
                 selectProps={{
@@ -275,9 +289,16 @@ const Main = ({ slug, data }) => {
                 )}
                 //   value={chosenCountry.label}
                 onChange={changeCountry}
-                placeholder={countries && getRandomCountrySuggestion(countries)}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+                placeholder={countries && placeholder}
                 instanceId={"search"}
               />
+              {isFocused && (
+                <div className={styles["page__search-explanation"]}>
+                  Søk etter land i Europa
+                </div>
+              )}
             </div>
           </div>
           {chosenCountry && (

@@ -58,6 +58,7 @@ export const getCustomSelectStyles = (
       height: "60px",
       fontSize: "40px",
       backgroundColor: inputColor,
+      boxShadow: "none",
 
       "&:hover": {
         borderColor: "#000",
@@ -78,6 +79,7 @@ export const getCustomSelectStyles = (
     placeholder: (provided) => ({
       ...provided,
       fontWeight: "200",
+      color: "rgb(149, 136, 136)",
       "@media (min-width: 769px)": {
         transform: "translateY(-58%)",
       },
@@ -106,7 +108,8 @@ export const getCustomSelectStyles = (
       // border: "2px solid black",
       fontSize: "40px",
       backgroundColor: "none",
-      color: "#958888",
+      color: "rgb(149, 136, 136)",
+      padding: "4px 12px 12px",
       // paddingBottom: "10px",
       // paddingTop: "6px",
       // padding: '10px 12px',
@@ -115,6 +118,9 @@ export const getCustomSelectStyles = (
     input: (provided) => ({
       ...provided,
       zIndex: "100000",
+      caretColor: "black",
+      margin: "0 2px 8px",
+      padding: "0",
       // height: "60px !important",
       "& input": {
         fontFamily: "Argent CF italic !important",
@@ -123,6 +129,7 @@ export const getCustomSelectStyles = (
         color: "black !important",
         //backgroundColor: "white !important",
         textTransform: "capitalize",
+
         // "@media (min-width: 769px)": {
         //   transform: "translateY(-4px)",
         // },
@@ -136,11 +143,20 @@ export const getCustomSelectStyles = (
     }),
     valueContainer: (provided) => ({
       ...provided,
+      // padding: " 8px",
       // width: "100%",
       // position: "absolute",
       // left: chosenCountry ? "50%" : "0",
       // transform: chosenCountry ? "translateX(-50%)" : "0",
       // transition: "left 0.3s ease-in-out, translateX 0.3s ease-in-out",
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: "black",
+    }),
+    noOptionsMessage: (provided) => ({
+      ...provided,
+      display: "none",
     }),
     // singleValue: (provided) => ({
     //   ...provided,
@@ -152,17 +168,20 @@ export const getCustomSelectStyles = (
 };
 
 export const getRandomCountrySuggestion = (countries) => {
+  const index = Math.floor(Math.random() * (countries.length + 1));
+  console.log(index);
   return (
     countries &&
     countries.length > 1 &&
     countries[0].value &&
-    countries[Math.round(Math.random() * countries.length - 1)].value
+    countries[index] &&
+    countries[index].label
   );
 };
 export const makeCountryList = (data) => {
   let tmpArr = [];
   data.map((country) => {
-    tmpArr.push({ value: country.name, label: country.name });
+    tmpArr.push({ value: country.name, label: country.name + "?" });
   });
 
   tmpArr = tmpArr.filter(
