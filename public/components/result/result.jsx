@@ -10,7 +10,7 @@ const Result = ({
   chosenCountry,
   countries,
   setChosenCountry,
-  categories,
+  //   categories,
   canTravel,
   setCanTravel,
   canTravelToSomeButNotAll,
@@ -79,65 +79,101 @@ const Result = ({
             : "rgb(223, 144, 144)",
         }}
       />
-      <div
-        className={styles["result__container"]}
-        style={{
-          backgroundColor: canTravelToSomeButNotAll
-            ? "rgb(223, 206, 144)"
-            : canTravel
-            ? "white"
-            : "rgb(223, 144, 144)",
-        }}
-      >
-        {canTravel && !canTravelToSomeButNotAll && (
-          <div className={styles["result__postcard"]}>
-            <div className={styles["result__postcard-left"]}>
-              <div className={styles["result__postcard-panam"]}>
-                <Image
-                  src={"/assets/panam-logo.svg"}
-                  alt="x"
-                  height={30}
-                  width={30}
-                />
-              </div>
-              <div className={styles["result__postcard-date"]}>
-                {new Date().toLocaleDateString("no-NO", {
-                  year: "numeric",
-                  month: "numeric",
-                  day: "numeric",
-                })}
-              </div>
-            </div>
-            <div className={styles["result__postcard-right"]}>
-              <Image src={"/assets/stamp.png"} alt="x" height={40} width={60} />
-            </div>
-          </div>
-        )}
-        <div className={styles["result__header"]}>
-          {canTravelToSomeButNotAll
-            ? `Noen regioner i ${chosenCountry.value} krever karantene når du kommer hjem.`
-            : canTravel
-            ? `Du slipper karantene når du kommer fra ${chosenCountry.value}.`
-            : `Du må i karantene om du kommer reisende fra ${chosenCountry.value}.`}
-        </div>
-        <div className={styles["result__link"]}>
-          <a
-            href="https://www.fhi.no/nettpub/coronavirus/fakta/reiserad-knyttet-til-nytt-koronavirus-coronavirus/?term=&h=1#innreisekarantene-ved-ankomst-til-norge"
-            target="_blank"
-            rel="noreferrer noopener"
+      {chosenCountry && chosenCountry.value === "Norge" ? (
+        <div
+          className={styles["result__container"]}
+          style={{
+            backgroundColor: "white",
+            height: "240px",
+          }}
+        >
+          <div
+            className={styles["result__header"]}
+            style={{ marginTop: "0px" }}
           >
-            Les mer på FHIs nettsider
-          </a>
-          <div style={{ marginLeft: "10px", transform: "translateY(2px)" }}>
+            Null karantene på innenlandsreiser!
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              bottom: "-3px",
+              left: "0",
+            }}
+          >
             <Image
-              src={"/assets/arrow-pixel.svg"}
+              src={"/assets/harald.png"}
               alt="x"
-              height={13}
-              width={13}
+              height={140}
+              width={210}
             />
           </div>
         </div>
-      </div>
+      ) : (
+        <div
+          className={styles["result__container"]}
+          style={{
+            backgroundColor: canTravelToSomeButNotAll
+              ? "rgb(223, 206, 144)"
+              : canTravel
+              ? "white"
+              : "rgb(223, 144, 144)",
+          }}
+        >
+          {canTravel && !canTravelToSomeButNotAll && (
+            <div className={styles["result__postcard"]}>
+              <div className={styles["result__postcard-left"]}>
+                <div className={styles["result__postcard-panam"]}>
+                  <Image
+                    src={"/assets/panam-logo.svg"}
+                    alt="x"
+                    height={30}
+                    width={30}
+                  />
+                </div>
+                <div className={styles["result__postcard-date"]}>
+                  {new Date().toLocaleDateString("no-NO", {
+                    year: "numeric",
+                    month: "numeric",
+                    day: "numeric",
+                  })}
+                </div>
+              </div>
+              <div className={styles["result__postcard-right"]}>
+                <Image
+                  src={"/assets/stamp.png"}
+                  alt="x"
+                  height={40}
+                  width={60}
+                />
+              </div>
+            </div>
+          )}
+          <div className={styles["result__header"]}>
+            {canTravelToSomeButNotAll
+              ? `Noen regioner i ${chosenCountry.value} krever karantene når du kommer hjem.`
+              : canTravel
+              ? `Du slipper karantene når du kommer fra ${chosenCountry.value}.`
+              : `Du må i karantene om du kommer reisende fra ${chosenCountry.value}.`}
+          </div>
+          <div className={styles["result__link"]}>
+            <a
+              href="https://www.fhi.no/nettpub/coronavirus/fakta/reiserad-knyttet-til-nytt-koronavirus-coronavirus/?term=&h=1#innreisekarantene-ved-ankomst-til-norge"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Les mer på FHIs nettsider
+            </a>
+            <div style={{ marginLeft: "10px", transform: "translateY(2px)" }}>
+              <Image
+                src={"/assets/arrow-pixel.svg"}
+                alt="x"
+                height={13}
+                width={13}
+              />
+            </div>
+          </div>
+        </div>
+      )}
       {numberOfRegions && canTravelToSomeButNotAll ? (
         <motion.div
           initial={{ height: "100%" }}

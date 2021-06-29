@@ -17,21 +17,23 @@ import Menu from "../menu/menu";
 
 //util
 import {
-  makeCategories,
+  //   makeCategories,
   makeCountryList,
   getRandomCountrySuggestion,
   getCustomSelectStyles,
 } from "../../util/util";
 
 const Main = ({ slug, data }) => {
-  const [categories, setCategories] = useState(
-    data &&
-      data.config &&
-      data.config.colorAxis.dataClasses &&
-      makeCategories(data.config.colorAxis.dataClasses)
-  );
+  //   const [categories, setCategories] = useState(
+  //     () =>
+  //       data &&
+  //       data.config &&
+  //       data.config.colorAxis.dataClasses &&
+  //       makeCategories(data.config.colorAxis.dataClasses)
+  //   );
   const [countries, setCountries] = useState(
-    data && data.data && data.data[0] && makeCountryList(data.data[0].data)
+    () =>
+      data && data.data && data.data[0] && makeCountryList(data.data[0].data)
   );
   const [chosenCountry, setChosenCountry] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -42,17 +44,10 @@ const Main = ({ slug, data }) => {
 
   const router = useRouter();
   const selectRef = useRef(null);
-  const [currentSuggestion, setCurrentSuggestion] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [placeholder, setPlaceholder] = useState(
-    countries && getRandomCountrySuggestion(countries)
+    () => countries && getRandomCountrySuggestion(countries)
   );
-  //   console.log(placeholder);
-  //   useEffect(() => {
-  //     setInterval(() => {
-  //       setPlaceholder(countries && getRandomCountrySuggestion(countries));
-  //     }, 2000);
-  //   }, []);
 
   useEffect(() => {
     if (slug && countries) {
@@ -93,12 +88,7 @@ const Main = ({ slug, data }) => {
 
   const reset = () => {
     setChosenCountry(false);
-    // setTimeout(() => {
-    //   setCanTravel(false);
-    //   setCanTravelToSomeButNotAll(false);
-    // }, 700);
-
-    // setPause(false);
+    setPlaceholder(getRandomCountrySuggestion(countries));
     selectRef.current.select.clearValue();
     selectRef.current.select.focus();
   };
@@ -160,7 +150,7 @@ const Main = ({ slug, data }) => {
     open: { left: "0" },
     closed: { left: "100%" },
   };
-  //   console.log(window.innerWidth);
+
   return (
     <div className={styles.page}>
       <motion.nav
@@ -270,16 +260,11 @@ const Main = ({ slug, data }) => {
                 ref={selectRef}
                 components={{
                   Control: Control,
-                  Option: Option,
                   MenuList: MenuList,
                   SingleValue: SingleValue,
                 }}
                 maxOptions={1}
-                selectProps={{
-                  chosenCountry,
-                  currentSuggestion,
-                  setCurrentSuggestion,
-                }}
+                selectProps={{ chosenCountry }}
                 openMenuOnClick={false}
                 options={countries}
                 styles={getCustomSelectStyles(
@@ -306,7 +291,7 @@ const Main = ({ slug, data }) => {
               chosenCountry={chosenCountry}
               setChosenCountry={setChosenCountry}
               countries={countries}
-              categories={categories}
+              //   categories={categories}
               canTravel={canTravel}
               setCanTravel={setCanTravel}
               slug={slug}

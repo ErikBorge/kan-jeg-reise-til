@@ -1,5 +1,3 @@
-import { findLastIndex } from "lodash";
-
 export async function getData() {
   const res = await fetch(
     "https://www.fhi.no/api/chartdata/excel/series/96079"
@@ -9,30 +7,6 @@ export async function getData() {
   const data = await res.json();
   return data;
 }
-
-export const countries = [
-  { value: "Sverige", label: "Sverige", result: "jaokda" },
-  { value: "Danmark", label: "Danmark", result: "kanskje? hadde vært fett" },
-  { value: "Tyskland", label: "Tyskland", result: "ja" },
-  { value: "Frankrike", label: "Frankrike", result: "ja" },
-  { value: "India", label: "India", result: "Ikke faen" },
-];
-
-export const travelCodes = {
-  1: {
-    quarantine: false,
-    response: "Gul - Du må ikke i karantene ved innreise til Norge",
-  },
-  2: {
-    quarantine: true,
-    response: "Rød - Du må i karantene ved innreise til Norge",
-  },
-  4: { quarantine: true, response: "Grå - Ikke vurdert" },
-  5: {
-    quarantine: false,
-    response: "Grønn - Du må ikke i karantene ved innreise til Norge",
-  },
-};
 
 export const getCustomSelectStyles = (
   canTravel,
@@ -66,10 +40,6 @@ export const getCustomSelectStyles = (
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
-      // color: "#000",
-      // "&:hover": {
-      //   color: "#000",
-      // },
       display: "none",
     }),
     indicatorSeparator: (provided) => ({
@@ -84,7 +54,7 @@ export const getCustomSelectStyles = (
         transform: "translateY(-58%)",
       },
       "@media (max-width: 768px)": {
-        transform: "translateY(-64%)",
+        transform: "translateY(-57%)",
       },
     }),
     menu: (provided) => ({
@@ -94,7 +64,6 @@ export const getCustomSelectStyles = (
       border: "unset",
       marginTop: "0",
       marginBottom: "0",
-      // display: "none",
       boxShadow: "none",
       top: "0",
     }),
@@ -105,37 +74,26 @@ export const getCustomSelectStyles = (
     option: (provided) => ({
       ...provided,
       height: "60px",
-      // border: "2px solid black",
       fontSize: "40px",
       backgroundColor: "none",
       color: "rgb(149, 136, 136)",
       padding: "4px 12px 12px",
-      // paddingBottom: "10px",
-      // paddingTop: "6px",
-      // padding: '10px 12px',
-      // transform: "translate(0,-2px)",
     }),
     input: (provided) => ({
       ...provided,
       zIndex: "100000",
       caretColor: "black",
-      margin: "0 2px 8px",
+      margin: "0 2px 10px",
+      // margin: "0",
       padding: "0",
-      // height: "60px !important",
+      height: "45px",
+      // transform: "translate(2px, -2px)",
       "& input": {
         fontFamily: "Argent CF italic !important",
-        // fontStyle: "italic",
         fontSize: "40px !important",
         color: "black !important",
         //backgroundColor: "white !important",
         textTransform: "capitalize",
-
-        // "@media (min-width: 769px)": {
-        //   transform: "translateY(-4px)",
-        // },
-        // "@media (max-width: 768px)": {
-        //   transform: "translateY(-6px)",
-        // },
       },
       "& div div": {
         fontFamily: "Agent CF italic",
@@ -143,16 +101,11 @@ export const getCustomSelectStyles = (
     }),
     valueContainer: (provided) => ({
       ...provided,
-      // padding: " 8px",
-      // width: "100%",
-      // position: "absolute",
-      // left: chosenCountry ? "50%" : "0",
-      // transform: chosenCountry ? "translateX(-50%)" : "0",
-      // transition: "left 0.3s ease-in-out, translateX 0.3s ease-in-out",
     }),
     singleValue: (provided) => ({
       ...provided,
       color: "black",
+      transform: "translateY(-58%)",
     }),
     noOptionsMessage: (provided) => ({
       ...provided,
@@ -169,7 +122,6 @@ export const getCustomSelectStyles = (
 
 export const getRandomCountrySuggestion = (countries) => {
   const index = Math.floor(Math.random() * (countries.length + 1));
-  console.log(index);
   return (
     countries &&
     countries.length > 1 &&

@@ -5,6 +5,7 @@
   align-items: center;
   position: relative;
   width: 90%;
+  max-width: 330px;
   // padding: 0 20px;
   margin: 0 auto;
   margin-top: 40px;
@@ -57,7 +58,8 @@
   &__header {
     width: 100%;
     // padding: 10px 0;
-    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     font-family: "Argent CF";
     font-size: 20px;
     text-align: center;
