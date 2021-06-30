@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import Control from "../control/control";
 import MenuList from "../menu-list/menu-list";
 import SingleValue from "../single-value/single-value";
+import Placeholder from "../placeholder/placeholder";
 import Result from "../result/result";
 import LottieControl from "../lottie-control/lottie-control";
 import * as gtag from "../../../lib/gtag";
@@ -44,9 +45,6 @@ const Main = ({ slug, data }) => {
   const router = useRouter();
   const selectRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
-  const [placeholder, setPlaceholder] = useState(
-    () => countries && getRandomCountrySuggestion(countries)
-  );
 
   useEffect(() => {
     if (slug && countries) {
@@ -91,7 +89,6 @@ const Main = ({ slug, data }) => {
     //   router.push("/");
     // }
     setChosenCountry(false);
-    setPlaceholder(getRandomCountrySuggestion(countries));
     selectRef.current.select.clearValue();
     selectRef.current.select.focus();
   };
@@ -265,9 +262,10 @@ const Main = ({ slug, data }) => {
                   Control: Control,
                   MenuList: MenuList,
                   SingleValue: SingleValue,
+                  Placeholder: Placeholder,
                 }}
                 maxOptions={1}
-                selectProps={{ chosenCountry }}
+                selectProps={{ chosenCountry, countries }}
                 openMenuOnClick={false}
                 options={countries}
                 styles={getCustomSelectStyles(
@@ -286,7 +284,6 @@ const Main = ({ slug, data }) => {
                     behavior: "smooth",
                   });
                 }}
-                placeholder={countries && placeholder}
                 instanceId={"search"}
                 menuShouldScrollIntoView={false}
               />
