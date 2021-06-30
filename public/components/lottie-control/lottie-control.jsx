@@ -104,6 +104,9 @@ const LottieControl = ({
         } else if (someButNotAll) {
           setLocalCanTravel(true);
           setLocalCanTravelToSomeButNotAll(true);
+        } else {
+          setLocalCanTravel(false);
+          setLocalCanTravelToSomeButNotAll(false);
         }
       } else {
         chosenCountry.data.map((region) => {
@@ -116,12 +119,16 @@ const LottieControl = ({
           }
         });
       }
-    } else {
-      // setLocalCanTravel(false);
-      // setLocalCanTravelToSomeButNotAll(false);
     }
   }, [chosenCountry]);
-
+  // console.log(
+  //   "chosenCountry",
+  //   chosenCountry,
+  //   "localCanTravel",
+  //   localCanTravel,
+  //   "localCanTravelToSomeButNotAll",
+  //   localCanTravelToSomeButNotAll
+  // );
   const lottieRef = useRef(null);
   return (
     <Lottie

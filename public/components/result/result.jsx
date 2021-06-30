@@ -72,7 +72,6 @@ const Result = ({
   //       canTravelToSomeButNotAll
   //     );
   //   });
-  console.log(chosenCountry);
   return (
     <div className={styles.result}>
       <div className={styles["result__shadow"]} />
