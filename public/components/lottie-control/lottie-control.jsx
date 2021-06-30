@@ -116,6 +116,9 @@ const LottieControl = ({
           }
         });
       }
+    } else {
+      setLocalCanTravel(false);
+      setLocalCanTravelToSomeButNotAll(false);
     }
   }, [chosenCountry]);
 
