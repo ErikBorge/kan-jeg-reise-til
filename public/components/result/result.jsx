@@ -72,7 +72,7 @@ const Result = ({
   //       canTravelToSomeButNotAll
   //     );
   //   });
-
+  console.log(chosenCountry);
   return (
     <div className={styles.result}>
       <div className={styles["result__shadow"]} />
@@ -169,7 +169,7 @@ const Result = ({
             }}
           >
             {canTravelToSomeButNotAll
-              ? `Noen regioner i ${chosenCountry.value} krever karantene når du kommer hjem.`
+              ? `Røde regioner krever karantene når du kommer hjem.`
               : canTravel
               ? `Du slipper karantene når du kommer fra ${chosenCountry.value}.`
               : `Du må i karantene om du kommer reisende fra ${chosenCountry.value}.`}
