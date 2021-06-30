@@ -4,8 +4,6 @@ import styles from "./result.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import { countryCodes } from "../../util/countryCodes";
-
 const Result = ({
   chosenCountry,
   countries,
@@ -22,6 +20,7 @@ const Result = ({
   );
   const [expandRegions, setExpandRegions] = useState(false);
   const [numberOfRegions, setNumberOfRegions] = useState(0);
+  const [showFHILink, setShowFHILink] = useState(false);
 
   const router = useRouter();
 
@@ -43,6 +42,15 @@ const Result = ({
       staggerChildren: 0.5,
     },
     closed: { height: "65px" },
+  };
+
+  const containerVariants = {
+    open: {
+      height: canTravel && !canTravelToSomeButNotAll ? "220px" : "140px",
+    },
+    closed: {
+      height: canTravel && !canTravelToSomeButNotAll ? "190px" : "110px",
+    },
   };
 
   const arrowVariants = {
@@ -109,7 +117,7 @@ const Result = ({
           </div>
         </div>
       ) : (
-        <div
+        <motion.div
           className={styles["result__container"]}
           style={{
             backgroundColor: canTravelToSomeButNotAll
@@ -118,6 +126,12 @@ const Result = ({
               ? "white"
               : "rgb(223, 144, 144)",
           }}
+          initial={{
+            height: canTravel && !canTravelToSomeButNotAll ? "190px" : "110",
+          }}
+          animate={showFHILink ? "open" : "closed"}
+          variants={containerVariants}
+          onClick={() => setShowFHILink(!showFHILink)}
         >
           {canTravel && !canTravelToSomeButNotAll && (
             <div className={styles["result__postcard"]}>
@@ -148,14 +162,22 @@ const Result = ({
               </div>
             </div>
           )}
-          <div className={styles["result__header"]}>
+          <div
+            className={styles["result__header"]}
+            style={{
+              marginTop: canTravel && !canTravelToSomeButNotAll ? "30px" : "0",
+            }}
+          >
             {canTravelToSomeButNotAll
               ? `Noen regioner i ${chosenCountry.value} krever karantene når du kommer hjem.`
               : canTravel
               ? `Du slipper karantene når du kommer fra ${chosenCountry.value}.`
               : `Du må i karantene om du kommer reisende fra ${chosenCountry.value}.`}
           </div>
-          <div className={styles["result__link"]}>
+          <div
+            className={styles["result__link"]}
+            style={{ display: showFHILink ? "flex" : "none" }}
+          >
             <a
               href="https://www.fhi.no/nettpub/coronavirus/fakta/reiserad-knyttet-til-nytt-koronavirus-coronavirus/?term=&h=1#innreisekarantene-ved-ankomst-til-norge"
               target="_blank"
@@ -172,7 +194,7 @@ const Result = ({
               />
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
       {numberOfRegions && canTravelToSomeButNotAll ? (
         <motion.div

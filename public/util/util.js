@@ -132,6 +132,7 @@ export const getRandomCountrySuggestion = (countries) => {
 };
 export const makeCountryList = (data) => {
   let tmpArr = [];
+  let foundEngland = false;
   data.map((country) => {
     tmpArr.push({ value: country.name, label: country.name + "?" });
   });
@@ -141,6 +142,9 @@ export const makeCountryList = (data) => {
       index === self.findIndex((t) => t.value === country.value)
   );
   tmpArr.forEach((newCountry) => {
+    if (newCountry.value === "England") {
+      foundEngland = true;
+    }
     data.forEach((dataCountry) => {
       if (dataCountry.name === newCountry.value) {
         if (!newCountry.data) {
@@ -155,6 +159,23 @@ export const makeCountryList = (data) => {
   //     console.log(`"/${country.value}"`);
   //     console.log(`"/${country.value.toLowerCase()}"`);
   //   });
+  if (!foundEngland) {
+    // let newArr = Object.assign([], tmpArr);
+    tmpArr.forEach((country) => {
+      if (country.value === "Storbritannia") {
+        let england = Object.assign({}, country);
+        let skottland = Object.assign({}, country);
+        let nordIrland = Object.assign({}, country);
+        let wales = Object.assign({}, country);
+        england.label = "England?";
+        skottland.label = "Skottland?";
+        nordIrland.label = "Nord-Irland?";
+        wales.label = "Wales?";
+        tmpArr.push(england, skottland, nordIrland, wales);
+        return;
+      }
+    });
+  }
   return tmpArr;
 };
 

@@ -1,5 +1,5 @@
 import styles from "../../../styles/Home.module.scss";
-import Select, { components } from "react-select";
+import Select from "react-select";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 
 //Components
 import Control from "../control/control";
-import Option from "../option/option";
 import MenuList from "../menu-list/menu-list";
 import SingleValue from "../single-value/single-value";
 import Result from "../result/result";
@@ -54,8 +53,9 @@ const Main = ({ slug, data }) => {
       let matched = false;
       countries.forEach((country) => {
         if (slug.toLowerCase() === country.value.toLowerCase()) {
-          setChosenCountry(country);
+          changeCountry(country);
           matched = true;
+          selectRef.current.select.setValue(country);
         }
       });
       if (!matched) {
@@ -87,6 +87,9 @@ const Main = ({ slug, data }) => {
   };
 
   const reset = () => {
+    // if (slug) {
+    //   router.push("/");
+    // }
     setChosenCountry(false);
     setPlaceholder(getRandomCountrySuggestion(countries));
     selectRef.current.select.clearValue();
@@ -275,9 +278,17 @@ const Main = ({ slug, data }) => {
                 //   value={chosenCountry.label}
                 onChange={changeCountry}
                 onFocus={() => setIsFocused(true)}
-                onBlur={() => setIsFocused(false)}
+                onBlur={() => {
+                  setIsFocused(false);
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  });
+                }}
                 placeholder={countries && placeholder}
                 instanceId={"search"}
+                menuShouldScrollIntoView={false}
               />
               {isFocused && (
                 <div className={styles["page__search-explanation"]}>

@@ -9,6 +9,7 @@
   background-color: $color-pink;
   overflow: hidden;
   position: relative;
+  background-image: url("../public/assets/back.png");
 
   &__wrapper {
     width: 100%;
@@ -163,7 +164,8 @@
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
     video {
-      width: 100%;
+      width: 103%;
+      transform: translate(-5px, -2px);
       height: auto;
     }
   }
