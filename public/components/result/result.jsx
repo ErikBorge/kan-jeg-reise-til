@@ -46,10 +46,10 @@ const Result = ({
 
   const containerVariants = {
     open: {
-      height: canTravel && !canTravelToSomeButNotAll ? "220px" : "140px",
+      height: canTravel && !canTravelToSomeButNotAll ? "220px" : "160px",
     },
     closed: {
-      height: canTravel && !canTravelToSomeButNotAll ? "190px" : "110px",
+      height: canTravel && !canTravelToSomeButNotAll ? "190px" : "130px",
     },
   };
 
@@ -127,7 +127,7 @@ const Result = ({
               : "rgb(223, 144, 144)",
           }}
           initial={{
-            height: canTravel && !canTravelToSomeButNotAll ? "190px" : "110",
+            height: canTravel && !canTravelToSomeButNotAll ? "190px" : "130",
           }}
           animate={showFHILink ? "open" : "closed"}
           variants={containerVariants}
@@ -171,7 +171,7 @@ const Result = ({
             {canTravelToSomeButNotAll
               ? `Røde regioner krever karantene når du kommer hjem.`
               : canTravel
-              ? `Du slipper karantene når du kommer fra ${chosenCountry.value}.`
+              ? `Du slipper karantene når du kommer reisende fra ${chosenCountry.value}.`
               : `Du må i karantene om du kommer reisende fra ${chosenCountry.value}.`}
           </div>
           <div

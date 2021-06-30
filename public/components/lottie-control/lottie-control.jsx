@@ -117,8 +117,8 @@ const LottieControl = ({
         });
       }
     } else {
-      setLocalCanTravel(false);
-      setLocalCanTravelToSomeButNotAll(false);
+      // setLocalCanTravel(false);
+      // setLocalCanTravelToSomeButNotAll(false);
     }
   }, [chosenCountry]);
 
