@@ -1,12 +1,8 @@
-import Head from "next/head";
 import { NextSeo } from "next-seo";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import useSWR from "swr";
 
 //Components
 import Main from "../public/components/main/main";
-import { getData } from "../public/util/util";
 
 const Page = ({ slug }) => {
   const { data, error } = useSWR(

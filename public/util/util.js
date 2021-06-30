@@ -1,5 +1,3 @@
-import { findLastIndex } from "lodash";
-
 export async function getData() {
   const res = await fetch(
     "https://www.fhi.no/api/chartdata/excel/series/96079"
@@ -9,30 +7,6 @@ export async function getData() {
   const data = await res.json();
   return data;
 }
-
-export const countries = [
-  { value: "Sverige", label: "Sverige", result: "jaokda" },
-  { value: "Danmark", label: "Danmark", result: "kanskje? hadde vært fett" },
-  { value: "Tyskland", label: "Tyskland", result: "ja" },
-  { value: "Frankrike", label: "Frankrike", result: "ja" },
-  { value: "India", label: "India", result: "Ikke faen" },
-];
-
-export const travelCodes = {
-  1: {
-    quarantine: false,
-    response: "Gul - Du må ikke i karantene ved innreise til Norge",
-  },
-  2: {
-    quarantine: true,
-    response: "Rød - Du må i karantene ved innreise til Norge",
-  },
-  4: { quarantine: true, response: "Grå - Ikke vurdert" },
-  5: {
-    quarantine: false,
-    response: "Grønn - Du må ikke i karantene ved innreise til Norge",
-  },
-};
 
 export const getCustomSelectStyles = (
   canTravel,
@@ -58,6 +32,7 @@ export const getCustomSelectStyles = (
       height: "60px",
       fontSize: "40px",
       backgroundColor: inputColor,
+      boxShadow: "none",
 
       "&:hover": {
         borderColor: "#000",
@@ -65,10 +40,6 @@ export const getCustomSelectStyles = (
     }),
     dropdownIndicator: (provided) => ({
       ...provided,
-      // color: "#000",
-      // "&:hover": {
-      //   color: "#000",
-      // },
       display: "none",
     }),
     indicatorSeparator: (provided) => ({
@@ -78,11 +49,12 @@ export const getCustomSelectStyles = (
     placeholder: (provided) => ({
       ...provided,
       fontWeight: "200",
+      color: "rgb(149, 136, 136)",
       "@media (min-width: 769px)": {
         transform: "translateY(-58%)",
       },
       "@media (max-width: 768px)": {
-        transform: "translateY(-64%)",
+        transform: "translateY(-57%)",
       },
     }),
     menu: (provided) => ({
@@ -92,7 +64,6 @@ export const getCustomSelectStyles = (
       border: "unset",
       marginTop: "0",
       marginBottom: "0",
-      // display: "none",
       boxShadow: "none",
       top: "0",
     }),
@@ -103,32 +74,26 @@ export const getCustomSelectStyles = (
     option: (provided) => ({
       ...provided,
       height: "60px",
-      // border: "2px solid black",
       fontSize: "40px",
       backgroundColor: "none",
-      color: "#958888",
-      // paddingBottom: "10px",
-      // paddingTop: "6px",
-      // padding: '10px 12px',
-      // transform: "translate(0,-2px)",
+      color: "rgb(149, 136, 136)",
+      padding: "4px 12px 12px",
     }),
     input: (provided) => ({
       ...provided,
       zIndex: "100000",
-      // height: "60px !important",
+      caretColor: "black",
+      margin: "0 2px 10px",
+      // margin: "0",
+      padding: "0",
+      height: "45px",
+      // transform: "translate(2px, -2px)",
       "& input": {
         fontFamily: "Argent CF italic !important",
-        // fontStyle: "italic",
         fontSize: "40px !important",
         color: "black !important",
         //backgroundColor: "white !important",
         textTransform: "capitalize",
-        // "@media (min-width: 769px)": {
-        //   transform: "translateY(-4px)",
-        // },
-        // "@media (max-width: 768px)": {
-        //   transform: "translateY(-6px)",
-        // },
       },
       "& div div": {
         fontFamily: "Agent CF italic",
@@ -136,11 +101,15 @@ export const getCustomSelectStyles = (
     }),
     valueContainer: (provided) => ({
       ...provided,
-      // width: "100%",
-      // position: "absolute",
-      // left: chosenCountry ? "50%" : "0",
-      // transform: chosenCountry ? "translateX(-50%)" : "0",
-      // transition: "left 0.3s ease-in-out, translateX 0.3s ease-in-out",
+    }),
+    singleValue: (provided) => ({
+      ...provided,
+      color: "black",
+      transform: "translateY(-58%)",
+    }),
+    noOptionsMessage: (provided) => ({
+      ...provided,
+      display: "none",
     }),
     // singleValue: (provided) => ({
     //   ...provided,
@@ -152,17 +121,20 @@ export const getCustomSelectStyles = (
 };
 
 export const getRandomCountrySuggestion = (countries) => {
+  const index = Math.floor(Math.random() * (countries.length + 1));
   return (
     countries &&
     countries.length > 1 &&
     countries[0].value &&
-    countries[Math.round(Math.random() * countries.length - 1)].value
+    countries[index] &&
+    countries[index].label
   );
 };
 export const makeCountryList = (data) => {
   let tmpArr = [];
+  let foundEngland = false;
   data.map((country) => {
-    tmpArr.push({ value: country.name, label: country.name });
+    tmpArr.push({ value: country.name, label: country.name + "?" });
   });
 
   tmpArr = tmpArr.filter(
@@ -170,6 +142,9 @@ export const makeCountryList = (data) => {
       index === self.findIndex((t) => t.value === country.value)
   );
   tmpArr.forEach((newCountry) => {
+    if (newCountry.value === "England") {
+      foundEngland = true;
+    }
     data.forEach((dataCountry) => {
       if (dataCountry.name === newCountry.value) {
         if (!newCountry.data) {
@@ -184,6 +159,23 @@ export const makeCountryList = (data) => {
   //     console.log(`"/${country.value}"`);
   //     console.log(`"/${country.value.toLowerCase()}"`);
   //   });
+  if (!foundEngland) {
+    // let newArr = Object.assign([], tmpArr);
+    tmpArr.forEach((country) => {
+      if (country.value === "Storbritannia") {
+        let england = Object.assign({}, country);
+        let skottland = Object.assign({}, country);
+        let nordIrland = Object.assign({}, country);
+        let wales = Object.assign({}, country);
+        england.label = "England?";
+        skottland.label = "Skottland?";
+        nordIrland.label = "Nord-Irland?";
+        wales.label = "Wales?";
+        tmpArr.push(england, skottland, nordIrland, wales);
+        return;
+      }
+    });
+  }
   return tmpArr;
 };
 

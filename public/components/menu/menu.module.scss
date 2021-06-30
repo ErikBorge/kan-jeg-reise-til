@@ -8,7 +8,9 @@
   }
   &__top {
     // margin: 30px 30px;
-
+    @media (min-width: 1200px) {
+      display: none;
+    }
     button {
       color: $color-pink;
       font-size: 15px;
@@ -42,6 +44,6 @@
     font-size: 30px;
     display: flex;
     justify-content: center;
-    cursor: unset;
+    cursor: url("../../assets/cursor-arrow.svg") 50 25, auto;
   }
 }

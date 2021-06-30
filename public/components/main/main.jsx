@@ -1,5 +1,5 @@
 import styles from "../../../styles/Home.module.scss";
-import Select, { components } from "react-select";
+import Select from "react-select";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 
 //Components
 import Control from "../control/control";
-import Option from "../option/option";
 import MenuList from "../menu-list/menu-list";
+import SingleValue from "../single-value/single-value";
 import Result from "../result/result";
 import LottieControl from "../lottie-control/lottie-control";
 import * as gtag from "../../../lib/gtag";
@@ -16,21 +16,23 @@ import Menu from "../menu/menu";
 
 //util
 import {
-  makeCategories,
+  //   makeCategories,
   makeCountryList,
   getRandomCountrySuggestion,
   getCustomSelectStyles,
 } from "../../util/util";
 
 const Main = ({ slug, data }) => {
-  const [categories, setCategories] = useState(
-    data &&
-      data.config &&
-      data.config.colorAxis.dataClasses &&
-      makeCategories(data.config.colorAxis.dataClasses)
-  );
+  //   const [categories, setCategories] = useState(
+  //     () =>
+  //       data &&
+  //       data.config &&
+  //       data.config.colorAxis.dataClasses &&
+  //       makeCategories(data.config.colorAxis.dataClasses)
+  //   );
   const [countries, setCountries] = useState(
-    data && data.data && data.data[0] && makeCountryList(data.data[0].data)
+    () =>
+      data && data.data && data.data[0] && makeCountryList(data.data[0].data)
   );
   const [chosenCountry, setChosenCountry] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -41,15 +43,19 @@ const Main = ({ slug, data }) => {
 
   const router = useRouter();
   const selectRef = useRef(null);
-  const [currentSuggestion, setCurrentSuggestion] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [placeholder, setPlaceholder] = useState(
+    () => countries && getRandomCountrySuggestion(countries)
+  );
 
   useEffect(() => {
     if (slug && countries) {
       let matched = false;
       countries.forEach((country) => {
         if (slug.toLowerCase() === country.value.toLowerCase()) {
-          setChosenCountry(country);
+          changeCountry(country);
           matched = true;
+          selectRef.current.select.setValue(country);
         }
       });
       if (!matched) {
@@ -65,6 +71,7 @@ const Main = ({ slug, data }) => {
       // setPlay(true);
       // setPause(false);
       selectRef.current.select.blur();
+      setIsFocused(false);
 
       gtag.event({
         action: "search",
@@ -80,13 +87,11 @@ const Main = ({ slug, data }) => {
   };
 
   const reset = () => {
+    // if (slug) {
+    //   router.push("/");
+    // }
     setChosenCountry(false);
-    // setTimeout(() => {
-    //   setCanTravel(false);
-    //   setCanTravelToSomeButNotAll(false);
-    // }, 700);
-
-    // setPause(false);
+    setPlaceholder(getRandomCountrySuggestion(countries));
     selectRef.current.select.clearValue();
     selectRef.current.select.focus();
   };
@@ -137,7 +142,7 @@ const Main = ({ slug, data }) => {
   //   console.log("currentSuggestion", currentSuggestion);
   //   console.log("canTravelToSomeButNotAll", canTravelToSomeButNotAll);
   //   console.log("reverse", reverse);
-  console.log("hello");
+  //   console.log("hello");
   //   console.log("slug", slug);
   // console.log("categories", categories);
   // console.log("selectCountries", selectCountries);
@@ -148,7 +153,7 @@ const Main = ({ slug, data }) => {
     open: { left: "0" },
     closed: { left: "100%" },
   };
-  console.log(window.innerWidth);
+
   return (
     <div className={styles.page}>
       <motion.nav
@@ -156,6 +161,7 @@ const Main = ({ slug, data }) => {
         animate={openMenu ? "open" : "closed"}
         variants={variants}
         className={styles["page__menu"]}
+        onClick={() => setOpenMenu(!openMenu)}
       >
         <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
       </motion.nav>
@@ -178,8 +184,8 @@ const Main = ({ slug, data }) => {
           <Image
             src={"/assets/panam-logo.svg"}
             alt="x"
-            height={90}
-            width={90}
+            height={60}
+            width={60}
           />
         </div>
         <div
@@ -257,15 +263,11 @@ const Main = ({ slug, data }) => {
                 ref={selectRef}
                 components={{
                   Control: Control,
-                  Option: Option,
                   MenuList: MenuList,
+                  SingleValue: SingleValue,
                 }}
                 maxOptions={1}
-                selectProps={{
-                  chosenCountry,
-                  currentSuggestion,
-                  setCurrentSuggestion,
-                }}
+                selectProps={{ chosenCountry }}
                 openMenuOnClick={false}
                 options={countries}
                 styles={getCustomSelectStyles(
@@ -275,9 +277,24 @@ const Main = ({ slug, data }) => {
                 )}
                 //   value={chosenCountry.label}
                 onChange={changeCountry}
-                placeholder={countries && getRandomCountrySuggestion(countries)}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => {
+                  setIsFocused(false);
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  });
+                }}
+                placeholder={countries && placeholder}
                 instanceId={"search"}
+                menuShouldScrollIntoView={false}
               />
+              {isFocused && (
+                <div className={styles["page__search-explanation"]}>
+                  Søk etter land i Europa
+                </div>
+              )}
             </div>
           </div>
           {chosenCountry && (
@@ -285,7 +302,7 @@ const Main = ({ slug, data }) => {
               chosenCountry={chosenCountry}
               setChosenCountry={setChosenCountry}
               countries={countries}
-              categories={categories}
+              //   categories={categories}
               canTravel={canTravel}
               setCanTravel={setCanTravel}
               slug={slug}

@@ -5,6 +5,7 @@
   align-items: center;
   position: relative;
   width: 90%;
+  max-width: 330px;
   // padding: 0 20px;
   margin: 0 auto;
   margin-top: 40px;
@@ -26,6 +27,7 @@
     // margin: 0 20px;
     border: 2px solid black;
     padding: 27px;
+    cursor: pointer;
   }
   &__fuckyouerlend {
     width: 21px;
@@ -57,7 +59,8 @@
   &__header {
     width: 100%;
     // padding: 10px 0;
-    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     font-family: "Argent CF";
     font-size: 20px;
     text-align: center;
@@ -104,5 +107,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  &__region-region {
+    max-height: 48px;
+    overflow: hidden;
+    width: 70%;
+    margin-right: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+  }
+  &__region-region:after {
+    content: "...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  &__region > div {
   }
 }
