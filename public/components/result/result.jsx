@@ -229,7 +229,9 @@ const Result = ({
               chosenCountry.data.map((region, key) => {
                 return (
                   <div key={key} className={styles["result__region"]}>
-                    <div style={{ marginRight: "30px" }}>{region.region}</div>
+                    <div className={styles["result__region-region"]}>
+                      {region.region}
+                    </div>
                     <div style={{ color: "rgb(149, 136, 136)" }}>
                       {region.description.split(".", 1)[0]}
                     </div>

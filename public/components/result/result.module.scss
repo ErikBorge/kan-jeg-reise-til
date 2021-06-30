@@ -108,4 +108,21 @@
     justify-content: space-between;
     align-items: center;
   }
+  &__region-region {
+    max-height: 48px;
+    overflow: hidden;
+    width: 70%;
+    margin-right: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+  }
+  &__region-region:after {
+    content: "...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  &__region > div {
+  }
 }
