@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "./result.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import HaraldMode from "../harald-mode/harald-mode";
 
 const Result = ({
   chosenCountry,
@@ -21,6 +22,7 @@ const Result = ({
   const [expandRegions, setExpandRegions] = useState(false);
   const [numberOfRegions, setNumberOfRegions] = useState(0);
   const [showFHILink, setShowFHILink] = useState(false);
+  const [haraldMode, setHaraldMode] = useState(false);
 
   const router = useRouter();
 
@@ -95,12 +97,20 @@ const Result = ({
           }}
         >
           <div
-            className={styles["result__header"]}
-            style={{ marginTop: "0px" }}
+            className={`${styles["result__header"]} ${
+              haraldMode ? styles["result__header-harald"] : ""
+            }`}
+            style={{
+              marginTop: "0px",
+              fontFamily: !haraldMode ? "Argent CF italic" : "Argent Pixel CF",
+            }}
           >
-            Null karantene på innenlandsreiser!
+            {!haraldMode
+              ? "Null karantene på innenlandsreiser!"
+              : "OVERTENNING MODE ACTIVATED"}
           </div>
           <div
+            onClick={() => setHaraldMode(true)}
             style={{
               position: "absolute",
               bottom: "-3px",
@@ -108,7 +118,9 @@ const Result = ({
             }}
           >
             <Image
-              src={"/assets/harald.png"}
+              src={
+                !haraldMode ? "/assets/harald.png" : "/assets/haraldmode.png"
+              }
               alt="x"
               height={140}
               width={210}
@@ -240,6 +252,7 @@ const Result = ({
           </div>
         </motion.div>
       ) : null}
+      <HaraldMode hasCheeseBurger={haraldMode} />
     </div>
   );
 };
