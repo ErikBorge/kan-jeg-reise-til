@@ -41,6 +41,7 @@ const HaraldMode = ({ hasCheeseBurger }) => {
     if (hasCheeseBurger) {
       newElement.style.display = "block";
       // newElement2.style.display = "block";
+      // trigger vercel commit
     }
     let interval = setInterval(() => {
       newElement.style.top =
