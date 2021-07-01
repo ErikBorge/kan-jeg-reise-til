@@ -4,6 +4,7 @@ import styles from "./result.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import HaraldMode from "../harald-mode/harald-mode";
+import * as gtag from "../../../lib/gtag";
 
 const Result = ({
   chosenCountry,
@@ -74,6 +75,17 @@ const Result = ({
   //       canTravelToSomeButNotAll
   //     );
   //   });
+
+  const toggleHaraldMode = () => {
+    if (!haraldMode) {
+      gtag.event({
+        action: "HaraldMode",
+        category: "HaraldMode",
+        label: "HaraldMode",
+      });
+    }
+    setHaraldMode(!haraldMode);
+  };
   return (
     <div className={styles.result}>
       <div className={styles["result__shadow"]} />
@@ -110,21 +122,49 @@ const Result = ({
               : "OVERTENNING MODE ACTIVATED"}
           </div>
           <div
-            onClick={() => setHaraldMode(true)}
-            style={{
-              position: "absolute",
-              bottom: "-3px",
-              left: "0",
-            }}
+            className={styles["result__harald-img"]}
+            onClick={() => toggleHaraldMode()}
           >
-            <Image
-              src={
-                !haraldMode ? "/assets/harald.png" : "/assets/haraldmode.png"
-              }
-              alt="x"
-              height={140}
-              width={210}
-            />
+            <div
+              className={styles["result__harald-img-head"]}
+              style={{
+                animationPlayState: haraldMode ? "paused" : "running",
+                // transform: haraldMode ? "rotate(0)" : "rotate(0)",
+              }}
+            >
+              <div
+                className={`${
+                  haraldMode ? styles["result__harald-img-head-rotate"] : ""
+                }`}
+              >
+                {haraldMode && (
+                  <div
+                    style={{
+                      position: "relative",
+                      top: "38px",
+                      left: "25px",
+                      zIndex: "3",
+                    }}
+                  >
+                    🔥&nbsp;&nbsp;🔥
+                  </div>
+                )}
+                <Image
+                  src={"/assets/harald-head.png"}
+                  alt="x"
+                  height={95}
+                  width={75}
+                />
+              </div>
+            </div>
+            <div style={{ position: "relative", bottom: "0", left: "0" }}>
+              <Image
+                src={"/assets/harald-body.png"}
+                alt="x"
+                height={60}
+                width={210}
+              />
+            </div>
           </div>
         </div>
       ) : (
