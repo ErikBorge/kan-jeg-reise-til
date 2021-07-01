@@ -75,6 +75,7 @@ const Result = ({
   //       canTravelToSomeButNotAll
   //     );
   //   });
+  //test
 
   const toggleHaraldMode = () => {
     if (!haraldMode) {
