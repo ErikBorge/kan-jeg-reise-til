@@ -37,10 +37,10 @@ const HaraldMode = ({ hasCheeseBurger }) => {
   useEffect(() => {
     let element = document.getElementById("explosion");
     let newElement = document.body.appendChild(element);
-    let newElement2 = document.body.appendChild(element);
+    // let newElement2 = document.body.appendChild(element.cloneNode(true));
     if (hasCheeseBurger) {
       newElement.style.display = "block";
-      newElement2.style.display = "block";
+      // newElement2.style.display = "block";
     }
     let interval = setInterval(() => {
       newElement.style.top =
@@ -48,71 +48,69 @@ const HaraldMode = ({ hasCheeseBurger }) => {
         75 +
         "px";
       newElement.style.left =
-        Math.floor(Math.random() * (window.innerWidth - 75 - 75 + 1)) +
-        75 +
-        "px";
+        Math.floor(Math.random() * (window.innerWidth - 150 + 1)) + "px";
     }, 1000);
-    let interval2 = setInterval(() => {
-      newElement2.style.top =
-        Math.floor(Math.random() * (window.innerHeight - 75 - 75 + 1)) +
-        75 +
-        "px";
-      newElement2.style.left =
-        Math.floor(Math.random() * (window.innerWidth - 75 - 75 + 1)) +
-        75 +
-        "px";
-    }, 800);
+    // let interval2 = setInterval(() => {
+    //   newElement2.style.top =
+    //     Math.floor(Math.random() * (window.innerHeight - 75 - 75 + 1)) +
+    //     75 +
+    //     "px";
+    //   newElement2.style.left =
+    //     Math.floor(Math.random() * (window.innerWidth - 75 - 75 + 1)) +
+    //     75 +
+    //     "px";
+    // }, 800);
     // console.log("started");
     if (!hasCheeseBurger) {
       clearInterval(interval);
-      clearInterval(interval2);
+      // clearInterval(interval2);
     }
-    if (hasCheeseBurger) {
-      // Fade in mr. LilBub
-      //   document.getElementById("lilBubDiv").style.left = "0";
-      // Attach onclicks to all elements in laser cat mode
-      //   Array.from(document.getElementsByTagName("div")).forEach((item, i) => {
-      //     if (item.id !== "root" && item.id !== "app") {
-      //       item.addEventListener("click", (e) => destroyElement(e), true);
-      //     }
-      //   });
-      // console.log("starting");
-      // makeSomeNoise();
-      // arr.forEach((item, i) => {
-      //   if (item.id !== "root" && item.id !== "app") {
-      //     let timeout = setTimeout(() => {
-      //       item.style.filter = `hue-rotate(${Math.random() * "180"}deg)`;
-      //     }, 800 * i);
-      //     if (i === arr.length - 1) {
-      //       console.log("reached end at index ", i);
-      //       clearInterval(timeout);
-      //       setStartAgain(!startAgain);
-      //     }
-      //   }
-      // });
-      // clearInterval(interval);
-      //   alert("LASER CAT MODE! Click to destroy.");
-      // TODO: this doesn't remove the react onClick handler. Fix
-      // getElementsByIdStartsWith('history-content', 'div', 'history-element').forEach((element) => {
-      //   element.onclick = null;
-      // })
-      // Rotate head according to mouse position
-      //   document.body.addEventListener("mousemove", (e) => {
-      //     rotateLilBub(
-      //       document.getElementById("lilbub"),
-      //       e.clientX,
-      //       window.innerHeight - e.clientY
-      //     );
-      //   });
-    }
+
+    // Fade in mr. LilBub
+    //   document.getElementById("lilBubDiv").style.left = "0";
+    // Attach onclicks to all elements in laser cat mode
+    //   Array.from(document.getElementsByTagName("div")).forEach((item, i) => {
+    //     if (item.id !== "root" && item.id !== "app") {
+    //       item.addEventListener("click", (e) => destroyElement(e), true);
+    //     }
+    //   });
+    // console.log("starting");
+    // makeSomeNoise();
+    // arr.forEach((item, i) => {
+    //   if (item.id !== "root" && item.id !== "app") {
+    //     let timeout = setTimeout(() => {
+    //       item.style.filter = `hue-rotate(${Math.random() * "180"}deg)`;
+    //     }, 800 * i);
+    //     if (i === arr.length - 1) {
+    //       console.log("reached end at index ", i);
+    //       clearInterval(timeout);
+    //       setStartAgain(!startAgain);
+    //     }
+    //   }
+    // });
+    // clearInterval(interval);
+    //   alert("LASER CAT MODE! Click to destroy.");
+    // TODO: this doesn't remove the react onClick handler. Fix
+    // getElementsByIdStartsWith('history-content', 'div', 'history-element').forEach((element) => {
+    //   element.onclick = null;
+    // })
+    // Rotate head according to mouse position
+    //   document.body.addEventListener("mousemove", (e) => {
+    //     rotateLilBub(
+    //       document.getElementById("lilbub"),
+    //       e.clientX,
+    //       window.innerHeight - e.clientY
+    //     );
+    //   });
+    // }
     return () => {
       // console.log("stopped");
       // cleanup();
       // makeSomeNoise(true);
       clearInterval(interval);
-      clearInterval(interval2);
+      // clearInterval(interval2);
       newElement.style.display = "none";
-      newElement2.style.display = "none";
+      // newElement2.style.display = "none";
       // arr.forEach((item, i) => {
       //   item.style.filter = "unset";
       // });

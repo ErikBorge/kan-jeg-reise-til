@@ -108,6 +108,7 @@ const Result = ({
             height: "240px",
           }}
         >
+          <HaraldMode hasCheeseBurger={haraldMode} />
           <div
             className={`${styles["result__header"]} ${
               haraldMode ? styles["result__header-harald"] : ""
@@ -292,7 +293,6 @@ const Result = ({
           </div>
         </motion.div>
       ) : null}
-      <HaraldMode hasCheeseBurger={haraldMode} />
     </div>
   );
 };
