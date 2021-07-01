@@ -49,10 +49,10 @@ const Result = ({
 
   const containerVariants = {
     open: {
-      height: canTravel && !canTravelToSomeButNotAll ? "220px" : "160px",
+      height: canTravel && !canTravelToSomeButNotAll ? "220px" : "140px",
     },
     closed: {
-      height: canTravel && !canTravelToSomeButNotAll ? "190px" : "130px",
+      height: canTravel && !canTravelToSomeButNotAll ? "190px" : "110px",
     },
   };
 
@@ -180,7 +180,7 @@ const Result = ({
               : "rgb(223, 144, 144)",
           }}
           initial={{
-            height: canTravel && !canTravelToSomeButNotAll ? "190px" : "130",
+            height: canTravel && !canTravelToSomeButNotAll ? "190px" : "110",
           }}
           animate={showFHILink ? "open" : "closed"}
           variants={containerVariants}
