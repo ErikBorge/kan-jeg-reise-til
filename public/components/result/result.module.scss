@@ -28,6 +28,8 @@
     border: 2px solid black;
     padding: 27px;
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
   }
   &__fuckyouerlend {
     width: 21px;
@@ -38,6 +40,7 @@
     background-color: white;
     position: absolute;
     top: -10px;
+    z-index: 10;
   }
   &__postcard {
     display: flex;
@@ -64,6 +67,28 @@
     font-family: "Argent CF";
     font-size: 20px;
     text-align: center;
+  }
+  &__header-harald {
+    animation: haraldtext 0.5s steps(2) infinite;
+  }
+  &__harald-img {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    animation: haraldimg 1.3s;
+  }
+  &__harald-img-head {
+    position: relative;
+    display: inline-block;
+    bottom: -18px;
+    left: 55px;
+    transform-origin: 60% 70%;
+    z-index: 2;
+    transition: rotate 0.4s ease-out;
+    animation: haraldhead 2s infinite 2s;
+  }
+  &__harald-img-head-rotate {
+    animation: haraldheadrotate 0.7s linear infinite;
   }
   &__link {
     text-align: center;
@@ -124,5 +149,61 @@
     right: 0;
   }
   &__region > div {
+  }
+  @keyframes haraldtext {
+    0% {
+      transform: translate(-4px, -4px);
+    }
+    33% {
+      transform: translate(4px, -4px);
+    }
+    66% {
+      transform: translate(-4px, 4px);
+    }
+    100% {
+      transform: translate(4px, 4px);
+    }
+  }
+  @keyframes haraldimg {
+    0% {
+      bottom: -150px;
+    }
+    33% {
+      bottom: -100px;
+    }
+    60% {
+      bottom: -105px;
+    }
+    100% {
+      bottom: -5px;
+    }
+  }
+  @keyframes haraldhead {
+    0% {
+      transform: rotate(0);
+    }
+    7% {
+      transform: rotate(-7deg);
+    }
+    14% {
+      transform: rotate(7deg);
+    }
+    21% {
+      transform: rotate(-7deg);
+    }
+    28% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+  @keyframes haraldheadrotate {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(359deg);
+    }
   }
 }

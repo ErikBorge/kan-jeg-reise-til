@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import styles from "./result.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import HaraldMode from "../harald-mode/harald-mode";
+import * as gtag from "../../../lib/gtag";
 
 const Result = ({
   chosenCountry,
@@ -21,6 +23,7 @@ const Result = ({
   const [expandRegions, setExpandRegions] = useState(false);
   const [numberOfRegions, setNumberOfRegions] = useState(0);
   const [showFHILink, setShowFHILink] = useState(false);
+  const [haraldMode, setHaraldMode] = useState(false);
 
   const router = useRouter();
 
@@ -72,6 +75,17 @@ const Result = ({
   //       canTravelToSomeButNotAll
   //     );
   //   });
+
+  const toggleHaraldMode = () => {
+    if (!haraldMode) {
+      gtag.event({
+        action: "HaraldMode",
+        category: "HaraldMode",
+        label: "HaraldMode",
+      });
+    }
+    setHaraldMode(!haraldMode);
+  };
   return (
     <div className={styles.result}>
       <div className={styles["result__shadow"]} />
@@ -94,25 +108,64 @@ const Result = ({
             height: "240px",
           }}
         >
+          <HaraldMode hasCheeseBurger={haraldMode} />
           <div
-            className={styles["result__header"]}
-            style={{ marginTop: "0px" }}
-          >
-            Null karantene på innenlandsreiser!
-          </div>
-          <div
+            className={`${styles["result__header"]} ${
+              haraldMode ? styles["result__header-harald"] : ""
+            }`}
             style={{
-              position: "absolute",
-              bottom: "-3px",
-              left: "0",
+              marginTop: "0px",
+              fontFamily: !haraldMode ? "Argent CF italic" : "Argent Pixel CF",
             }}
           >
-            <Image
-              src={"/assets/harald.png"}
-              alt="x"
-              height={140}
-              width={210}
-            />
+            {!haraldMode
+              ? "Null karantene på innenlandsreiser!"
+              : "OVERTENNING MODE ACTIVATED"}
+          </div>
+          <div
+            className={styles["result__harald-img"]}
+            onClick={() => toggleHaraldMode()}
+          >
+            <div
+              className={styles["result__harald-img-head"]}
+              style={{
+                animationPlayState: haraldMode ? "paused" : "running",
+                // transform: haraldMode ? "rotate(0)" : "rotate(0)",
+              }}
+            >
+              <div
+                className={`${
+                  haraldMode ? styles["result__harald-img-head-rotate"] : ""
+                }`}
+              >
+                {haraldMode && (
+                  <div
+                    style={{
+                      position: "relative",
+                      top: "38px",
+                      left: "25px",
+                      zIndex: "3",
+                    }}
+                  >
+                    🔥&nbsp;&nbsp;🔥
+                  </div>
+                )}
+                <Image
+                  src={"/assets/harald-head.png"}
+                  alt="x"
+                  height={95}
+                  width={75}
+                />
+              </div>
+            </div>
+            <div style={{ position: "relative", bottom: "0", left: "0" }}>
+              <Image
+                src={"/assets/harald-body.png"}
+                alt="x"
+                height={60}
+                width={210}
+              />
+            </div>
           </div>
         </div>
       ) : (
