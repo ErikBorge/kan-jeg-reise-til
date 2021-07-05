@@ -1,0 +1,133 @@
+.vaksine {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-green;
+  z-index: 20;
+  &__button-wrapper {
+    height: 45px;
+    display: inline-flex;
+    position: relative;
+    transform: translateY(-50%);
+  }
+  &__button {
+    font-family: "Argent CF italic";
+    padding: 10px;
+    // width: 100%;
+    height: 100%;
+    background-color: $color-pink;
+    border: 2px solid #958888;
+    // z-index: 10;
+    font-size: 18px;
+    display: flex;
+    img {
+      //   transform: translateY(2px);
+      margin-left: 10px;
+    }
+  }
+  &__button-shadow {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #958888;
+    bottom: -3px;
+    right: -3px;
+    z-index: -1;
+  }
+  &__content {
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+  &__graphics {
+    margin: 150px 0 66px;
+    @media (max-width: 768px) {
+      margin: 150px 0 45px;
+    }
+  }
+  &__header {
+    font-size: 20px;
+    max-width: 355px;
+    text-align: center;
+    @media (max-width: 768px) {
+      margin: 0 45px;
+    }
+  }
+  &__info-box {
+    width: 335px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    @media (max-width: 768px) {
+      margin: 0 20px;
+    }
+  }
+  &__info-box-shadow {
+    width: 97%;
+    height: 100%;
+    position: absolute;
+    bottom: -9px;
+    right: -3px;
+    background-color: black;
+    z-index: -1;
+    //   transform: translate(-3px,-3px);
+  }
+  &__info-box-tabz {
+    display: flex;
+  }
+  &__info-box-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Argent Pixel CF";
+    font-size: 20px;
+    height: 55px;
+    width: 33.3333333%;
+    background-color: $color-green;
+    border: 2px solid black;
+  }
+  &__info-box-tab:nth-of-type(1) {
+    transform: translateX(2px);
+  }
+  &__info-box-tab:nth-of-type(3) {
+    transform: translateX(-2px);
+  }
+  &__info-box-tab-active {
+    background-color: $color-pink;
+    border-bottom: unset;
+  }
+  &__info-box-tab-number {
+    font-size: 50px;
+    transform: translateY(-5px);
+    margin-right: 5px;
+  }
+  &__info-box-content-header {
+    font-family: "Argent Pixel CF";
+    display: flex;
+    justify-content: space-between;
+    div {
+      display: flex;
+    }
+    img {
+      margin-left: 5px;
+    }
+  }
+  &__info-box-content {
+    font-family: "Argent CF";
+    background-color: $color-pink;
+    // width: 97%;
+    margin: 0 3px 0 2px;
+    border: 2px solid black;
+    border-top: 0;
+    padding: 15px;
+  }
+}

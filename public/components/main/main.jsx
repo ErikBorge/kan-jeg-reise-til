@@ -14,6 +14,7 @@ import Result from "../result/result";
 import LottieControl from "../lottie-control/lottie-control";
 import * as gtag from "../../../lib/gtag";
 import Menu from "../menu/menu";
+import Vaksine from "../vaksine/vaksine";
 
 //util
 import {
@@ -309,6 +310,7 @@ const Main = ({ slug, data }) => {
           )}
         </div>
       </div>
+      <Vaksine />
     </div>
   );
 };
