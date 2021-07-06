@@ -18,6 +18,11 @@ const Vaksine = ({}) => {
   //     }
   //   }
 
+  const toggleVaksine = () => {
+    // TODO: add gtag event
+    setIsOpen(!isOpen);
+  };
+
   return (
     <motion.div
       initial={{ height: "50px" }}
@@ -29,7 +34,7 @@ const Vaksine = ({}) => {
         <button
           className={styles["vaksine__button"]}
           style={{ backgroundColor: isOpen ? "#cee3d0" : "#e3ced3" }}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => toggleVaksine()}
         >
           Jeg er vaksinert
           {isOpen && (
