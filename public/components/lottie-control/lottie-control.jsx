@@ -66,16 +66,16 @@ const LottieControl = ({
     // setPause(!pause);
   }, []);
 
-  useEffect(() => {
-    // console.log(
-    //   "chosenCountry",
-    //   chosenCountry,
-    //   "canTravel",
-    //   canTravel,
-    //   "pause",
-    //   pause
-    // );
-  });
+  // useEffect(() => {
+  //   // console.log(
+  //   //   "chosenCountry",
+  //   //   chosenCountry,
+  //   //   "canTravel",
+  //   //   canTravel,
+  //   //   "pause",
+  //   //   pause
+  //   // );
+  // });
   useEffect(() => {
     if (isMounted) {
       setPause(!pause);
@@ -92,7 +92,13 @@ const LottieControl = ({
         let someButNotAll = false;
         let all = true;
         chosenCountry.data.map((region) => {
-          if (region.value !== "2" && region.value !== "3") {
+          if (
+            region.value !== "2" &&
+            region.value !== "3" &&
+            region.value !== "6" &&
+            region.value !== "7" &&
+            region.value !== "8"
+          ) {
             someButNotAll = true;
           } else {
             all = false;
@@ -110,7 +116,13 @@ const LottieControl = ({
         }
       } else {
         chosenCountry.data.map((region) => {
-          if (region.value !== "2" && region.value !== "3") {
+          if (
+            region.value !== "2" &&
+            region.value !== "3" &&
+            region.value !== "6" &&
+            region.value !== "7" &&
+            region.value !== "8"
+          ) {
             setLocalCanTravel(true);
             setLocalCanTravelToSomeButNotAll(false);
           } else {

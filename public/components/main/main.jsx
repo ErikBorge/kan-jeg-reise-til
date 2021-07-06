@@ -14,6 +14,7 @@ import Result from "../result/result";
 import LottieControl from "../lottie-control/lottie-control";
 import * as gtag from "../../../lib/gtag";
 import Menu from "../menu/menu";
+import Vaksine from "../vaksine/vaksine";
 
 //util
 import {
@@ -99,7 +100,14 @@ const Main = ({ slug, data }) => {
         let someButNotAll = false;
         let all = true;
         chosenCountry.data.map((region) => {
-          if (region.value !== "2" && region.value !== "3") {
+          // TODO: support for alle nye kategorier
+          if (
+            region.value !== "2" &&
+            region.value !== "3" &&
+            region.value !== "6" &&
+            region.value !== "7" &&
+            region.value !== "8"
+          ) {
             someButNotAll = true;
           } else {
             all = false;
@@ -119,7 +127,14 @@ const Main = ({ slug, data }) => {
           // 3: "Mørk rød og rød skravert: du må i karantene og på karantenehotell ved innreise til Norge"
           // 4: "Grå: Norge blir ikke vurdert når det gjelder råd for internasjonale reiser"
           // 5: "Grønn: du må ikke i karantene ved innreise til Norge"
-          if (region.value !== "2" && region.value !== "3") {
+          // TODO: support for alle nye kategorier
+          if (
+            region.value !== "2" &&
+            region.value !== "3" &&
+            region.value !== "6" &&
+            region.value !== "7" &&
+            region.value !== "8"
+          ) {
             setCanTravel(true);
             setCanTravelToSomeButNotAll(false);
             // setResultString("Ja, du kan reise til");
@@ -143,7 +158,7 @@ const Main = ({ slug, data }) => {
   //   console.log("slug", slug);
   // console.log("categories", categories);
   // console.log("selectCountries", selectCountries);
-  //   console.log("chosenCountry", chosenCountry);
+  // console.log("chosenCountry", chosenCountry);
   //   console.log("countries", countries);
   //   console.log("data", data);
   const variants = {
@@ -309,6 +324,7 @@ const Main = ({ slug, data }) => {
           )}
         </div>
       </div>
+      {/* <Vaksine /> */}
     </div>
   );
 };
