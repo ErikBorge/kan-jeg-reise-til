@@ -1,15 +1,22 @@
 import Head from "next/head";
 import { NextSeo } from "next-seo";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Main from "../public/components/main/main";
 import { getData } from "../public/util/util";
+import Splash from "../public/components/splash/splash";
 import useSWR from "swr";
 
 export default function Home({}) {
+  const [isLoading, setIsLoading] = useState(true);
   const { data, error } = useSWR(
     "https://www.fhi.no/api/chartdata/excel/series/96079",
     (query) => fetch(query).then((res) => res.json())
   );
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 4000);
+  // }, []);
 
   if (error) {
     return "something went wrong";
@@ -36,7 +43,11 @@ export default function Home({}) {
           images: [{ url: "https://kan-jeg-reise-til.vercel.app/sun.png" }],
         }}
       />
-      {data && <Main slug={false} data={data} />}
+      {data && (
+        <Main slug={false} data={data}>
+          {isLoading && <Splash setIsLoading={setIsLoading} />}
+        </Main>
+      )}
     </>
   );
 }

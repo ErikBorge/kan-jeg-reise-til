@@ -24,7 +24,7 @@ import {
   getCustomSelectStyles,
 } from "../../util/util";
 
-const Main = ({ slug, data }) => {
+const Main = ({ slug, data, children }) => {
   //   const [categories, setCategories] = useState(
   //     () =>
   //       data &&
@@ -167,7 +167,8 @@ const Main = ({ slug, data }) => {
   };
 
   return (
-    <div className={styles.page}>
+    <div className={styles.page} id="home-page">
+      {children}
       <motion.nav
         initial={{ left: "100%" }}
         animate={openMenu ? "open" : "closed"}
@@ -324,7 +325,7 @@ const Main = ({ slug, data }) => {
           )}
         </div>
       </div>
-      {/* <Vaksine /> */}
+      <Vaksine />
     </div>
   );
 };

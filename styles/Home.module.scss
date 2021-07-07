@@ -16,6 +16,9 @@
     max-width: 500px;
     position: relative;
     margin: 0 auto;
+    @media (min-width: 769px) {
+      margin-bottom: 150px;
+    }
     // display: flex;
     // flex-direction: column;
     // justify-content: center;
