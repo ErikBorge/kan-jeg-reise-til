@@ -1,5 +1,6 @@
 .vaksine {
   position: absolute;
+  //   position: fixed;
   width: 100vw;
   top: 95%;
   //   bottom: 0;
@@ -15,14 +16,14 @@
     transform: translateY(-50%);
   }
   &__button {
-    font-family: "Argent CF italic";
+    font-family: "Argent Pixel CF";
     padding: 10px;
     // width: 100%;
     height: 100%;
     background-color: $color-pink;
     border: 2px solid #958888;
     // z-index: 10;
-    font-size: 18px;
+    font-size: 15px;
     display: flex;
     img {
       //   transform: translateY(2px);

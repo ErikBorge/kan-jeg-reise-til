@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import styles from "./result.module.scss";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -24,6 +24,14 @@ const Result = ({
   const [numberOfRegions, setNumberOfRegions] = useState(0);
   const [showFHILink, setShowFHILink] = useState(false);
   const [haraldMode, setHaraldMode] = useState(false);
+  const [resultContainer, setResultContainer] = useState(0);
+
+  useLayoutEffect(() => {
+    let element = document.getElementById("result-container");
+    if (element) {
+      setResultContainer(element);
+    }
+  }, [chosenCountry, canTravel, canTravelToSomeButNotAll]);
 
   const router = useRouter();
 
@@ -41,7 +49,7 @@ const Result = ({
   //   console.log("categories", categories);
   const variants = {
     open: {
-      height: `${63 * numberOfRegions + 30 + 65}px`,
+      height: `${50 * numberOfRegions + 25 + 65 + 10}px`,
       staggerChildren: 0.5,
     },
     closed: { height: "65px" },
@@ -49,10 +57,18 @@ const Result = ({
 
   const containerVariants = {
     open: {
-      height: canTravel && !canTravelToSomeButNotAll ? "220px" : "140px",
+      height: canTravel
+        ? !canTravelToSomeButNotAll
+          ? "220px"
+          : "190px"
+        : "140px",
     },
     closed: {
-      height: canTravel && !canTravelToSomeButNotAll ? "190px" : "110px",
+      height: canTravel
+        ? !canTravelToSomeButNotAll
+          ? "190px"
+          : "160px"
+        : "110px",
     },
   };
 
@@ -86,6 +102,17 @@ const Result = ({
       });
     }
     setHaraldMode(!haraldMode);
+  };
+
+  const showFHILinkFunc = () => {
+    if (!showFHILink) {
+      gtag.event({
+        action: "show_FHI_link",
+        category: "FHILink",
+        label: "show_FHI_link",
+      });
+    }
+    setShowFHILink(!showFHILink);
   };
   return (
     <div className={styles.result}>
@@ -171,6 +198,7 @@ const Result = ({
         </div>
       ) : (
         <motion.div
+          id="result-container"
           className={styles["result__container"]}
           style={{
             backgroundColor: canTravelToSomeButNotAll
@@ -180,11 +208,20 @@ const Result = ({
               : "rgb(223, 144, 144)",
           }}
           initial={{
-            height: canTravel && !canTravelToSomeButNotAll ? "190px" : "110",
+            height: canTravel
+              ? !canTravelToSomeButNotAll
+                ? "190px"
+                : "160px"
+              : "110px",
+            // canTravel && !canTravelToSomeButNotAll
+            //   ? "190px"
+            //   : canTravel && canTravelToSomeButNotAll
+            //   ? "150"
+            //   : "110",
           }}
           animate={showFHILink ? "open" : "closed"}
           variants={containerVariants}
-          onClick={() => setShowFHILink(!showFHILink)}
+          onClick={() => showFHILinkFunc()}
         >
           {canTravel && !canTravelToSomeButNotAll && (
             <div className={styles["result__postcard"]}>
@@ -222,11 +259,47 @@ const Result = ({
             }}
           >
             {canTravelToSomeButNotAll
-              ? `Røde regioner krever karantene når du kommer hjem.`
+              ? `Grønne regioner krever ikke karantene når du kommer hjem.`
               : canTravel
               ? `Du slipper karantene når du kommer reisende fra ${chosenCountry.value}.`
               : `Du må i karantene om du kommer reisende fra ${chosenCountry.value}.`}
           </div>
+          {canTravel && canTravelToSomeButNotAll && (
+            <div className={styles["result__regions-legend"]}>
+              {/* grønn */}
+              <div
+                className={styles["result__regions-legend-item"]}
+                style={{ backgroundColor: "#cee3d0" }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-30px",
+                    left: "-30px",
+                    height: "35px",
+                    width: "34px",
+                  }}
+                >
+                  <Image
+                    src={"/assets/pointy-arrow-pixel.png"}
+                    alt="->"
+                    width={34}
+                    height={35}
+                  />
+                </div>
+              </div>
+              {/* oransje (med gul farge) */}
+              <div
+                className={styles["result__regions-legend-item"]}
+                style={{ backgroundColor: "#dfce90" }}
+              />
+              {/* rød */}
+              <div
+                className={styles["result__regions-legend-item"]}
+                style={{ backgroundColor: "#df9090" }}
+              />
+            </div>
+          )}
           <div
             className={styles["result__link"]}
             style={{ display: showFHILink ? "flex" : "none" }}
@@ -282,11 +355,31 @@ const Result = ({
               chosenCountry.data.map((region, key) => {
                 return (
                   <div key={key} className={styles["result__region"]}>
+                    <div
+                      className={styles["result__region-color-label"]}
+                      style={{
+                        backgroundColor:
+                          region.description.split(".", 1)[0].toLowerCase() ===
+                          "rød"
+                            ? "#df9090"
+                            : region.description
+                                .split(".", 1)[0]
+                                .toLowerCase() === "grønn"
+                            ? "#cee3d0"
+                            : region.description
+                                .split(".", 1)[0]
+                                .toLowerCase() === "orange"
+                            ? "#dfce90"
+                            : "#F2F2F2",
+                        border:
+                          region.description.split(".", 1)[0].toLowerCase() ===
+                          "grønn"
+                            ? "2px solid black"
+                            : "none",
+                      }}
+                    />
                     <div className={styles["result__region-region"]}>
                       {region.region}
-                    </div>
-                    <div style={{ color: "rgb(149, 136, 136)" }}>
-                      {region.description.split(".", 1)[0]}
                     </div>
                   </div>
                 );

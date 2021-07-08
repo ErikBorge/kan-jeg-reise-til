@@ -1,5 +1,5 @@
 import styles from "../../../styles/Home.module.scss";
-import Select from "react-select";
+import Select, { createFilter } from "react-select";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -33,8 +33,7 @@ const Main = ({ slug, data, children }) => {
   //       makeCategories(data.config.colorAxis.dataClasses)
   //   );
   const [countries, setCountries] = useState(
-    () =>
-      data && data.data && data.data[0] && makeCountryList(data.data[0].data)
+    () => data && data.data && data.data.data && makeCountryList(data.data.data)
   );
   const [chosenCountry, setChosenCountry] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -46,6 +45,7 @@ const Main = ({ slug, data, children }) => {
   const router = useRouter();
   const selectRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
+  const [isVaksineOpen, setIsVaksineOpen] = useState(false);
 
   useEffect(() => {
     if (slug && countries) {
@@ -165,6 +165,16 @@ const Main = ({ slug, data, children }) => {
     open: { left: "0" },
     closed: { left: "100%" },
   };
+  const openMenuFunc = () => {
+    if (!openMenu) {
+      gtag.event({
+        action: "open_menu",
+        category: "open_menu",
+        label: "open_menu",
+      });
+    }
+    setOpenMenu(!openMenu);
+  };
 
   return (
     <div className={styles.page} id="home-page">
@@ -174,7 +184,7 @@ const Main = ({ slug, data, children }) => {
         animate={openMenu ? "open" : "closed"}
         variants={variants}
         className={styles["page__menu"]}
-        onClick={() => setOpenMenu(!openMenu)}
+        onClick={() => openMenuFunc()}
       >
         <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
       </motion.nav>
@@ -183,7 +193,7 @@ const Main = ({ slug, data, children }) => {
           className={styles["page__menu-button"]}
           onClick={() => setOpenMenu(!openMenu)}
           style={{
-            opacity: chosenCountry ? "0" : "1",
+            opacity: chosenCountry || isVaksineOpen ? "0" : "1",
           }}
         >
           <Image src={"/assets/e-and-e.svg"} alt="E&E" height={20} width={35} />
@@ -191,7 +201,7 @@ const Main = ({ slug, data, children }) => {
         <div
           className={styles["page__panam"]}
           style={{
-            opacity: chosenCountry ? "0" : "1",
+            opacity: chosenCountry || isVaksineOpen ? "0" : "1",
           }}
         >
           <Image
@@ -302,12 +312,18 @@ const Main = ({ slug, data, children }) => {
                 }}
                 instanceId={"search"}
                 menuShouldScrollIntoView={false}
+                filterOption={createFilter({
+                  ignoreCase: true,
+                  ignoreAccents: false,
+                  trim: false,
+                  matchFrom: "start",
+                })}
               />
-              {isFocused && (
+              {/* {isFocused && (
                 <div className={styles["page__search-explanation"]}>
                   Søk etter land i Europa
                 </div>
-              )}
+              )} */}
             </div>
           </div>
           {chosenCountry && (
@@ -325,7 +341,11 @@ const Main = ({ slug, data, children }) => {
           )}
         </div>
       </div>
-      <Vaksine />
+      <Vaksine
+        isOpen={isVaksineOpen}
+        setIsOpen={setIsVaksineOpen}
+        chosenCountry={chosenCountry}
+      />
     </div>
   );
 };

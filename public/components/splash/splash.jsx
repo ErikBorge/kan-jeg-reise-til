@@ -4,41 +4,50 @@ import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
 import Image from "next/image";
 
-const Splash = ({ setIsLoading }) => {
+const Splash = ({ setIsLoading, hasBeenHereBefore }) => {
+  console.log("hasBeenHereBefore", hasBeenHereBefore);
   const [opacity, setOpacity] = useState("1");
   useEffect(() => {
-    setTimeout(() => {
+    let timeout1delay = !hasBeenHereBefore ? 6500 : 4200;
+    let timeout2delay = !hasBeenHereBefore ? 6900 : 4600;
+    let timeout1 = setTimeout(() => {
       setOpacity("0");
-    }, 4900);
-    setTimeout(() => {
+    }, timeout1delay);
+    let timeout2 = setTimeout(() => {
       setIsLoading(false);
-    }, 5300);
+    }, timeout2delay);
+    return () => {
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+    };
   }, []);
-  console.log(opacity);
+
   return (
     <div style={{ opacity: opacity }} className={styles.splash}>
-      <Image
-        src={"/assets/hour-glass.png"}
-        alt="timeglass"
-        width={40}
-        height={40}
-      />
+      <div className={styles["splash__hourglass"]}>
+        <Image
+          src={"/assets/hour-glass.png"}
+          alt="timeglass"
+          width={40}
+          height={40}
+        />
+      </div>
       <div className={styles["splash__lines"]}>
         <Typist
-          avgTypingDelay={20}
+          avgTypingDelay={!hasBeenHereBefore ? 20 : 10}
           startDelay={300}
           stdTypingDelay={15}
           cursor={{ hideWhenDone: true }}
         >
           Henter data fra FHI ...
-          <Typist.Delay ms={600} />
+          <Typist.Delay ms={!hasBeenHereBefore ? 900 : 400} />
           <br />
           Laster vaksine-informasjon ...
-          <Typist.Delay ms={600} />
+          <Typist.Delay ms={!hasBeenHereBefore ? 900 : 400} />
           <br />
           <br />
           Queuer Santana - Smooth ...
-          <Typist.Delay ms={500} />
+          <Typist.Delay ms={1000} />
           <br />
           <br />
           100% suksess!

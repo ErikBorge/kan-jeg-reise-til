@@ -2,21 +2,31 @@ import Head from "next/head";
 import { NextSeo } from "next-seo";
 import { useState, useEffect } from "react";
 import Main from "../public/components/main/main";
-import { getData } from "../public/util/util";
+import { getDateXDaysFromNow } from "../public/util/util";
 import Splash from "../public/components/splash/splash";
 import useSWR from "swr";
+import { useCookies } from "react-cookie";
 
 export default function Home({}) {
   const [isLoading, setIsLoading] = useState(true);
+  const [cookies, setCookie] = useCookies(["hasBeenHereBefore"]);
+  const [hasBeenHereBefore, setHasBeenHereBefore] = useState(false);
+
   const { data, error } = useSWR(
-    "https://www.fhi.no/api/chartdata/excel/series/96079",
+    // "https://www.fhi.no/api/chartdata/excel/series/96079",
+    "https://www.fhi.no/api/chartdata/excel/series/104110/latest",
     (query) => fetch(query).then((res) => res.json())
   );
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 4000);
-  // }, []);
+
+  useEffect(() => {
+    if (!cookies.hasBeenHereBefore) {
+      setCookie("hasBeenHereBefore", true, {
+        expires: getDateXDaysFromNow(90),
+      });
+    } else {
+      setHasBeenHereBefore(true);
+    }
+  }, []);
 
   if (error) {
     return "something went wrong";
@@ -45,7 +55,12 @@ export default function Home({}) {
       />
       {data && (
         <Main slug={false} data={data}>
-          {isLoading && <Splash setIsLoading={setIsLoading} />}
+          {isLoading && (
+            <Splash
+              setIsLoading={setIsLoading}
+              hasBeenHereBefore={hasBeenHereBefore}
+            />
+          )}
         </Main>
       )}
     </>

@@ -36,7 +36,12 @@
       top: 47px;
       right: 0;
     }
+    border-bottom: 2px solid black;
     // }
+  }
+  &__menu-button:hover,
+  &__menu-button:focus {
+    transform: scale(90%);
   }
   &__menu {
     cursor: url("../public/assets/cursor-cross.svg") 27 27, auto;

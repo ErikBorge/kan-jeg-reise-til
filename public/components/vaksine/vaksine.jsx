@@ -5,23 +5,42 @@ import Image from "next/image";
 import Lottie from "react-lottie";
 import * as deilig_appear from "../../assets/deilig-appear.json";
 import * as deilig_shimmer from "../../assets/deilig-shimmer.json";
+import * as gtag from "../../../lib/gtag";
 
-const Vaksine = ({}) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Vaksine = ({ isOpen, setIsOpen, chosenCountry }) => {
+  //   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("1 dose");
   const [animationHasInitialized, setAnimationHasInitialized] = useState(false);
   const [animationStopped, setAnimationStopped] = useState(false);
+  const [homeElement, setHomeElement] = useState(0);
 
   useEffect(() => {
     if (isOpen) {
       setAnimationStopped(false);
-      document.getElementById("home-page").style.overflowY = "visible";
+      // document.getElementById("home-page").style.overflowY = "visible";
+      //   document.getElementById("home-page").style.minHeight = `calc(~"100vh+${
+      //     document.getElementById("vaksine-container").offsetHeight
+      //   }px")`;
+      let elementHeight = 924;
+      let el = (document.getElementById(
+        "home-page"
+      ).style.minHeight = `calc(100px + ${
+        document.getElementById("vaksine-container").offsetHeight
+      }px)`);
+      console.log("el", el);
+      // 'calc(~"102vh+924px")';
     } else {
       setAnimationStopped(true);
       setAnimationHasInitialized(false);
-      document.getElementById("home-page").style.overflowY = "hidden";
+      // document.getElementById("home-page").style.overflowY = "hidden";
+      document.getElementById("home-page").style.minHeight = "100vh";
+      console.log("reset");
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    setHomeElement(document.getElementById("home-page"));
+  }, []);
 
   const defaultOptions = {
     loop: !animationHasInitialized ? false : true,
@@ -39,8 +58,14 @@ const Vaksine = ({}) => {
   };
 
   const variants = {
-    open: { top: "10%" },
-    closed: { top: window.innerWidth > 769 ? "95%" : "80%" },
+    open: { top: "100px" },
+    closed: {
+      top: chosenCountry
+        ? "120%"
+        : window.innerWidth > 769
+        ? `calc(0.95*${homeElement && homeElement.offsetHeight}px)`
+        : `calc(0.8*${homeElement && homeElement.offsetHeight}px)`,
+    },
   };
 
   //   const changeTab = (title) => {
@@ -51,16 +76,30 @@ const Vaksine = ({}) => {
 
   const toggleVaksine = () => {
     // TODO: add gtag event
+    if (!isOpen) {
+      gtag.event({
+        action: "clicked_vaksine_button",
+        category: "Vaksine",
+        label: "clicked_vaksine_button",
+      });
+    }
     setIsOpen(!isOpen);
   };
 
   return (
     <motion.div
-      initial={{ top: window.innerWidth > 769 ? "95%" : "80%" }}
+      initial={{
+        top: chosenCountry
+          ? "120%"
+          : window.innerWidth > 769
+          ? `calc(0.95*${homeElement && homeElement.offsetHeight}px)`
+          : `calc(0.8*${homeElement && homeElement.offsetHeight}px)`,
+      }}
       animate={isOpen ? "open" : "closed"}
       variants={variants}
       className={styles.vaksine}
       transition={{ type: "spring", duration: 0.6 }}
+      id="vaksine-container"
     >
       <div className={styles["vaksine__button-wrapper"]}>
         <button
@@ -71,7 +110,7 @@ const Vaksine = ({}) => {
           }}
           onClick={() => toggleVaksine()}
         >
-          Jeg er vaksinert
+          Jeg er beskyttet / vaksinert
           {isOpen && (
             <div
               style={{
