@@ -5,11 +5,10 @@ import "react-typist/dist/Typist.css";
 import Image from "next/image";
 
 const Splash = ({ setIsLoading, hasBeenHereBefore }) => {
-  console.log("hasBeenHereBefore", hasBeenHereBefore);
   const [opacity, setOpacity] = useState("1");
   useEffect(() => {
-    let timeout1delay = !hasBeenHereBefore ? 6500 : 4200;
-    let timeout2delay = !hasBeenHereBefore ? 6900 : 4600;
+    let timeout1delay = !hasBeenHereBefore ? 6800 : 4200;
+    let timeout2delay = !hasBeenHereBefore ? 7200 : 4600;
     let timeout1 = setTimeout(() => {
       setOpacity("0");
     }, timeout1delay);
@@ -40,14 +39,14 @@ const Splash = ({ setIsLoading, hasBeenHereBefore }) => {
           cursor={{ hideWhenDone: true }}
         >
           Henter data fra FHI ...
-          <Typist.Delay ms={!hasBeenHereBefore ? 900 : 400} />
+          <Typist.Delay ms={!hasBeenHereBefore ? 1000 : 400} />
           <br />
           Laster vaksine-informasjon ...
-          <Typist.Delay ms={!hasBeenHereBefore ? 900 : 400} />
+          <Typist.Delay ms={!hasBeenHereBefore ? 1000 : 400} />
           <br />
           <br />
           Fikser travel vibes ...
-          <Typist.Delay ms={1000} />
+          <Typist.Delay ms={!hasBeenHereBefore ? 1100 : 1000} />
           <br />
           <br />
           100% suksess!

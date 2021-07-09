@@ -7,12 +7,13 @@ import * as deilig_appear from "../../assets/deilig-appear.json";
 import * as deilig_shimmer from "../../assets/deilig-shimmer.json";
 import * as gtag from "../../../lib/gtag";
 
-const Vaksine = ({ isOpen, setIsOpen, chosenCountry }) => {
+const Vaksine = ({ isOpen, setIsOpen, chosenCountry, isLoading }) => {
   //   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("1 dose");
   const [animationHasInitialized, setAnimationHasInitialized] = useState(false);
   const [animationStopped, setAnimationStopped] = useState(false);
   const [homeElement, setHomeElement] = useState(0);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -27,20 +28,28 @@ const Vaksine = ({ isOpen, setIsOpen, chosenCountry }) => {
       ).style.minHeight = `calc(100px + ${
         document.getElementById("vaksine-container").offsetHeight
       }px)`);
-      console.log("el", el);
+      //   console.log("el", el);
       // 'calc(~"102vh+924px")';
     } else {
       setAnimationStopped(true);
       setAnimationHasInitialized(false);
       // document.getElementById("home-page").style.overflowY = "hidden";
       document.getElementById("home-page").style.minHeight = "100vh";
-      console.log("reset");
+      //   console.log("reset");
     }
   }, [isOpen]);
 
   useEffect(() => {
     setHomeElement(document.getElementById("home-page"));
   }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      setTimeout(() => {
+        setHasLoaded(true);
+      }, 1000);
+    }
+  }, [isLoading]);
 
   const defaultOptions = {
     loop: !animationHasInitialized ? false : true,
@@ -60,7 +69,9 @@ const Vaksine = ({ isOpen, setIsOpen, chosenCountry }) => {
   const variants = {
     open: { top: "100px" },
     closed: {
-      top: chosenCountry
+      top: !hasLoaded
+        ? "200%"
+        : chosenCountry
         ? "120%"
         : window.innerWidth > 769
         ? `calc(0.95*${homeElement && homeElement.offsetHeight}px)`
@@ -89,7 +100,9 @@ const Vaksine = ({ isOpen, setIsOpen, chosenCountry }) => {
   return (
     <motion.div
       initial={{
-        top: chosenCountry
+        top: !hasLoaded
+          ? "200%"
+          : chosenCountry
           ? "120%"
           : window.innerWidth > 769
           ? `calc(0.95*${homeElement && homeElement.offsetHeight}px)`
@@ -98,7 +111,7 @@ const Vaksine = ({ isOpen, setIsOpen, chosenCountry }) => {
       animate={isOpen ? "open" : "closed"}
       variants={variants}
       className={styles.vaksine}
-      transition={{ type: "spring", duration: 0.6 }}
+      transition={{ type: "spring", duration: !hasLoaded ? 0.2 : 0.6 }}
       id="vaksine-container"
     >
       <div className={styles["vaksine__button-wrapper"]}>
@@ -147,7 +160,7 @@ const Vaksine = ({ isOpen, setIsOpen, chosenCountry }) => {
               {
                 eventName: "complete",
                 callback: () => {
-                  console.log("********** animation completed **********");
+                  //   console.log("********** animation completed **********");
                   setAnimationHasInitialized(true);
                 },
               },

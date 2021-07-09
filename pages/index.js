@@ -27,7 +27,6 @@ export default function Home({}) {
       setHasBeenHereBefore(true);
     }
   }, []);
-  console.log(data);
 
   if (error) {
     return "something went wrong";
@@ -55,7 +54,7 @@ export default function Home({}) {
         }}
       />
       {data && (
-        <Main slug={false} data={data}>
+        <Main slug={false} data={data} isLoading={isLoading}>
           {isLoading && (
             <Splash
               setIsLoading={setIsLoading}
