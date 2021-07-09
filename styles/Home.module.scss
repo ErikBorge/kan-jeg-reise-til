@@ -19,9 +19,14 @@
     @media (min-width: 769px) {
       margin-bottom: 150px;
     }
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
     // display: flex;
     // flex-direction: column;
     // justify-content: center;
+  }
+  &__enter {
+    animation: enter 1s;
   }
 
   &__menu-button {
@@ -247,5 +252,14 @@
   }
   to {
     left: -200px;
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

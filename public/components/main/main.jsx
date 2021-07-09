@@ -24,7 +24,7 @@ import {
   getCustomSelectStyles,
 } from "../../util/util";
 
-const Main = ({ slug, data, children }) => {
+const Main = ({ slug, data, children, isLoading }) => {
   //   const [categories, setCategories] = useState(
   //     () =>
   //       data &&
@@ -189,7 +189,10 @@ const Main = ({ slug, data, children }) => {
       >
         <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
       </motion.nav>
-      <div className={styles["page__wrapper"]}>
+      <div
+        className={styles["page__wrapper"]}
+        style={{ opacity: !isLoading && "1" }}
+      >
         <button
           className={styles["page__menu-button"]}
           onClick={() => setOpenMenu(!openMenu)}
@@ -346,6 +349,7 @@ const Main = ({ slug, data, children }) => {
         isOpen={isVaksineOpen}
         setIsOpen={setIsVaksineOpen}
         chosenCountry={chosenCountry}
+        isLoading={isLoading}
       />
     </div>
   );
