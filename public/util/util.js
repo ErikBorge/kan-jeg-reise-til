@@ -33,6 +33,7 @@ export const getCustomSelectStyles = (
       fontSize: "40px",
       backgroundColor: inputColor,
       boxShadow: "none",
+      cursor: "text",
 
       "&:hover": {
         borderColor: "#000",
@@ -50,6 +51,8 @@ export const getCustomSelectStyles = (
       ...provided,
       fontWeight: "200",
       color: "rgb(149, 136, 136)",
+      maxWidth: "100%",
+      textTransform: "capitalize",
       "@media (min-width: 769px)": {
         transform: "translateY(-58%)",
       },
@@ -78,6 +81,7 @@ export const getCustomSelectStyles = (
       backgroundColor: "none",
       color: "rgb(149, 136, 136)",
       padding: "4px 12px 12px",
+      textTransform: "capitalize",
     }),
     input: (provided) => ({
       ...provided,
@@ -106,6 +110,7 @@ export const getCustomSelectStyles = (
       ...provided,
       color: "black",
       transform: "translateY(-58%)",
+      maxWidth: "80%",
     }),
     noOptionsMessage: (provided) => ({
       ...provided,
@@ -134,7 +139,10 @@ export const makeCountryList = (data) => {
   let tmpArr = [];
   let foundEngland = false;
   data.map((country) => {
-    tmpArr.push({ value: country.name, label: country.name + "?" });
+    tmpArr.push({
+      value: country.name,
+      label: country.name.toLowerCase() + "?",
+    });
   });
 
   tmpArr = tmpArr.filter(
@@ -185,4 +193,15 @@ export const makeCategories = (dataClasses) => {
     tmpObj[dataClass.from] = dataClass;
   });
   return tmpObj;
+};
+
+export const getCountryRegionColors = (data) => {
+  return ["grønn", "oransje", "rød"];
+};
+
+//returns a date object days days from the current date.
+export const getDateXDaysFromNow = (days) => {
+  var result = new Date();
+  result.setDate(result.getDate() + days);
+  return result;
 };

@@ -26,7 +26,7 @@
     width: 100%;
     // margin: 0 20px;
     border: 2px solid black;
-    padding: 27px;
+    padding: 27px 20px;
     cursor: pointer;
     overflow: hidden;
     position: relative;
@@ -63,11 +63,29 @@
     width: 100%;
     // padding: 10px 0;
     margin-top: 30px;
-    margin-bottom: 10px;
+    // margin-bottom: 30px;
     font-family: "Argent CF";
     font-size: 20px;
     text-align: center;
   }
+
+  &__regions-legend {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    // margin-bottom: 20px;
+    // align-items: center;
+    justify-content: center;
+  }
+  &__regions-legend-item {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 0 8px;
+    border: 2px solid black;
+    position: relative;
+  }
+
   &__header-harald {
     animation: haraldtext 0.5s steps(2) infinite;
   }
@@ -96,6 +114,7 @@
     display: flex;
     justify-content: center;
     font-family: "Argent Pixel CF";
+    margin-top: 15px;
   }
   &__regions-container {
     background-color: white;
@@ -126,28 +145,36 @@
     text-align: left;
   }
   &__region {
-    height: 48px;
-    margin: 15px 20px;
+    height: 25px;
+    margin: 25px 20px;
 
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
   }
   &__region-region {
-    max-height: 48px;
-    overflow: hidden;
-    width: 70%;
-    margin-right: 30px;
+    flex: 1;
+    // max-height: 25px;
+    // width: 70%;
+    // margin-right: 30px;
     text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
-    position: relative;
+    // position: relative;
   }
-  &__region-region:after {
-    content: "...";
-    position: absolute;
-    bottom: 0;
-    right: 0;
+  &__region-color-label {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid black;
   }
+  // &__region-region:after {
+  //   content: "...";
+  //   position: absolute;
+  //   bottom: 0;
+  //   right: 0;
+  // }
   &__region > div {
   }
   @keyframes haraldtext {

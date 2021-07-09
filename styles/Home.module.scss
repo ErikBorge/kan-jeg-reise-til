@@ -16,6 +16,9 @@
     max-width: 500px;
     position: relative;
     margin: 0 auto;
+    @media (min-width: 769px) {
+      margin-bottom: 150px;
+    }
     // display: flex;
     // flex-direction: column;
     // justify-content: center;
@@ -33,7 +36,12 @@
       top: 47px;
       right: 0;
     }
+    border-bottom: 2px solid black;
     // }
+  }
+  &__menu-button:hover,
+  &__menu-button:focus {
+    transform: scale(90%);
   }
   &__menu {
     cursor: url("../public/assets/cursor-cross.svg") 27 27, auto;

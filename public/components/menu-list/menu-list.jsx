@@ -62,6 +62,7 @@ const MenuList = ({ children, ...props }) => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              cursor: "pointer",
             }}
           >
             <Image

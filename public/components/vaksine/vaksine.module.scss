@@ -1,7 +1,9 @@
 .vaksine {
   position: absolute;
+  //   position: fixed;
   width: 100vw;
-  bottom: 0;
+  top: 95%;
+  //   bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,19 +16,23 @@
     transform: translateY(-50%);
   }
   &__button {
-    font-family: "Argent CF italic";
+    font-family: "Argent Pixel CF";
     padding: 10px;
     // width: 100%;
     height: 100%;
     background-color: $color-pink;
     border: 2px solid #958888;
     // z-index: 10;
-    font-size: 18px;
+    font-size: 15px;
     display: flex;
     img {
       //   transform: translateY(2px);
       margin-left: 10px;
     }
+  }
+  &__button:hover,
+  &__button:focus {
+    transform: translate(3px, 3px);
   }
   &__button-shadow {
     width: 100%;
@@ -38,6 +44,7 @@
     z-index: -1;
   }
   &__content {
+    // overflow: scroll;
     width: 550px;
     display: flex;
     flex-direction: column;
@@ -47,9 +54,9 @@
     }
   }
   &__graphics {
-    margin: 150px 0 66px;
+    // margin: 150px 0 66px;
     @media (max-width: 768px) {
-      margin: 150px 0 45px;
+      //   margin: 150px 0 45px;
     }
   }
   &__header {
@@ -89,21 +96,23 @@
     justify-content: center;
     align-items: center;
     font-family: "Argent Pixel CF";
-    font-size: 20px;
+    font-size: 15px;
     height: 55px;
-    width: 33.3333333%;
+    // width: 50%;
     background-color: $color-green;
     border: 2px solid black;
+    padding: 0 15px;
   }
   &__info-box-tab:nth-of-type(1) {
-    transform: translateX(2px);
+    transform: translateX(1px);
   }
-  &__info-box-tab:nth-of-type(3) {
-    transform: translateX(-2px);
+  &__info-box-tab:nth-of-type(2) {
+    transform: translateX(-1px);
   }
   &__info-box-tab-active {
-    background-color: $color-pink;
+    background-color: white;
     border-bottom: unset;
+    padding-bottom: 2px;
   }
   &__info-box-tab-number {
     font-size: 50px;
@@ -123,11 +132,17 @@
   }
   &__info-box-content {
     font-family: "Argent CF";
-    background-color: $color-pink;
-    // width: 97%;
-    margin: 0 3px 0 2px;
+    background-color: white;
+    // width: calc(97%-2px);
+    margin: 0 1px;
     border: 2px solid black;
     border-top: 0;
     padding: 15px;
+  }
+  &__info-box-content-text {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-family: "Argent CF italic";
+    font-size: 20px;
   }
 }

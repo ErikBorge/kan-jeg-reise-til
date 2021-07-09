@@ -9,6 +9,9 @@ const Placeholder = ({ children, ...props }) => {
   const [styles, setStyles] = useState({
     opacity: "1",
     transition: "opacity 0.3s ease-in-out",
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
+    overflow: "hidden",
   });
 
   useEffect(() => {
