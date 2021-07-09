@@ -33,6 +33,7 @@ export const getCustomSelectStyles = (
       fontSize: "40px",
       backgroundColor: inputColor,
       boxShadow: "none",
+      cursor: "text",
 
       "&:hover": {
         borderColor: "#000",

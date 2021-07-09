@@ -33,7 +33,8 @@ const Main = ({ slug, data, children }) => {
   //       makeCategories(data.config.colorAxis.dataClasses)
   //   );
   const [countries, setCountries] = useState(
-    () => data && data.data && data.data.data && makeCountryList(data.data.data)
+    () =>
+      data && data.data && data.data[0] && makeCountryList(data.data[0].data)
   );
   const [chosenCountry, setChosenCountry] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);

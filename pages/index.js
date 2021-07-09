@@ -27,6 +27,7 @@ export default function Home({}) {
       setHasBeenHereBefore(true);
     }
   }, []);
+  console.log(data);
 
   if (error) {
     return "something went wrong";

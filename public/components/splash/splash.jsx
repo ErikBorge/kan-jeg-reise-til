@@ -46,7 +46,7 @@ const Splash = ({ setIsLoading, hasBeenHereBefore }) => {
           <Typist.Delay ms={!hasBeenHereBefore ? 900 : 400} />
           <br />
           <br />
-          Queuer Santana - Smooth ...
+          Fikser travel vibes ...
           <Typist.Delay ms={1000} />
           <br />
           <br />

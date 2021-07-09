@@ -59,14 +59,14 @@ const Result = ({
     open: {
       height: canTravel
         ? !canTravelToSomeButNotAll
-          ? "220px"
+          ? "240px"
           : "190px"
         : "140px",
     },
     closed: {
       height: canTravel
         ? !canTravelToSomeButNotAll
-          ? "190px"
+          ? "210px"
           : "160px"
         : "110px",
     },
@@ -210,7 +210,7 @@ const Result = ({
           initial={{
             height: canTravel
               ? !canTravelToSomeButNotAll
-                ? "190px"
+                ? "210px"
                 : "160px"
               : "110px",
             // canTravel && !canTravelToSomeButNotAll
