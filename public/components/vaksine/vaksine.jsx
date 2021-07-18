@@ -205,9 +205,9 @@ const Vaksine = ({ isOpen, setIsOpen, chosenCountry, isLoading }) => {
                   <div>5. juni</div>
                 </div>
                 <div className={styles["vaksine__info-box-content-text"]}>
-                  Du må i karantene om du kommer reisende fra et rødt land. Ta
-                  en koronatest etter 3 døgn – tester du negativt kan du avbryte
-                  karantenen.
+                  Du må i karantene om du kommer reisende fra et land som ikke
+                  er grønt. Ta en koronatest etter 3 døgn – tester du negativt
+                  kan du avbryte karantenen.
                 </div>
               </>
             ) : (
