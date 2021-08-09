@@ -13,8 +13,8 @@ export default function Home({}) {
   const [hasBeenHereBefore, setHasBeenHereBefore] = useState(false);
 
   const { data, error } = useSWR(
-    // "https://www.fhi.no/api/chartdata/excel/series/96079",
-    "https://www.fhi.no/api/chartdata/excel/series/104110/latest",
+    "https://www.fhi.no/api/chartdata/excel/series/96079",
+    // "https://www.fhi.no/api/chartdata/excel/series/104110/latest",
     (query) => fetch(query).then((res) => res.json())
   );
 

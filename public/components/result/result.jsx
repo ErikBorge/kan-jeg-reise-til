@@ -353,28 +353,37 @@ const Result = ({
               chosenCountry &&
               chosenCountry.data.length > 1 &&
               chosenCountry.data.map((region, key) => {
+                // console.log(region);
                 return (
                   <div key={key} className={styles["result__region"]}>
                     <div
                       className={styles["result__region-color-label"]}
                       style={{
                         backgroundColor:
-                          region.description.split(".", 1)[0].toLowerCase() ===
-                          "rød"
-                            ? "#df9090"
-                            : region.description
-                                .split(".", 1)[0]
-                                .toLowerCase() === "grønn"
-                            ? "#cee3d0"
-                            : region.description
-                                .split(".", 1)[0]
-                                .toLowerCase() === "orange"
-                            ? "#dfce90"
+                          region.value === "2"
+                            ? "#df9090" //rød
+                            : region.value === "5"
+                            ? "#cee3d0" //grønn
+                            : region.value === "6"
+                            ? "#dfce90" //oransje
                             : "#F2F2F2",
+                        // region.description.split(".", 1)[0].toLowerCase() ===
+                        // "rød"
+                        //   ? "#df9090"
+                        //   : region.description
+                        //       .split(".", 1)[0]
+                        //       .toLowerCase() === "grønn"
+                        //   ? "#cee3d0"
+                        //   : region.description
+                        //       .split(".", 1)[0]
+                        //       .toLowerCase() === "orange"
+                        //   ? "#dfce90"
+                        //   : "#F2F2F2",
                         border:
-                          region.description.split(".", 1)[0].toLowerCase() ===
-                          "grønn"
-                            ? "2px solid black"
+                          region.value === "5"
+                            ? // region.description.split(".", 1)[0].toLowerCase() ===
+                              // "grønn"
+                              "2px solid black"
                             : "none",
                       }}
                     />
