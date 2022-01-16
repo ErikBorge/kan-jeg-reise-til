@@ -18,6 +18,43 @@ const Menu = ({ openMenu, setOpenMenu }) => {
           Tilbake
         </button>
       </motion.div>
+      <a
+        href="https://www.kode24.no/artikkel/arets-hobbyprosjekt---goy-a-treffe-nerven/75043502"
+        target="_blank"
+        rel="noreferrer noopener"
+        className={styles["menu__person-name"]}
+      >
+        <div className={styles["menu__winner-banner"]}>
+          <div className={styles["menu__winner-banner-inner"]}>
+            <div style={{ marginRight: "15px" }}>
+              <Image
+                src={"/assets/star.svg"}
+                alt="star"
+                height={42}
+                width={45}
+              />
+            </div>
+            <div>
+              <div className={styles["menu__winner-header"]}>
+                Årets hobbyprosjekt
+              </div>
+              <div className={styles["menu__winner-subheader"]}>
+                Les mer på kode24.no
+                <div
+                  style={{ marginLeft: "5px", transform: "translateY(2px)" }}
+                >
+                  <Image
+                    alt="->"
+                    src={"/assets/arrow-pixel-black.svg"}
+                    width={15}
+                    height={15}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
       <div className={styles["menu__logo"]} style={{ marginRight: "10px" }}>
         <Image
           src={"/assets/e-and-e-logo.svg"}

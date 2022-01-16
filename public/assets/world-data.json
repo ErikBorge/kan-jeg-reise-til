@@ -1,0 +1,2072 @@
+{
+    "config": {
+        "title": "Verdenskart innreisekarantene",
+        "subtitle": "Innreisekarantene ved ankomst til Norge ",
+        "dataSeriesName": "Farge",
+        "mapRegionName": "Land",
+        "mapType": "Verden",
+        "displayTable": true,
+        "displayLabels": false,
+        "displayIdsInTable": false,
+        "idName": null,
+        "allowZoom": true,
+        "caption": null,
+        "credits": null,
+        "creditsUrl": null,
+        "displayLegend": true,
+        "verticalLegend": false,
+        "colorAxis": {
+            "dataClasses": [
+                {
+                    "name": "Grønn: du må ikke i karantene ved innreise til Norge",
+                    "from": 5,
+                    "to": 5,
+                    "color": "#65b42a"
+                },
+                {
+                    "name": "Oransje: du må i karantene ved innreise til Norge",
+                    "from": 6,
+                    "to": 6,
+                    "color": "#f2a92a"
+                },
+                {
+                    "name": "Rød: du må i karantene ved innreise til Norge",
+                    "from": 2,
+                    "to": 2,
+                    "color": "#b73a10"
+                },
+                {
+                    "name": "Lilla: du må i karantene ved innreise til Norge",
+                    "from": 8,
+                    "to": 8,
+                    "color": "#ba94d6"
+                },
+                {
+                    "name": "Mørkerød: du må i karantene og på karantenehotell ved innreise til Norge",
+                    "from": 3,
+                    "to": 3,
+                    "color": "#7d1006"
+                },
+                {
+                    "name": "Lys grå: du må i karantene og på karantenehotell ved innreise til Norge",
+                    "from": 7,
+                    "to": 7,
+                    "color": "#e6e6e6"
+                },
+                {
+                    "name": "Grå: Norge blir ikke vurdert når det gjelder råd for internasjonale reiser",
+                    "from": 4,
+                    "to": 4,
+                    "color": "#696969"
+                }
+            ]
+        },
+        "mapSource": "https://www.fhi.no/contentassets/d5489355658a471d8ccbb8bf7fa8763d/world_map.json",
+        "dataColumns": [
+            {
+                "key": "region",
+                "name": "Region",
+                "tooltip": true,
+                "maxValue": 0,
+                "minValue": 0,
+                "category": false
+            },
+            {
+                "key": "description",
+                "name": "Farge",
+                "tooltip": false,
+                "maxValue": 0,
+                "minValue": 0,
+                "category": false
+            }
+        ]
+    },
+    "data": [
+        {
+            "date": "2021-07-05T00:00:00.000+02:00",
+            "data": [
+                {
+                    "id": "id128",
+                    "name": "Albania",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id104",
+                    "name": "Andorra",
+                    "value": "2",
+                    "region": "",
+                    "description": "Rød. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id100",
+                    "name": "Belgia",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id131",
+                    "name": "Bosnia-Hercegovina",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id112",
+                    "name": "Bulgaria",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id0",
+                    "name": "Danmark",
+                    "value": "5",
+                    "region": "Sjælland",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id1",
+                    "name": "Danmark",
+                    "value": "6",
+                    "region": "Hovedstaden",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id2",
+                    "name": "Danmark",
+                    "value": "5",
+                    "region": "Syddanmark",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id3",
+                    "name": "Danmark",
+                    "value": "5",
+                    "region": "Midtjylland",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id4",
+                    "name": "Danmark",
+                    "value": "5",
+                    "region": "Nordjylland",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id199",
+                    "name": "Estland",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id265",
+                    "name": "Færøyene",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id27",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Lapplands SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id28",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Länsi-Pohja SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id29",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Norra Österbottens SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id30",
+                    "name": "Finland",
+                    "value": "6",
+                    "region": "Kajanalands SVD",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id31",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Norra Karelens SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id32",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Södra Karelens SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id33",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Östra Savolax SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id34",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Norra Savolax SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id35",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Vasa SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id36",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Mellersta Österbottens SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id37",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Södra Savolax SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id38",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Kymmenedalens SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id39",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Helsingfors och Nylands SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id40",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Mellersta Finland SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id41",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Päijät-Häme SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id42",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Syd-Österbottens SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id43",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Satakunta SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id44",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Centrala Tavastlands SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id45",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Birkalands SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id46",
+                    "name": "Finland",
+                    "value": "5",
+                    "region": "Egentliga Finlands SVD",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id257",
+                    "name": "Frankrike",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id47",
+                    "name": "Frankrike",
+                    "value": "5",
+                    "region": "Korsika",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id237",
+                    "name": "Grønland",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id239",
+                    "name": "Hellas",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id48",
+                    "name": "Hellas",
+                    "value": "5",
+                    "region": "De joniske øyer",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id49",
+                    "name": "Hellas",
+                    "value": "5",
+                    "region": "Kreta",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id50",
+                    "name": "Hellas",
+                    "value": "5",
+                    "region": "De nordlige egeiske øyer",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id51",
+                    "name": "Hellas",
+                    "value": "6",
+                    "region": "De sørlige egeiske øyer",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id80",
+                    "name": "Hviterussland",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id151",
+                    "name": "Irland",
+                    "value": "6",
+                    "region": "",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id64",
+                    "name": "Island",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id195",
+                    "name": "Italia",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id52",
+                    "name": "Italia",
+                    "value": "5",
+                    "region": "Sicilia",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id53",
+                    "name": "Italia",
+                    "value": "5",
+                    "region": "Sardinia",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id94",
+                    "name": "Kosovo",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id159",
+                    "name": "Kroatia",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id189",
+                    "name": "Kypros",
+                    "value": "6",
+                    "region": "",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id79",
+                    "name": "Latvia",
+                    "value": "6",
+                    "region": "",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id93",
+                    "name": "Libanon",
+                    "value": "8",
+                    "region": "",
+                    "description": "Lilla. Du må i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id110",
+                    "name": "Liechtenstein",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id137",
+                    "name": "Litauen",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id105",
+                    "name": "Luxembourg",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id194",
+                    "name": "Malta",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id72",
+                    "name": "Moldova",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id129",
+                    "name": "Monaco",
+                    "value": "6",
+                    "region": "",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id120",
+                    "name": "Montenegro",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id226",
+                    "name": "Nederland",
+                    "value": "6",
+                    "region": "",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id82",
+                    "name": "Nord-Makedonia",
+                    "value": "8",
+                    "region": "",
+                    "description": "Lilla. Du må i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id215",
+                    "name": "Norge",
+                    "value": "4",
+                    "region": "",
+                    "description": "Norge blir ikke vurdert når det gjelder råd for internasjonale reiser"
+                },
+                {
+                    "id": "id83",
+                    "name": "Polen",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id253",
+                    "name": "Portugal",
+                    "value": "6",
+                    "region": "",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id54",
+                    "name": "Portugal",
+                    "value": "5",
+                    "region": "Madeira",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id55",
+                    "name": "Portugal",
+                    "value": "6",
+                    "region": "Azorene",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id106",
+                    "name": "Romania",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id186",
+                    "name": "Russland",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id183",
+                    "name": "San Marino",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id121",
+                    "name": "Serbia",
+                    "value": "8",
+                    "region": "",
+                    "description": "Lilla. Du må i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id114",
+                    "name": "Slovakia",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id133",
+                    "name": "Slovenia",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id244",
+                    "name": "Spania",
+                    "value": "2",
+                    "region": "",
+                    "description": "Rød. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id57",
+                    "name": "Spania",
+                    "value": "6",
+                    "region": "Balearene",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id56",
+                    "name": "Spania",
+                    "value": "2",
+                    "region": "Kanariøyene",
+                    "description": "Rød. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id240",
+                    "name": "Storbritannia",
+                    "value": "2",
+                    "region": "",
+                    "description": "Rød. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id96",
+                    "name": "Sveits",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id5",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Skåne",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id6",
+                    "name": "Sverige",
+                    "value": "6",
+                    "region": "Blekinge",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id7",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Östergötland",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id8",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Gotland",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id9",
+                    "name": "Sverige",
+                    "value": "2",
+                    "region": "Kronoberg",
+                    "description": "Rød. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id10",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Halland",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id11",
+                    "name": "Sverige",
+                    "value": "6",
+                    "region": "Kalmar",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id12",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Västra Götaland",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id13",
+                    "name": "Sverige",
+                    "value": "2",
+                    "region": "Värmland",
+                    "description": "Rød. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id14",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Stockholm",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id15",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Södermanland",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id16",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Örebro",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id17",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Uppsala",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id18",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Västmanland",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id19",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Gävleborg",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id20",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Jämtland",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id21",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Västernorrland",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id22",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Västerbotten",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id23",
+                    "name": "Sverige",
+                    "value": "2",
+                    "region": "Norrbotten",
+                    "description": "Rød. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id24",
+                    "name": "Sverige",
+                    "value": "5",
+                    "region": "Dalarna",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id25",
+                    "name": "Sverige",
+                    "value": "6",
+                    "region": "Jönköping",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id59",
+                    "name": "Tsjekkia",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id220",
+                    "name": "Tyrkia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id192",
+                    "name": "Tyskland",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id115",
+                    "name": "Ukraina",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id107",
+                    "name": "Ungarn",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id184",
+                    "name": "Vatikanstaten",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id109",
+                    "name": "Østerrike",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id26",
+                    "name": "Åland",
+                    "value": "5",
+                    "region": "",
+                    "description": "Grønn. Du må ikke i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id116",
+                    "name": "Afghanistan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id138",
+                    "name": "Algerie",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id238",
+                    "name": "Amerikansk Samoa",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id165",
+                    "name": "Angola",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id198",
+                    "name": "Antigua og Barbuda",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id229",
+                    "name": "Argentina",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id180",
+                    "name": "Armenia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id181",
+                    "name": "Aserbajdsjan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id248",
+                    "name": "Australia",
+                    "value": "8",
+                    "region": "",
+                    "description": "Lilla. Du må i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id207",
+                    "name": "Bahamas",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id213",
+                    "name": "Bahrain",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id219",
+                    "name": "Bangladesh",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id196",
+                    "name": "Barbados",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id158",
+                    "name": "Belize",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id119",
+                    "name": "Benin",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id58",
+                    "name": "Bhutan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id160",
+                    "name": "Bolivia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id69",
+                    "name": "Botswana",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id250",
+                    "name": "Brasil",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id101",
+                    "name": "Brunei Darussalam",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id243",
+                    "name": "BU",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id77",
+                    "name": "Burkina Faso",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id91",
+                    "name": "Burundi",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id232",
+                    "name": "Canada",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id202",
+                    "name": "Chile",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id175",
+                    "name": "Colombia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id162",
+                    "name": "Costa Rica",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id255",
+                    "name": "Cuba",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id170",
+                    "name": "De forente arabiske emirater",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id167",
+                    "name": "Den dominikanske republikk",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id70",
+                    "name": "Den sentralafrikanske republikk",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id92",
+                    "name": "Djibouti",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id227",
+                    "name": "Domonica",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id249",
+                    "name": "Ecuador",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id63",
+                    "name": "Egypt",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id190",
+                    "name": "Ekvatorial-Guinea",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id161",
+                    "name": "El Salvador",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id103",
+                    "name": "Elfenbenskysten",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id152",
+                    "name": "Eritrea",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id108",
+                    "name": "Eswatini",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id136",
+                    "name": "Etiopia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id187",
+                    "name": "Fiji",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id246",
+                    "name": "Filippinene",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id267",
+                    "name": "Frankrike",
+                    "value": "7",
+                    "region": "Fransk Guiana",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id268",
+                    "name": "Frankrike",
+                    "value": "7",
+                    "region": "Guadeloupe",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id269",
+                    "name": "Frankrike",
+                    "value": "7",
+                    "region": "Saint Martin",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id270",
+                    "name": "Frankrike",
+                    "value": "7",
+                    "region": "St Pierre og Miquelon",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id271",
+                    "name": "Frankrike",
+                    "value": "7",
+                    "region": "New Caledonia",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id272",
+                    "name": "Frankrike",
+                    "value": "7",
+                    "region": "Port-aux-Français",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id273",
+                    "name": "Frankrike",
+                    "value": "7",
+                    "region": "Réunion",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id145",
+                    "name": "Gabon",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id97",
+                    "name": "Gambia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id98",
+                    "name": "Georgia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id134",
+                    "name": "Ghana",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id200",
+                    "name": "Grenada",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id236",
+                    "name": "Guam",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id132",
+                    "name": "Guatemala",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id85",
+                    "name": "Guinea",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id86",
+                    "name": "Guinea-Bissau",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id148",
+                    "name": "Guyana",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id166",
+                    "name": "Haiti",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id147",
+                    "name": "Honduras",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id259",
+                    "name": "India",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id211",
+                    "name": "Indonesia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id99",
+                    "name": "Irak",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id205",
+                    "name": "Iran",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id89",
+                    "name": "Israel",
+                    "value": "8",
+                    "region": "",
+                    "description": "Lilla. Du må i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id224",
+                    "name": "Jamaica",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id262",
+                    "name": "Japan",
+                    "value": "8",
+                    "region": "",
+                    "description": "Lilla. Du må i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id225",
+                    "name": "Jemen",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id113",
+                    "name": "JK",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id233",
+                    "name": "Jomfruøyene, US",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id130",
+                    "name": "Jordan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id173",
+                    "name": "Kambodsja",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id124",
+                    "name": "Kamerun",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id228",
+                    "name": "Kapp Verde",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id182",
+                    "name": "Kasakhstan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id169",
+                    "name": "Kenya",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id254",
+                    "name": "Kina",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id73",
+                    "name": "Kirgisistan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id247",
+                    "name": "Kiribati",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id188",
+                    "name": "Komorene",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id154",
+                    "name": "Kongo",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id123",
+                    "name": "Kongo-Brazzaville",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id153",
+                    "name": "Kuwait",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id60",
+                    "name": "Laos",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id178",
+                    "name": "Lesotho",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id102",
+                    "name": "Liberia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id156",
+                    "name": "Libya",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id65",
+                    "name": "Madagaskar",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id143",
+                    "name": "Malawi",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id208",
+                    "name": "Malaysia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id242",
+                    "name": "Maldivene",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id88",
+                    "name": "Mali",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id176",
+                    "name": "Marokko",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id203",
+                    "name": "Marshalløyene",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id139",
+                    "name": "Mauritania",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id210",
+                    "name": "Mauritius",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id245",
+                    "name": "Mexico",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id256",
+                    "name": "Mikronesiaføderasjonen",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id126",
+                    "name": "Mongolia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id164",
+                    "name": "Mosambik",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id146",
+                    "name": "Myanmar",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id75",
+                    "name": "Namibia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id216",
+                    "name": "Nauru",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id61",
+                    "name": "Nepal",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id266",
+                    "name": "Nederland",
+                    "value": "7",
+                    "region": "Saint Martin",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id260",
+                    "name": "New Zealand",
+                    "value": "8",
+                    "region": "",
+                    "description": "Lilla. Du må i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id144",
+                    "name": "Nicaragua",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id76",
+                    "name": "Niger",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id118",
+                    "name": "Nigeria",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id150",
+                    "name": "Nord-Korea",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id235",
+                    "name": "Nord-Marianene",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id222",
+                    "name": "Oman",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id171",
+                    "name": "Pakistan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id206",
+                    "name": "Palau",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id163",
+                    "name": "Panama",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id193",
+                    "name": "Papua Ny-Guinea",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id81",
+                    "name": "Paraguay",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id168",
+                    "name": "Peru",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id234",
+                    "name": "Puerto Rico",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id111",
+                    "name": "Qatar",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id125",
+                    "name": "Rwanda",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id214",
+                    "name": "Saint Kitts og Nevis",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id217",
+                    "name": "Saint Lucia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id221",
+                    "name": "Saint Vincent og Grenadinene",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id218",
+                    "name": "Salomonøyene",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id223",
+                    "name": "Samoa",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id231",
+                    "name": "Sao Tome og Principe",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id172",
+                    "name": "Saudi-Arabia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id87",
+                    "name": "Senegal",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id261",
+                    "name": "Seychellene",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id66",
+                    "name": "Sierra Leone",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id68",
+                    "name": "Singapore",
+                    "value": "8",
+                    "region": "",
+                    "description": "Lilla. Du må i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id142",
+                    "name": "",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id135",
+                    "name": "Somalia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id241",
+                    "name": "SP",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id274",
+                    "name": "Spania",
+                    "value": "7",
+                    "region": "Ceuta",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id274",
+                    "name": "Spania",
+                    "value": "7",
+                    "region": "Melilla",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id62",
+                    "name": "Sri Lanka",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id251",
+                    "name": "St. Helena",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id276",
+                    "name": "Storbritannia",
+                    "value": "7",
+                    "region": "Falklandsøyene",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id277",
+                    "name": "Storbritannia",
+                    "value": "7",
+                    "region": "South Georgia and South Sandwich Islands ",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id278",
+                    "name": "Storbritannia",
+                    "value": "7",
+                    "region": "Turks and Caicos Islands ",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id279",
+                    "name": "Storbritannia",
+                    "value": "7",
+                    "region": " Cayman Islands",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id280",
+                    "name": "Storbritannia",
+                    "value": "7",
+                    "region": "Gibraltar",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id281",
+                    "name": "Storbritannia",
+                    "value": "6",
+                    "region": "Akrotiri and Dhekelia",
+                    "description": "Orange. Du må i karantene ved innreise til Norge "
+                },
+                {
+                    "id": "id155",
+                    "name": "Sudan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id90",
+                    "name": "Surinam",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id252",
+                    "name": "SW",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id78",
+                    "name": "Syria",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id157",
+                    "name": "Sør-Afrika",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id258",
+                    "name": "Sør-Korea",
+                    "value": "8",
+                    "region": "",
+                    "description": "Lilla. Du må i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id71",
+                    "name": "Sør-Sudan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id179",
+                    "name": "Tadsjikistan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id197",
+                    "name": "Taiwan",
+                    "value": "8",
+                    "region": "",
+                    "description": "Lilla. Du må i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id230",
+                    "name": "Tanzania",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id201",
+                    "name": "Thailand",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id117",
+                    "name": "Togo",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id212",
+                    "name": "Tonga",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id209",
+                    "name": "Trinidad og Tobago",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id95",
+                    "name": "Tsjad",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id74",
+                    "name": "Tunisia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id141",
+                    "name": "Turkmenistan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id204",
+                    "name": "Tuvalu",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id220",
+                    "name": "Tyrkia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id185",
+                    "name": "Uganda",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id127",
+                    "name": "Uruguay",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id263",
+                    "name": "USA",
+                    "value": "8",
+                    "region": "",
+                    "description": "Lilla. Du må i karantene ved innreise til Norge"
+                },
+                {
+                    "id": "id264",
+                    "name": "USAs ytre småøyer",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id177",
+                    "name": "Usbekistan",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id191",
+                    "name": "Vanuatu",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id149",
+                    "name": "Venezuela",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id122",
+                    "name": "Vest-Sahara",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id67",
+                    "name": "Vietnam",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id140",
+                    "name": "Zambia",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id84",
+                    "name": "Zimbabwe",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                },
+                {
+                    "id": "id174",
+                    "name": "Øst-Timor",
+                    "value": "7",
+                    "region": "",
+                    "description": "Lys grå. Du må i karantene og på karantenehotell ved innreise til Norge"
+                }
+            ]
+        }
+    ]
+}

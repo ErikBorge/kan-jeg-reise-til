@@ -6,15 +6,17 @@ import { getDateXDaysFromNow } from "../public/util/util";
 import Splash from "../public/components/splash/splash";
 import useSWR from "swr";
 import { useCookies } from "react-cookie";
+import ThankYouModal from "../public/components/thankyouModal/thankyouModal";
 
 export default function Home({}) {
   const [isLoading, setIsLoading] = useState(true);
   const [cookies, setCookie] = useCookies(["hasBeenHereBefore"]);
   const [hasBeenHereBefore, setHasBeenHereBefore] = useState(false);
+  const [isThankYouOpen, setIsThankYouOpen] = useState(true);
 
   const { data, error } = useSWR(
-    "https://www.fhi.no/api/chartdata/excel/series/96079",
-    // "https://www.fhi.no/api/chartdata/excel/series/104110/latest",
+    // "https://www.fhi.no/api/chartdata/excel/series/96079",
+    "https://www.fhi.no/api/chartdata/excel/series/104110/latest",
     (query) => fetch(query).then((res) => res.json())
   );
 
@@ -54,8 +56,20 @@ export default function Home({}) {
         }}
       />
       {data && (
-        <Main slug={false} data={data} isLoading={isLoading}>
-          {isLoading && (
+        <Main
+          slug={false}
+          data={data}
+          isLoading={isLoading}
+          isThankYouOpen={isThankYouOpen}
+        >
+          {isThankYouOpen && (
+            <ThankYouModal
+              isLoading={isLoading}
+              isThankYouOpen={isThankYouOpen}
+              setIsThankYouOpen={setIsThankYouOpen}
+            />
+          )}
+          {isLoading && !isThankYouOpen && (
             <Splash
               setIsLoading={setIsLoading}
               hasBeenHereBefore={hasBeenHereBefore}

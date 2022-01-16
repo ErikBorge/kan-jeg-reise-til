@@ -79,11 +79,12 @@
     }
   }
   &__info-box-shadow {
-    width: 97%;
+    width: calc(100% - 2px);
     height: 100%;
     position: absolute;
     bottom: -9px;
-    right: -3px;
+    right: -8px;
+    transform: translateX(1px);
     background-color: black;
     z-index: -1;
     //   transform: translate(-3px,-3px);
