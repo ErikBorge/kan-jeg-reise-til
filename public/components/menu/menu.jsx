@@ -22,7 +22,7 @@ const Menu = ({ openMenu, setOpenMenu }) => {
         href="https://www.kode24.no/artikkel/arets-hobbyprosjekt---goy-a-treffe-nerven/75043502"
         target="_blank"
         rel="noreferrer noopener"
-        className={styles["menu__person-name"]}
+        className={styles["menu__winner-banner-link"]}
       >
         <div className={styles["menu__winner-banner"]}>
           <div className={styles["menu__winner-banner-inner"]}>

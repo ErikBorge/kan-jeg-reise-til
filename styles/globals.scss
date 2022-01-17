@@ -68,6 +68,14 @@ button {
   margin: unset;
   font-family: "Argent CF";
 }
+
+button:hover,
+a:hover {
+  cursor: url("../public/assets/KJRT-pointer.svg") 7 0, auto;
+}
+input:hover {
+  cursor: url("../public/assets/KJRT-typeindicator.svg") 0 14, auto;
+}
 input {
   outline: none;
 }

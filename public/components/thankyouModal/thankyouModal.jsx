@@ -22,7 +22,10 @@ const ThankYouModal = ({ isLoading, isThankYouOpen, setIsThankYouOpen }) => {
 
   const variants = {
     open: {
-      top: window.innerWidth > 768 ? "50%" : "43%",
+      top:
+        typeof window !== "undefined" && window && window.innerWidth > 768
+          ? "50%"
+          : "43%",
     },
     closed: { top: "-50%" },
   };
