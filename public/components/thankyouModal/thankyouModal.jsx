@@ -45,7 +45,7 @@ const ThankYouModal = ({ isLoading, isThankYouOpen, setIsThankYouOpen }) => {
         <div className={styles["modal__text"]}>
           <div className={styles["modal__header"]}>Takk for reisen!</div>
           <div className={styles["modal__sub-header"]}>
-            KanJegReiseTil.no lever fortsatt, men dataen er ikke lenger gyldig.
+            KanJegReiseTil.no lever fortsatt, men dataen er ikke lengre gyldig.
           </div>
         </div>
         <div>

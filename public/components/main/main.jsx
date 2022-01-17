@@ -336,11 +336,11 @@ const Main = ({ slug, data, children, isLoading }) => {
                     matchFrom: "start",
                   })}
                 />
-                {/* {isFocused && (
-                <div className={styles["page__search-explanation"]}>
-                  Søk etter land i Europa
-                </div>
-              )} */}
+                {isFocused && (
+                  <div className={styles["page__search-explanation"]}>
+                    Søk etter land i Europa
+                  </div>
+                )}
               </div>
             </div>
             {chosenCountry && (
