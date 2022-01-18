@@ -25,7 +25,7 @@ const ThankYouModal = ({ isLoading, isThankYouOpen, setIsThankYouOpen }) => {
       top:
         typeof window !== "undefined" && window && window.innerWidth > 768
           ? "50%"
-          : "43%",
+          : "40%",
     },
     closed: { top: "-50%" },
   };
@@ -45,11 +45,17 @@ const ThankYouModal = ({ isLoading, isThankYouOpen, setIsThankYouOpen }) => {
         <div className={styles["modal__text"]}>
           <div className={styles["modal__header"]}>Takk for reisen!</div>
           <div className={styles["modal__sub-header"]}>
-            KanJegReiseTil.no lever fortsatt, men dataen er ikke lengre gyldig.
+            KanJegReiseTil.no oppdateres ikke lengre, men lever her med utdatert
+            data.
+            <br />
+            <br />
+            RIP 2021, året vi nesten fikk dratt til syden igjen.
           </div>
         </div>
         <div>
-          <Image src={"/assets/rip.svg"} alt="RIP" width={130} height={130} />
+          <div style={{ transform: "translateY(5px)" }}>
+            <Image src={"/assets/rip.svg"} alt="RIP" width={130} height={130} />
+          </div>
           <button
             className={styles["modal__button"]}
             onClick={() => exitThankYouModal()}

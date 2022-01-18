@@ -28,9 +28,9 @@
 
   &__text {
     @media (min-width: 769px) {
-      padding: 0 70px;
+      padding: 0 45px;
     }
-    padding: 0 30px;
+    padding: 0 15px;
   }
 
   &__header {
@@ -39,10 +39,12 @@
     margin-top: 40px;
   }
   &__sub-header {
-    margin-top: 35px;
+    margin-top: 10px;
+    margin-bottom: 40px;
     font-family: "Argent Pixel CF";
     font-size: 20px;
     line-height: 30px;
+    text-wrap: balance;
   }
   &__button {
     color: black;
