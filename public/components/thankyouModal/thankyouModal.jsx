@@ -45,8 +45,8 @@ const ThankYouModal = ({ isLoading, isThankYouOpen, setIsThankYouOpen }) => {
         <div className={styles["modal__text"]}>
           <div className={styles["modal__header"]}>Takk for reisen!</div>
           <div className={styles["modal__sub-header"]}>
-            KanJegReiseTil.no oppdateres ikke lengre, men lever her med utdatert
-            data.
+            KanJegReiseTil.no oppdateres ikke lengre, men minnes her med
+            utdatert data.
             <br />
             <br />
             RIP 2021, året vi nesten fikk dratt til syden igjen.
