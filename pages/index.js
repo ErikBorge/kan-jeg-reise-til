@@ -62,7 +62,7 @@ export default function Home({}) {
           images: [{ url: "https://kan-jeg-reise-til.vercel.app/sun.png" }],
         }}
       />
-      {data && (
+      {data && typeof window !== "undefined" && (
         <Main
           slug={false}
           data={data}

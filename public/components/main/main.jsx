@@ -226,9 +226,7 @@ const Main = ({ slug, data, children, isLoading }) => {
             className={styles["page__animation"]}
             style={{
               top:
-                typeof window !== "undefined" &&
-                window &&
-                window.innerWidth > 769
+                window && window.innerWidth > 769
                   ? chosenCountry
                     ? "160px"
                     : "110px"
@@ -245,9 +243,7 @@ const Main = ({ slug, data, children, isLoading }) => {
             className={styles["page__container"]}
             style={{
               marginTop:
-                typeof window !== "undefined" &&
-                window &&
-                window.innerWidth > 769
+                window && window.innerWidth > 769
                   ? chosenCountry
                     ? "100px"
                     : "120px"
@@ -260,9 +256,7 @@ const Main = ({ slug, data, children, isLoading }) => {
               className={styles["page__main"]}
               style={{
                 height:
-                  typeof window !== "undefined" &&
-                  window &&
-                  window.innerWidth > 769
+                  window && window.innerWidth > 769
                     ? chosenCountry
                       ? "330px"
                       : "500px"

@@ -49,7 +49,8 @@ const ThankYouModal = ({ isLoading, isThankYouOpen, setIsThankYouOpen }) => {
             utdatert data.
             <br />
             <br />
-            RIP 2021, året vi nesten fikk dratt til syden igjen.
+            RIP 2021, året vi nesten fikk <br />
+            dratt til syden igjen.
           </div>
         </div>
         <div>
