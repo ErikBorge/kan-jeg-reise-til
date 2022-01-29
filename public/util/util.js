@@ -33,7 +33,7 @@ export const getCustomSelectStyles = (
       fontSize: "40px",
       backgroundColor: inputColor,
       boxShadow: "none",
-      cursor: "text",
+      cursor: "url('../assets/KJRT-typeindicator.svg') 0 14, auto",
 
       "&:hover": {
         borderColor: "#000",

@@ -6,17 +6,26 @@ import { getDateXDaysFromNow } from "../public/util/util";
 import Splash from "../public/components/splash/splash";
 import useSWR from "swr";
 import { useCookies } from "react-cookie";
+import ThankYouModal from "../public/components/thankyouModal/thankyouModal";
+import EUdata from "../public/assets/europe-data.json";
 
 export default function Home({}) {
   const [isLoading, setIsLoading] = useState(true);
   const [cookies, setCookie] = useCookies(["hasBeenHereBefore"]);
   const [hasBeenHereBefore, setHasBeenHereBefore] = useState(false);
+  const [isThankYouOpen, setIsThankYouOpen] = useState(true);
+  const [data] = useState({
+    config: EUdata.config,
+    data: [EUdata.data[12]],
+  });
 
-  const { data, error } = useSWR(
-    "https://www.fhi.no/api/chartdata/excel/series/96079",
-    // "https://www.fhi.no/api/chartdata/excel/series/104110/latest",
-    (query) => fetch(query).then((res) => res.json())
-  );
+  // const { data, error } = useSWR(
+  //   "https://www.fhi.no/api/chartdata/excel/series/96079",
+  //   // "https://www.fhi.no/api/chartdata/excel/series/104110/latest",
+  //   (query) => fetch(query).then((res) => res.json())
+  // );
+  // console.log(data);
+  // console.log("eudata", EUdata);
 
   useEffect(() => {
     if (!cookies.hasBeenHereBefore) {
@@ -28,9 +37,9 @@ export default function Home({}) {
     }
   }, []);
 
-  if (error) {
-    return "something went wrong";
-  }
+  // if (error) {
+  //   return "something went wrong";
+  // }
   return (
     <>
       <NextSeo
@@ -53,9 +62,21 @@ export default function Home({}) {
           images: [{ url: "https://kan-jeg-reise-til.vercel.app/sun.png" }],
         }}
       />
-      {data && (
-        <Main slug={false} data={data} isLoading={isLoading}>
-          {isLoading && (
+      {data && typeof window !== "undefined" && (
+        <Main
+          slug={false}
+          data={data}
+          isLoading={isLoading}
+          isThankYouOpen={isThankYouOpen}
+        >
+          {isThankYouOpen && (
+            <ThankYouModal
+              isLoading={isLoading}
+              isThankYouOpen={isThankYouOpen}
+              setIsThankYouOpen={setIsThankYouOpen}
+            />
+          )}
+          {isLoading && !isThankYouOpen && (
             <Splash
               setIsLoading={setIsLoading}
               hasBeenHereBefore={hasBeenHereBefore}

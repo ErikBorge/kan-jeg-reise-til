@@ -15,6 +15,7 @@ import LottieControl from "../lottie-control/lottie-control";
 import * as gtag from "../../../lib/gtag";
 import Menu from "../menu/menu";
 import Vaksine from "../vaksine/vaksine";
+import ThankYouModal from "../thankyouModal/thankyouModal";
 
 //util
 import {
@@ -178,180 +179,187 @@ const Main = ({ slug, data, children, isLoading }) => {
   };
 
   return (
-    <div className={styles.page} id="home-page">
-      {children}
-      <motion.nav
-        initial={{ left: "100%" }}
-        animate={openMenu ? "open" : "closed"}
-        variants={variants}
-        className={styles["page__menu"]}
-        onClick={() => openMenuFunc()}
-      >
-        <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
-      </motion.nav>
-      <div
-        className={styles["page__wrapper"]}
-        style={{ opacity: !isLoading && "1" }}
-      >
-        <button
-          className={styles["page__menu-button"]}
-          onClick={() => setOpenMenu(!openMenu)}
-          style={{
-            opacity: chosenCountry || isVaksineOpen ? "0" : "1",
-          }}
+    <>
+      <div className={styles.page} id="home-page">
+        {children}
+        <motion.nav
+          initial={{ left: "100%" }}
+          animate={openMenu ? "open" : "closed"}
+          variants={variants}
+          className={styles["page__menu"]}
+          onClick={() => openMenuFunc()}
         >
-          <Image src={"/assets/e-and-e.svg"} alt="E&E" height={20} width={35} />
-        </button>
+          <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
+        </motion.nav>
         <div
-          className={styles["page__panam"]}
-          style={{
-            opacity: chosenCountry || isVaksineOpen ? "0" : "1",
-          }}
+          className={styles["page__wrapper"]}
+          style={{ opacity: !isLoading && "1" }}
         >
-          <Image
-            src={"/assets/panam-logo.svg"}
-            alt="x"
-            height={60}
-            width={60}
-          />
-        </div>
-        <div
-          className={styles["page__animation"]}
-          style={{
-            top:
-              window && window.innerWidth > 769
-                ? chosenCountry
-                  ? "160px"
-                  : "110px"
-                : "80px",
-          }}
-        >
-          <LottieControl
-            chosenCountry={chosenCountry}
-            canTravel={canTravel}
-            canTravelToSomeButNotAll={canTravelToSomeButNotAll}
-          />
-        </div>
-        <div
-          className={styles["page__container"]}
-          style={{
-            marginTop:
-              window && window.innerWidth > 769
-                ? chosenCountry
-                  ? "100px"
-                  : "120px"
-                : chosenCountry
-                ? "30px"
-                : "100px",
-          }}
-        >
-          <div
-            className={styles["page__main"]}
+          <button
+            className={styles["page__menu-button"]}
+            onClick={() => setOpenMenu(!openMenu)}
             style={{
-              height:
-                window && window.innerWidth > 769
-                  ? chosenCountry
-                    ? "330px"
-                    : "500px"
-                  : chosenCountry
-                  ? "320px"
-                  : "400px",
+              opacity: chosenCountry || isVaksineOpen ? "0" : "1",
             }}
           >
-            <div className={styles["page__title"]}>
-              <h1>
-                {!chosenCountry
-                  ? "Kan jeg"
-                  : canTravelToSomeButNotAll
-                  ? "Tja, du kan delvis"
-                  : canTravel
-                  ? "Ja, du kan"
-                  : "Nei, du kan ikke"}
-              </h1>
-            </div>
-
-            <div
-              className={styles["page__video"]}
-              style={{ opacity: chosenCountry ? "0" : "1" }}
-            >
-              <video playsInline autoPlay muted loop>
-                <source src="/assets/miami360-short.mp4" />
-                <p>Your browser does not support HTML5 video.</p>
-              </video>
-            </div>
-            <div className={styles["page__search"]}>
-              {chosenCountry && (
-                <button
-                  className={styles["page__search-overlay"]}
-                  onClick={() => reset()}
-                />
-              )}
-              <Select
-                ref={selectRef}
-                components={{
-                  Control: Control,
-                  MenuList: MenuList,
-                  SingleValue: SingleValue,
-                  Placeholder: Placeholder,
-                }}
-                maxOptions={1}
-                selectProps={{ chosenCountry, countries }}
-                openMenuOnClick={false}
-                options={countries}
-                styles={getCustomSelectStyles(
-                  canTravel,
-                  chosenCountry,
-                  canTravelToSomeButNotAll
-                )}
-                //   value={chosenCountry.label}
-                onChange={changeCountry}
-                onFocus={() => setIsFocused(true)}
-                onBlur={() => {
-                  setIsFocused(false);
-                  window.scrollTo({
-                    top: 0,
-                    left: 0,
-                    behavior: "smooth",
-                  });
-                }}
-                instanceId={"search"}
-                menuShouldScrollIntoView={false}
-                filterOption={createFilter({
-                  ignoreCase: true,
-                  ignoreAccents: false,
-                  trim: false,
-                  matchFrom: "start",
-                })}
-              />
-              {/* {isFocused && (
-                <div className={styles["page__search-explanation"]}>
-                  Søk etter land i Europa
-                </div>
-              )} */}
-            </div>
-          </div>
-          {chosenCountry && (
-            <Result
-              chosenCountry={chosenCountry}
-              setChosenCountry={setChosenCountry}
-              countries={countries}
-              //   categories={categories}
-              canTravel={canTravel}
-              setCanTravel={setCanTravel}
-              slug={slug}
-              canTravelToSomeButNotAll={canTravelToSomeButNotAll}
-              setCanTravelToSomeButNotAll={setCanTravelToSomeButNotAll}
+            <Image
+              src={"/assets/e-and-e.svg"}
+              alt="E&E"
+              height={20}
+              width={35}
             />
-          )}
+          </button>
+          <div
+            className={styles["page__panam"]}
+            style={{
+              opacity: chosenCountry || isVaksineOpen ? "0" : "1",
+            }}
+          >
+            <Image
+              src={"/assets/panam-logo.svg"}
+              alt="x"
+              height={60}
+              width={60}
+            />
+          </div>
+          <div
+            className={styles["page__animation"]}
+            style={{
+              top:
+                window && window.innerWidth > 769
+                  ? chosenCountry
+                    ? "160px"
+                    : "110px"
+                  : "80px",
+            }}
+          >
+            <LottieControl
+              chosenCountry={chosenCountry}
+              canTravel={canTravel}
+              canTravelToSomeButNotAll={canTravelToSomeButNotAll}
+            />
+          </div>
+          <div
+            className={styles["page__container"]}
+            style={{
+              marginTop:
+                window && window.innerWidth > 769
+                  ? chosenCountry
+                    ? "100px"
+                    : "120px"
+                  : chosenCountry
+                  ? "30px"
+                  : "100px",
+            }}
+          >
+            <div
+              className={styles["page__main"]}
+              style={{
+                height:
+                  window && window.innerWidth > 769
+                    ? chosenCountry
+                      ? "330px"
+                      : "500px"
+                    : chosenCountry
+                    ? "320px"
+                    : "400px",
+              }}
+            >
+              <div className={styles["page__title"]}>
+                <h1>
+                  {!chosenCountry
+                    ? "Kan jeg"
+                    : canTravelToSomeButNotAll
+                    ? "Tja, du kan delvis"
+                    : canTravel
+                    ? "Ja, du kan"
+                    : "Nei, du kan ikke"}
+                </h1>
+              </div>
+
+              <div
+                className={styles["page__video"]}
+                style={{ opacity: chosenCountry ? "0" : "1" }}
+              >
+                <video playsInline autoPlay muted loop>
+                  <source src="/assets/miami360-short.mp4" />
+                  <p>Your browser does not support HTML5 video.</p>
+                </video>
+              </div>
+              <div className={styles["page__search"]}>
+                {chosenCountry && (
+                  <button
+                    className={styles["page__search-overlay"]}
+                    onClick={() => reset()}
+                  />
+                )}
+                <Select
+                  ref={selectRef}
+                  components={{
+                    Control: Control,
+                    MenuList: MenuList,
+                    SingleValue: SingleValue,
+                    Placeholder: Placeholder,
+                  }}
+                  maxOptions={1}
+                  selectProps={{ chosenCountry, countries }}
+                  openMenuOnClick={false}
+                  options={countries}
+                  styles={getCustomSelectStyles(
+                    canTravel,
+                    chosenCountry,
+                    canTravelToSomeButNotAll
+                  )}
+                  //   value={chosenCountry.label}
+                  onChange={changeCountry}
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => {
+                    setIsFocused(false);
+                    window.scrollTo({
+                      top: 0,
+                      left: 0,
+                      behavior: "smooth",
+                    });
+                  }}
+                  instanceId={"search"}
+                  menuShouldScrollIntoView={false}
+                  filterOption={createFilter({
+                    ignoreCase: true,
+                    ignoreAccents: false,
+                    trim: false,
+                    matchFrom: "start",
+                  })}
+                />
+                {isFocused && (
+                  <div className={styles["page__search-explanation"]}>
+                    Søk etter land i Europa
+                  </div>
+                )}
+              </div>
+            </div>
+            {chosenCountry && (
+              <Result
+                chosenCountry={chosenCountry}
+                setChosenCountry={setChosenCountry}
+                countries={countries}
+                //   categories={categories}
+                canTravel={canTravel}
+                setCanTravel={setCanTravel}
+                slug={slug}
+                canTravelToSomeButNotAll={canTravelToSomeButNotAll}
+                setCanTravelToSomeButNotAll={setCanTravelToSomeButNotAll}
+              />
+            )}
+          </div>
         </div>
+        <Vaksine
+          isOpen={isVaksineOpen}
+          setIsOpen={setIsVaksineOpen}
+          chosenCountry={chosenCountry}
+          isLoading={isLoading}
+        />
       </div>
-      <Vaksine
-        isOpen={isVaksineOpen}
-        setIsOpen={setIsVaksineOpen}
-        chosenCountry={chosenCountry}
-        isLoading={isLoading}
-      />
-    </div>
+    </>
   );
 };
 
